@@ -1,0 +1,171 @@
+@font-face {
+    font-family: "SpoqaHanSansNeo-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+      format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+*{
+    text-decoration: none;
+    list-style: none;
+}
+
+h1{
+    font-size: 20px;
+   text-align: center;
+}
+/* 숨김처리  */
+    /* display: none; */
+    /* 검색엔진에 안 잡힘 
+    웹 전근성이 안좋아짐 (스크린리더에 안잡힘) */
+
+    /* 방법2. 
+    악의적인 것으로 해석되어 검색 엔진에 불이익을 줄 수 있음. */
+    /* font-size:0px; 
+    line-height:0px; */
+
+    /* 방법3.
+    시각 장애가 있는 키보드 사용자에게 혼동  */
+    /* text-indent: -9999px; */
+
+    /* 방법5. 굿 CSS 클립방법 
+    a11y(접근성의 말줄임표현) */
+
+    .a11y-hidden{
+        clip: rect(1px, 1px, 1px, 1px);
+        clip-path: inset(50%);
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+    }
+
+article{
+    box-sizing: border-box;
+    width: 350px;
+    background: #FFFFFF;
+    border: 1px solid #DBDBDB;
+    border-radius: 5px;
+    font-family: 'Spoqa Han Sans Neo';
+    font-size: 12px;
+    line-height: 15px;
+    padding: 18px 16px;
+    margin: auto;
+}
+
+article > p{
+    color: #000000;
+    margin: 0;
+}
+
+
+.btn a{
+    display: block;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    background: #711BFF;
+    border-radius: 4px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    margin:  16px 0px;
+}
+
+.btn img{
+    height: 18px;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    margin-left: 4px;
+
+}
+
+.btn p {
+    margin: 0;
+    display: inline;
+    color: white;
+}
+
+.login-link a{
+    color: #767676;
+}
+
+.login-link a:last-child{
+    float: right;
+}
+
+.find-id {
+    background: url(../img/icon-lock.png) no-repeat 0 50% / 1em;
+    /* 포지션 - 0 0 사이즈 - 1em */
+    padding-left: 1.5em;
+}
+
+.find-id + span{
+    display: inline-block;
+    width: 1px;
+    height: 12px;
+    background: #767676;
+    vertical-align: middle;
+    margin:0 4px;
+}
+
+.join {
+    background: url(../img/icon-user.png) no-repeat 0 50% / 1em;
+    padding-left: 1.5em;
+}
+
+
+
+
+
+
+/* 여기부터 이전에 내가 한 것 */
+
+ul a{
+    font-size: 12px;
+    line-height: 15px;
+    color: #767676;
+}
+
+ul img{
+    width: 16px;
+}
+
+.find{
+    padding: 0;
+    width: 50%;
+    float: left;
+}
+
+.find::after{
+    content:'';
+    display:block;
+    clear:left;
+  }
+
+.find li {
+    float: left;
+    margin-right: 4px;
+}
+
+.find li:nth-child(2)::after{
+    content: '|';
+    margin-left: 4px;
+    color: #767676;
+}
+
+.signup{
+    float: right;
+}
+
+.signup li{
+display: inline-block;
+/* vertical-align: bottom; */
+}
+
+.signup li:first-child{
+    margin-left: 4px;
+}

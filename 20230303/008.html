@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+
+        div #id{
+        color:green;
+        }
+        p{
+        color:black;
+        }
+        #id{
+        color:blue;
+        }
+        .class{
+        color:yellow;
+        }
+
+        /* 두번째 예제 */
+
+         /* 클래스 + 유형 선택자  - 우선순위1 */
+        .ul a {
+        color: yellow;
+        }
+
+        /* 클래스 선택자 - 우선순위2 */
+        .click {
+        color: green;
+        background: black;
+        }
+
+        /* 유형 선택자 */
+        html body main section article div ul li p strong span a {
+        background: purple;
+        color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>예제1</h3>
+        <p id="id" class="class">
+              1. 이 글자는 어떤 색일까요? - 그린 (div의 자식인 #id > 그냥 #id 가 더 구체적이기 때문에 !)
+          </p>
+        <p class="class" style="color:red !important">
+              2. 이 글자는 어떤 색일까요?? -레드 (인라인 스타일)
+          </p>
+      </div>
+
+      <h3>예제2</h3>
+      <div>
+        <ul class="ul">
+          <li>
+            <p>
+              <strong>
+                                <span>
+                <a href="#" class="click">
+                  1. 이 글자는 어떤 색일까요? - 노랑 (.ul a 이게 더 중요함!! > .class)
+                  2. 배경색은 어떤 색일까요? - 블략( .click)
+                </a>
+              </span>
+              </strong>
+            </p>
+          </li>
+        </ul>
+</body>
+</html>

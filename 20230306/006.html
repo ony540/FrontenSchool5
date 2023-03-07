@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 연습</title>
+    <style>
+        .wrap {
+            background-color: yellow;
+        }
+
+        /* img는 인라인요소이기 때문에 기본적으로 baseline을 기준으로 이미지가 배치되기 때문에 밑에 작은 여백이 생기기때문에 top으로 지정  */
+        img{
+            vertical-align: top;
+        }
+
+        .ratio{
+            display: block;
+            width: 100%;
+
+            /* 익스플로러 안됨 
+            기본 가로세로 비율을 정해서 창크기 반응형으로 적용됨*/
+            aspect-ratio: 288 /196;
+            object-fit: cover;
+            /* 이거를 해야 사진찌그러지지않고 커버됨(넓은 비율 기준) */
+        }
+
+
+        /* 이해못함 다시 확인 */
+        .padding-ratio{
+            position: relative;
+            height: 0;
+            /* padding-top: 100%; */
+            /* 밑에처럼 이렇게 해야 2대1의 비율 
+            부모요소의 가로너비가 기준이된다 */
+            padding-top: 50%;
+        }
+
+        .padding-ratio img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+    <div>안녕하세요</div>
+
+    <div class="wrap">
+        <img src="img/weniv-chilli.png" alt="위니브 캐릭터 칠리" >
+        안녕하세요 abcde
+    </div>
+
+    <img class="ratio" src="img/weniv-binky.png" alt="위니브 캐릭터 빙키" >
+
+    패딩 레티오
+    <div class="padding-ratio">
+        <img src="img/weniv-binky.png" alt="위니브 캐릭터 빙키" >
+    </div>
+    
+</body>
+</html>

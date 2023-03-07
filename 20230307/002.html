@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 해보기-float</title>
+    <style>
+        *{
+            color: #fff;
+            font-size: 20px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            margin: 10px;
+        }
+
+        header{
+            background-color: skyblue;
+            height: 60px;
+        }
+        section{
+            background-color: slateblue;
+            float: left;
+            width: calc(70% - 10px);
+            height: 500px;
+        }
+        aside{
+            background-color: lime;
+            float: right;
+            width: 30%;
+            height: 500px;
+        }
+        footer{
+            background-color: salmon;
+            height: 60px;
+            width: 100%;
+    
+            /* 이렇게 해야 float 밑에 있는것이 영향받지않음 */
+            float: none;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <header>header</header>
+    <section>
+        <article>article</article>
+        <article>article</article>
+        <article>article</article>
+    </section>
+    <aside>aside</aside>
+    <footer>footer</footer>
+
+    
+</body>
+</html>

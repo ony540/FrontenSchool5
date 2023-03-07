@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폰트적용</title>
+
+    <!-- link 방식 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+    /* 폰트페이스 > 임포트 > 링크 순 추천 ! ! */
+    /* 임포트 방식 */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300&display=swap');
+    .serif{
+            font-family: 'Noto Serif KR', serif;
+        }
+
+    /* 폰트페이스 방식 */
+    @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    /* 기본사이즈를 10px로 해두고 rem을 이용하면 반응형 계산이 쉬움 */
+    html{
+        font-size: 10px;
+    }
+
+    body {
+        font-family: Pretendard-Regular, "Times New Roman", Dotum, "돋움", sans-serif;
+        font-size: 1.6rem;
+    }
+
+    /* 한글은 한글 폰트로, 영문은 영문폰으로 나오길 원한다면, 영문폰트명, 한글폰트명 순 */
+    .black {
+        font-family: 'Noto Sans', 'Black Han Sans', sans-serif;
+    }
+  
+    /* text-shadow : offset-x | offset-y | blur-radius | color (,로 계속 추가할 수 있음) */
+    .shadow {  
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    }   
+
+    .prgf{
+        /* 양쪽정렬 - 가독성 오히려 해칠 수 있기에 밑에줄 적용 */
+        text-align: justify; 
+        word-break: break-all;
+
+        text-align: left;
+        text-indent: 1.6rem;
+        line-height: 160%;
+        letter-spacing: 0.1rem;
+        word-spacing: 1rem;
+    }
+</style>
+</head>
+<body>
+ <!-- 네트워크 리소스 -->
+ <p> Pretendard 프리텐다드 </p>
+ <p class="serif">Noto Serif 노토 세리프</p>
+ <p class="black"> En in Noto Sans / 한글은 블랙산스 </p>   
+ <!-- 로컬 리소스 (컴퓨터 내장파일) -->
+ <p style="font-family: 'Eulyoo1945-Regular';"> Eulyoo1945 을유1945</p> 
+ <p class="shadow"> 글자 그림자</p> 
+ <p class="prgf">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum sunt alias aperiam quibusdam qui porro ipsa laborum optio, iusto perspiciatis. Omnis voluptatibus at nam necessitatibus eius corrupti debitis labore obcaecati.</p>
+</body>
+</html>

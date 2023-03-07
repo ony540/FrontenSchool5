@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 클래스 / 선택자 연습</title>
+    <style>
+        
+        /* 전역변수 */
+        :root {
+            --main-color: hotpink;
+            --pane-padding: 5px 42px;
+        }
+
+        body{
+            background-color: var(--main-color);
+        }
+
+        li:first-child{
+            color: salmon;
+        }
+        li:last-child{
+            color: sandybrown;
+        }
+
+        /* 1부터 시작 */
+        /* 홀수번째 li */
+        li:nth-child(odd) {
+        color: lime;
+        }
+
+        /* 짝수번째 li */
+        li:nth-child(even) {
+        color: red;
+        }
+        /* 2n+3번째 li */
+        li:nth-child(2n+3) {
+        color: black;
+        }
+
+        /*  div 자식중에 3번째 */
+        div :nth-child(3) {
+        text-decoration: underline;
+        }
+        /* nth-of-type - 같은타입 P 중에! 3번째 */
+        p:nth-of-type(3){
+            color: blue;
+        }
+
+        /* div 안에서 (형제중에) 유일한 타입만 적용 */
+        div :only-of-type{
+            border: 3px solid saddlebrown;
+        }
+
+        /* 제일 많이 씀 */
+        /* li 중 첫번째가 아닌 li */
+        li:not(:first-child){
+            margin-top:20px;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1번째</li>
+        <li>2번째</li>
+        <li>3번째</li>
+        <li>4번째</li>
+        <li>5번째</li>
+        <li>6번째</li>
+        <li>7번째</li>
+        <li>8번째</li>
+        <li>9번째</li>
+        <li>10번째</li> 
+    </ul>
+
+    <div>
+        <p>첫번째</p>
+        <p>두번째</p>
+        <strong>세번째</strong>
+        <p>네번째</p>
+        <div>다섯번째</div>
+        <p>여섯번째</p>
+        <p>일곱번째</p>
+        <p>여덟번째</p>
+        <p>아홉번째</p>
+        <p>열번째</p>
+      </div>
+</body>
+</html>

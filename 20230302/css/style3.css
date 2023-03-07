@@ -1,0 +1,41 @@
+* {
+	margin:0;
+	padding:0;
+}
+
+/* 텍스트 꾸미기 css */
+
+/* 폰트 설정방법 - 
+1. link삽입 - html head에
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+2. import삽입  - css에 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap");
+3. 폰트페이스 */
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+p {
+    font-family: 'Pretendard-Regular',"Verdana", sans-serif;
+    border: 1px solid currentColor;
+
+     /* 단어 앞글자만 대문자 */
+    text-transform: capitalize;  
+}
+
+
+/* text-decoration */
+.dashed {
+  text-decoration: lime underline overline dashed auto;
+}
+
+.wavy{
+	text-decoration-color: royalblue;
+  text-decoration-line: line-through underline overline;
+  text-decoration-style: wavy;
+	text-decoration-thickness:5px;
+}

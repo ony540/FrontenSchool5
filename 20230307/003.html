@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+        .flex-container{
+            display: flex;
+            flex-direction: row;
+            /* flex-direction: row-reverse; */
+
+            justify-content: center;
+            justify-content: space-around;
+
+            /* justify-content: space-between; */
+            /* 양끝으로 동일하게 만들기 */
+        }
+
+        .column{
+            /* 주축이 세로 */
+            flex-direction: column;
+            flex-direction: column-reverse;
+        }
+
+        .flex-item{
+            background-color: skyblue;
+            border: 1px solid royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">아이템 1</div>
+        <div class="flex-item">아이템 2</div>
+        <div class="flex-item">아이템 3</div>
+        <div class="flex-item">아이템 4</div>
+    </div>
+    <div class="flex-container column">
+        <div class="flex-item">아이템 1</div>
+        <div class="flex-item">아이템 2</div>
+        <div class="flex-item">아이템 3</div>
+        <div class="flex-item">아이템 4</div>
+    </div>
+    
+</body>
+</html>

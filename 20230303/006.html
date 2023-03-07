@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상요소</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        ul::before{
+            content: '[';
+        }
+        ul::after{
+            content: ']';
+        }
+
+        li{
+            list-style: none;
+        }
+
+        li::before{
+            content: '';
+            /* content: '<'; */
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+        }
+
+        li::after{
+            content: 'aaa';
+        }
+
+        input{
+            color: blue;
+        }
+        /* 자리표시자 */
+        input::placeholder{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="아이디"> <br>
+    <input type="text" placeholder="비밀번호"> 
+    <ul>
+        <li>안녕하세요</li>
+        <li>안녕하세요</li>
+    </ul>
+    
+</body>
+</html>
