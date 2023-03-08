@@ -1,0 +1,80 @@
+<!-- <!DOCTYPE html> -->
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 해보기-flex</title>
+    <style>
+        * {
+            color: #fff;
+            font-size: 20px;
+            text-align: center;
+            padding: 0;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            height: 600px;
+            justify-content: space-between;
+        }
+
+        header {
+            background-color: skyblue;
+        }
+
+        header,footer{
+            /* 기준이 되는 초기 크기(
+                - row이면 width의 초기크기
+                - column이면 height의 초기크기*/
+            flex-basis: 150px;
+        }
+
+        .flex-container2 {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            /* height: 400px; */
+            flex-grow: 1;
+        }
+
+        section {
+            background-color: slateblue;
+            flex-grow: 1;
+        }
+
+        aside {
+            background-color: lime;
+            flex-grow: 1;
+            flex-basis: 100px;
+        }
+
+        footer {
+            background-color: salmon;
+            height: 60px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <header>header</header>
+        <div class="flex-container2">
+            <section>
+                <article>article</article>
+                <article>article</article>
+                <article>article</article>
+            </section>
+            <aside>aside</aside>
+        </div>
+        <footer>footer</footer>
+    </div>
+
+
+</body>
+
+</html>

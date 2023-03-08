@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex - 아이템에 적용 grow shrink basis / align-self</title>
+    <style>
+        .flex-container {
+            display: flex;
+            /* flex-direction: column; */
+            background-color: #eee;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            height: 400px;
+            /* align-content: stretch; */
+        }
+
+        /* flex-basis - 기준이 되는 초기 크기
+            - row이면 width의 초기크기
+            - column이면 height의 초기 크기 */
+
+        .flex-item {
+            background-color: skyblue;
+            border: 1px solid royalblue;
+            width: 200px;
+            /* 부모보다 더 크게하는건 안먹힘!천만을 넘지않으면 */
+            /* height: 10000px; */
+
+            /* 높이보다 basis가 우선시 됨 */
+            flex-basis: 200px;
+
+        }
+
+        /* 
+        flex-grow - flex-basis의 값보다 늘어나는 비율 
+        flex-shrink - flex-basis의 값보다 줄어드는 비율 
+        0 : 변동없음
+        1: 1만큼 변동
+        2 : 2만큼 변동 
+        - flex-basis에 지정된 값이 없다면 contents 크기 */
+     
+        .grow :first-child {
+            flex-grow: 2;
+            flex-basis: 200px;
+            flex-shrink: 2;
+        }
+
+        .grow :nth-child(2) {
+            flex-grow: 1;
+            flex-basis: 200px;
+            flex-shrink: 1;
+
+        /* align-self - align-items 속성을 개별로 주고싶을 떄 사용 */
+            align-self: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+    <div class="flex-container grow">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코드팬 예제 2 - flex 외 다양한 방식으로 풀기</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .wrap {
+            background: #ddd;
+            width: 200px;
+            height: 200px;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+            background: royalblue;
+        }
+
+        /* row로 풀기 :1 */
+        .ex1 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        /* row로 풀기 :2 */
+        .ex2 {
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+        }
+
+        /* 마진으로 풀기 */
+        .ex3 .box {
+            margin: calc((200px - 50px) / 2) 0 auto auto;
+        }
+        
+        /* flex 말고 유지보수, 반응형 고려: 강사가 선호하는 방식 */
+        /* 앱솔루트로 풀기 */
+        .ex4 {
+            position: relative;
+            background-color: #eee;
+        }
+
+        .ex4 .box {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        /* 인라인 요소로 푸는 법 */
+        .ex5 {
+            text-align: right;
+        }
+
+        .ex5 .box {
+            display: inline-block;
+            margin-top: calc((200px - 50px) / 2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap ex1">
+        <div class="box">A</div>
+    </div>
+    <div class="wrap ex2">
+        <div class="box">A</div>
+    </div>
+    <div class="wrap ex3">
+        <div class="box">A</div>
+    </div>
+    <div class="wrap ex4">
+        <div class="box">A</div>
+    </div>
+    <div class="wrap ex5">
+        <div class="box">A</div>
+    </div>
+</body>
+
+</html>

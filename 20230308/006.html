@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex 단축속성</title>
+    <style>
+        .flex-container{
+            display: flex;
+            gap: 10px;
+        }
+        
+        .flex-item{
+            /* flex 딘측속성 부모가 아닌 자식에게 준다 */
+            /*  flex-grow flex-shrink flex-basis */
+            /* 늘어나고 줄어들고 기본값은 100px */
+            flex: 1 1 100px;
+
+            /* 기본값이상 늘어나기x 줄어들기0 기본값은 150px */
+            flex: 0 1 150px;
+
+            background-color: aqua;
+            border: 3px solid royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex - 컨테이너에 적용 wrap / align-items / align-contents </title>
+    <style>
+        .flex-container {
+            display: flex;
+            background-color: #eee;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            height: 200px;
+            align-content: stretch;
+        }
+
+          /* wrap nowrap - 줄넘김처리 */
+        .wrap{
+            /* 각 아이템 기본크기가 한줄에 다 안들어가는 크기이면 다음줄로 넘기기  */
+            flex-wrap: wrap;
+
+            /* flow - 부모에 적용하는 단축속성 ! !
+                flex-direction과 flex-wrap  */
+            /* flex-flow: row-reverse nowrap; */
+        }
+
+        .flex-item {
+            background-color: skyblue;
+            border: 1px solid royalblue;
+            width: 100px;
+            /* 주축의 크기는 지정가능! */
+        }
+
+
+        /* align-items - 교차축기준 콘텐츠 각각의 기본적인!! 위치 정렬 */
+        .stretch { /* 이게 기본값! */
+            align-items: stretch;
+        }
+        .center {
+            align-items: center;
+        }
+        .end {
+            align-items: flex-end;
+        }
+        .start {
+            align-items: flex-start;
+            /* align-items: center; */
+            /* align-items: baseline; - 텍스트 베이스라인 기준 */
+        }
+
+        /* aline-content - wrap상태에서 2행이상일떄!! 
+        수직축(교차축) 방향 위치 정렬을 결정 */
+        .con-start{
+            align-content: flex-start;
+        }
+        .con-end{
+            align-content: flex-end;
+        }
+        .con-center{
+            align-content: center;
+        }
+        .con-between{
+            align-content: space-between;
+        }
+        .con-around{
+            align-content: space-around;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <div class="flex-container wrap con-between">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+    <div class="flex-container stretch">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+    <div class="flex-container center">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+    <div class="flex-container end">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+    <div class="flex-container start">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+</body>
+
+</html>

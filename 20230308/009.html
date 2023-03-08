@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid - auto fill/fit gap</title>
+    <style>
+        .container {
+            display: grid;
+            width: 600px;
+
+            /* 갭 - 행 사이 간격 / 열사이 간격 */
+            /* gap: 5px 20px; */
+            gap: 10px;
+            background: #ddd;
+            margin-bottom: 10px;
+            border: 10px solid #aaa;
+        }
+
+        .container div {
+            background: skyblue;
+            height: 100px;
+            border: 10px solid royalblue;
+        }
+
+        /* 반응형에 좋음! */
+        /* autofill - 공간남으면 빈공간이 생김, 가능한 많은 셀들을 만들어 내기*/
+        .autofill {
+            grid-template-columns: repeat(auto-fill, minmax(100px, auto));
+        }
+
+        /*autofit - 컨테이너 내부에 공간이 남을 경우, 그 공간을 각 셀들이 나눠가짐.(그래도 일정 개수 넘으면 다음 열로감 ) */
+        .autofit {
+            grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container autofill">
+        <div>
+            item
+        </div>
+        <div>
+            item
+        </div>
+        <div>
+            item
+        </div>
+        <div>
+            item
+        </div>
+      
+    </div>
+
+    <div class="container autofit">
+        <div>
+            item
+        </div>
+        <div>
+            item
+        </div>
+        <div>
+            item
+        </div>
+        <div>
+            item
+        </div>
+        <div>
+            item
+        </div>
+        <div>
+            item
+        </div>
+        
+    </div>
+</body>
+
+</html>

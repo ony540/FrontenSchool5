@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid - 셀 안에서 정렬</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            width: 500px;
+            height: 500px;
+            gap: 10px;
+        }
+
+        .item{
+            background-color: skyblue;
+            border: 1px solid royalblue;
+        }
+
+        /* 컨테이너에 적용하는 셀 안에서의 정렬
+        align-items : 세로 방향
+        justify-items : 가로 방향
+        place-items: 세로 가로 방향 순
+
+        stretch(기본값) start center end
+        */
+
+        /* 컨테이너에 적용하는 전체 컨테이너에서의 아이템들끼리의 정렬
+        align-content : 세로 방향
+        justify-content : 가로 방향
+        place-content : 세로 가로 방향 순
+        
+        stretch(기본값) start center end 
+        space-between space-around space-evenly ! !
+        */
+
+        /* 아이템에 개별로 적용하는 정렬 
+        align-self : 세로 방향
+        justify-self : 가로 방향
+        place-self : 세로 가로 방향 순
+        
+        stretch(기본값) start center end
+        */
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+        <div class="item">F</div>
+        <div class="item">G</div>
+        <div class="item">H</div>
+        <div class="item">I</div>
+      </div>
+</body>
+</html>
