@@ -1,0 +1,175 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    --plane-padding: 44px;
+}
+
+body {
+    font-family: Pretendard-Regular, sans-serif;
+}
+
+h1 {
+    margin-left: var(--plane-padding);
+}
+
+/* 방법1. gird로 짜보는 방법 */
+/* .wrap {
+    display: grid;
+    margin: auto;
+    gap: 32px 24px;
+    grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+    max-width: calc(100% - (var(--plane-padding) * 2));
+    width: min(1224px, calc(100% - 60px));
+} */
+
+
+/* 방법2. flex로 짜보는 방법  */
+/* .wrap{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    gap: 32px 24px;
+    width: min(1224px, calc(100% - 80px));
+
+}
+
+.wrap article{ 
+    width: min(288px, 100%);
+    flex-grow: 0;
+} */
+
+/* 우측에 여백 생기는거 - 미디어 쿼리 */
+/* @media (min-width: 641px) and (max-width: 1024px) {
+    .wrap article {
+      width: calc((100% - (24px * 2)) / 3);
+    }
+  }
+
+  @media (min-width: 501px) and (max-width: 640) {
+    .wrap article {
+      width: calc((100% -24px) / 2);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .wrap article {
+      width: 100%;
+    }
+  } */
+
+
+/* 방법3. float - card에 width값을 주면 안됨! */
+.wrap {
+    margin: auto;
+    width: min(1224px, calc(100% - 80px) );
+}
+
+.wrap::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.wrap article {
+    float: left;
+    width: calc((100% - (24px * 3)) / 4);
+    margin:0 0 32px 24px;
+}
+
+@media (min-width: 1025px){
+    .wrap article:nth-child(4n-3){
+        margin-left: 0;
+    }
+}
+
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .wrap article {
+      width: calc((100% - (24px * 2)) / 3);
+    }
+    .wrap article:nth-child(3n-2){
+        margin-left: 0;
+    }
+  }
+
+  @media (min-width: 501px) and (max-width: 640px) {
+    .wrap article {
+      width: calc((100% - 24px) / 2);
+    }
+    .wrap article:nth-child(2n-1){
+        margin-left: 0;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .wrap article {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+
+.card a {
+    /* width: 288px; */
+    background: #FFFFFF;
+    text-decoration: none;
+    color: #29363D;
+    display: block;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    /*이거 해야 사진도 짤린다!!!  */
+    overflow: hidden;
+}
+
+
+/* 이미지 */
+.card img {
+    width: 100%;
+    vertical-align: top;
+    aspect-ratio: 288/196;
+    object-fit: cover;
+}
+
+.txt-box {
+    margin: 24px 16px 19px;
+}
+
+.txt-box .tit {
+    font-family: 'Pretendard-semibold';
+    font-size: 16px;
+    line-height: 19px;
+
+    /* 한줄 말줄임표 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 타이틀바로뒤에 p */
+.txt-box .tit+p {
+    font-size: 12px;
+    line-height: 167%;
+    color: #5A6A72;
+    margin: 12px 0 19px;
+
+    /* 2줄말줄임표 */
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    /* 영문 단어깨기 고려 */
+    word-break: break-all;
+}
+
+.button {
+    text-decoration-line: underline;
+    font-family: 'Pretendard-semibold';
+    font-size: 14px;
+    cursor: pointer;
+    padding-left: 6px;
+}

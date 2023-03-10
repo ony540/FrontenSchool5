@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 변수, 함수</title>
+    <style>
+        /* 유지보수 수정이 많이 발생할 것같은 것 */
+        /* ex - 메인컹어, 보더 둥글리는 값 백그라운드 색상  */
+        :root{
+            --max--width: 1000px;
+            --plane-padding : 40px;
+        }
+
+        html{
+            font-size: 10px;
+        }
+
+        /* IE지원안하고 옛날버전 다른 브라우저도 안됨 */
+        /* 최소값, 이상적인 값, 최대값 (반응형대응 폰트 사이즈) */
+        body{
+            font-size: clamp(2rem, 2.5vw, 60px);
+        }
+
+        .wrap{
+            background-color: royalblue;
+            margin: auto;
+            height: 100px;
+
+            width: var(--max--width);
+            max-width: calc(100% - (var(--plane-padding) * 2));
+            /* 좌우 40px의 여백을 유지하기 위해서  */
+
+            /* 위 2줄의 코드와 동일한 결과 - IE지원 안됨 */
+            width: min( var(--max--width), calc(100% - (var(--plane-padding) * 2)));
+        }
+        
+        ul{
+            list-style: none;
+            padding: 0;
+        }
+        
+        ul li{
+            background-color: yellow;
+        }
+
+        /* float 방식 */
+        .float{
+            overflow: hidden;
+        }
+
+        .float li{
+            float: left;
+            width: calc((100% - (24px * 2)) / 3);
+        }
+
+        .float li:not(:first-child) {
+            margin-left: 24px;
+        }
+
+        /* flex 방식 */
+        .flex{
+            display: flex;
+            gap: 24px;
+        }
+
+        .flex li{
+            flex-grow: 1;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        contents
+    </div>
+    <ul class="container float">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul class="container flex">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+
+</html>
