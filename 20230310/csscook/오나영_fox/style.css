@@ -1,0 +1,38 @@
+h1,
+p {
+    margin: 0;
+}
+
+/* 이미지 하단 빈공간 초기화 */
+img {
+    vertical-align: top;
+}
+
+body {
+    background: url(images/bg.png);
+}
+
+.wrapper {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.txt {
+    background: #93572E;
+    border-radius: 0 0 24px 24px;
+    padding: 18px 20px 28px;
+    color: white;
+}
+
+h1 {
+    margin-bottom: 6px;
+    font-size: 35px;
+}
+
+p {
+    font-weight: 300;
+    word-break: break-all;
+}

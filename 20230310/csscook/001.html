@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do my best</title>
+    <style>
+        /* 캐스케이드 이해하기, CSS Specificity */
+        h1{
+            background-color: orange;
+        }
+        /* Cascading - 아래로 흘러내랴가는 */
+        /* 후자우선 */
+        h1{
+            background-color: aqua;
+        }
+        .wow{
+            background-color: purple;
+        }
+
+        /* 가장우선순위가 높음 */
+        body h1.wow.wow2{
+            background-color: blue;
+        }
+
+        /* 호버해도 우선순위가 위에꺼에 밀려서 안됨!!! */
+        /* :hover - sudo selector */
+        .wow:hover{
+            background-color: red;
+        }
+
+        /* 이렇게 해야 우선순위가 높아져서 적용된다 */
+        .wow.wow2:hover{
+            background-color: red;
+        }
+
+        /* 같은 클래스를 반복해서 쓰는게 우선순위가 더 높아짐!! - 실무에서 쓴다  */
+        body h1.wow.wow.wow{
+            background-color: salmon;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1 class="wow wow2">Do my best</h1>
+</body>
+</html>

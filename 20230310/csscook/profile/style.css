@@ -1,0 +1,80 @@
+div{
+    /* property : value */
+    /* 모든 프로퍼티는 지정되어있지 않을때 이미 initial value(초기값)이 있다.! */
+    /* transparent가 background-color의 initial value */
+    background-color: transparent; 
+    background-color: orange;
+
+    /* width: auto가 무슨 뜻인지 - >?
+    해당요소의 직계부모가 제공하는 contents 영역(containing block) */
+    /* width -> 사용가능한 공간의 크기 */
+    width: auto;
+    width: 800px;
+
+    /* 오른쪽에 붙음 */
+    /* 사용가능한 공간을 마진값으로 auto로 왼쪽기준에서 취한다 */
+    margin-left: auto;
+
+    /* 중간정렬 */
+    /* 마진의 초기값은 0 */
+    margin: 0 auto;
+}
+
+/* * - 전체선택자(universal selector-css에서), 애스터리스크, 와일드카드 */
+/* * {
+    css지식 : 9999;
+} */
+
+
+h1,p {
+    margin: 0;
+    margin: initial; 
+    /* 초기값으로 돌려라! */
+}
+
+/* 이미지 하단 빈공간 초기화해야함 */
+img{
+    vertical-align: top;
+}
+
+body{
+    background: url(images/background.gif);
+}
+
+.wrapper{
+    background-color: #ddd;
+    width: 800px;
+    margin: 40px auto;
+    border: 3px solid red;
+    text-align: center;
+    /* text-align 기본속성은 start */
+}
+
+/* h1이 가운데 정렬된것이 아니라 안에있는 inline요소 들이 가운데 정렬된거임 !   */
+/* 박스셰도우로 인지하기 ! !  */
+/* 빈공간 descendant combinator 자손 선책자 */
+header h1{
+    box-shadow: inset 0 0 10px red;
+}
+
+
+/*div 이면서 헤더라는 이름을 가진 요소 */
+div.header{
+    background-image: url(images/cover03.png);
+    background-size: cover;
+    height: auto;
+    /* height: auto; - 이니셜벨류, 컨텐츠 영역의 높이! */
+    color: white;
+}
+
+.prof{
+    border: 10px solid white;
+    border-radius: 0 40px 40px 0;
+}
+
+.footer{
+    background-color: #f4f4f4;
+}
+
+/* width auto height auto 는 알고있어야하는 정보 */
+

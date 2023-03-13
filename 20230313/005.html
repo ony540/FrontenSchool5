@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼만들기 예제</title>
+    <style>
+        /*  btn으로 시작하는 인자 */
+        [class^='btn'] {
+            width: 88px;
+            height: 32px;
+            font-family: 'Pretendard';
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 14.4px;
+            text-align: center;
+            border-radius: 0;
+            background: #2D3848;
+            box-sizing: border-box;
+            border: 1px solid #2D3848;
+            box-shadow: inset 1px 1px #4A5568;
+        }
+
+        [class^='btn']:not(:disabled):hover{
+            text-decoration-line: underline;
+            color: #FFFFFF;
+            /* 1초 지연 후 0.3동안 ease */
+            transition: all 0.3s  ease 1s;
+        }
+
+        [class^='btn']:active{
+            box-shadow: inset 1px 1px #262F3E;
+        }
+        [class^='btn']:disabled{
+            box-shadow: none;
+            color: #4A5568;;
+        }
+
+        .btn{
+            color: #CBD5DF;
+        }
+
+        .btn-positive{
+            color: #439AFF;
+        }
+        
+        .btn-positive:hover{
+            background-color: #439AFF;
+            border: 1px solid #439AFF;
+            box-shadow: inset 1px 1px #73B4FF;
+        }
+        .btn-positive:active{
+            box-shadow: inset 1px 1px #3B78BE;
+        }
+
+        .btn-negative{
+            color: #EB5757;
+        }
+        .btn-negative:hover{
+            border: 1px solid #EB5757;
+            background-color: #EB5757;
+            box-shadow: inset 1px 1px #FD6F6F;
+        }
+        .btn-negative:active{
+            box-shadow: inset 1px 1px #D94242;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button class="btn" type="button" disabled>Button</button>
+    <button class="btn-positive">Yes</button>
+    <button class="btn-negative">del</button>
+    <p class="message-negative">error 메시지</p>
+    <p class="message-positive">가입가능합니다</p>
+</body>
+
+</html>

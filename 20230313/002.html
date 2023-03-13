@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼만들기 예제</title>
+    <style>
+        /*  btn으로 시작하는 인자 */
+        [class^='btn'] {
+            width: 88px;
+            height: 32px;
+            font-family: 'Pretendard';
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 14.4px;
+            text-align: center;
+            border-radius: 0;
+            background: #2D3848;
+            box-sizing: border-box;
+            border: 1px solid #2D3848;
+            box-shadow: inset 1px 1px #4A5568;
+        }
+
+        [class^='btn']:hover {
+            text-decoration-line: underline;
+            color: #FFFFFF;
+        }
+
+        /* .btn:not(:disabled):hover {
+            text-decoration-line: underline;
+            color: #FFFFFF;
+        } */
+
+        .btn:active {
+            box-shadow: inset 1px 1px #262F3E;
+        }
+
+        /* 포커스되었을때 아웃라인 */
+        .btn:focus {
+            outline: none;
+            border: 1px solid #439AFF;
+        }
+
+        [class^='btn']:disabled {
+            box-shadow: none;
+            color: #4A5568;
+            text-decoration: none;
+            background: #3A4556;
+            border: 1px solid #343E4E;
+        }
+
+        .btn {
+            color: #CBD5DF;
+        }
+
+        /* 클래스명이 positive로 끝나는 */
+        [class$="positive"] {
+            color: #439AFF;
+        }
+
+        .btn-positive:hover {
+            background-color: #439AFF;
+            border: 1px solid #439AFF;
+            box-shadow: inset 1px 1px #73B4FF;
+        }
+
+        .btn-positive:active {
+            box-shadow: inset 1px 1px #3B78BE;
+        }
+
+        [class$="negative"] {
+            color: #EB5757;
+        }
+
+        .btn-negative:hover {
+            border: 1px solid #EB5757;
+            background-color: #EB5757;
+            box-shadow: inset 1px 1px #FD6F6F;
+        }
+
+        .btn-negative:active {
+            /* border: inset 0px 0px 2px 0 #73B4FF; */
+            /* 박스 섀도우 inset으로 안에 그림자 주기 ! border 아님 */
+            box-shadow: inset 1px 1px #D94242;
+        }
+    </style>
+
+</head>
+
+<body>
+    <button class="btn">Button</button>
+    <button class="btn" type="button" disabled>Button</button>
+    <button class="btn-positive">Yes</button>
+    <button class="btn-negative">del</button>
+    <p class="message-negative">error 메시지</p>
+    <p class="message-positive">가입가능합니다</p>
+</body>
+
+</html>
