@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <style>
+        .blue{
+            background-color: skyblue;
+        }
+        .gold{
+            background-color: gold;
+        }
+        .pink{
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 임의로 주는 방법- style에서 할것 -->
+    <table border="1">
+        <caption class="a11y-hidden">테이블 설명</caption>
+        <!-- 열별로 그루핑 -->
+        <colgroup>
+            <col span="2" class="blue">
+            <col class="gold">
+            <col class="pink">
+        </colgroup>
+
+        <thead>
+            <tr>
+                <th scop="col">구분</th>
+                <td scop="col">셀 제목</td>
+                <td scop="col">셀 제목</td>
+                <td scop="col">셀 제목</td>
+            </tr>
+            <tr>
+                <th>구분</th>
+                <!-- colspan 열병합/ 셀 2칸 병합 -->
+                <td colspan="2" scope="'col">셀 제목</td>
+                <td scope="'col">셀 제목</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">제목</th>
+                <td>셀 내용</td>
+                <td>셀 내용</td>
+                <td>셀 내용</td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</body>
+
+</html>

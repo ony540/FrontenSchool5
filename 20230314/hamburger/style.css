@@ -1,0 +1,72 @@
+.a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+
+
+.btn {
+    width: 48px;
+    height: 48px;
+    border: 0;
+    background: none;
+    position: relative;
+    padding: 0;
+}
+
+/* 이거 해야 .btn:hover에 호버가 됨  */
+.line{
+    display: block;
+    width: 100%;
+}
+
+.line span {
+    width: 100%;
+    height: 2px;
+    background: black;
+    display: block;
+    position: absolute;
+}
+.line span:first-child{
+    top: 15%;
+}
+.line span:nth-child(2){
+    top: 50%;
+    transform: translateY(-50%);
+    /* 중앙정렬 */
+}
+.line span:nth-child(3){
+    bottom: 15%;
+}
+
+.btn:hover .line {
+    transform: rotate(45deg);
+    transition: all 0.3s;
+}
+
+.btn:active .line{
+    transform: rotate(-45deg);
+    transition: all 0.1s;
+}
+
+.btn:hover .line span:nth-child(1){
+    top: 50%;
+    /* 중앙배치 */
+    transform: translateY(-50%) rotate(-45deg);
+    /* translateY(-50%) - 1px내려가는 것때문 */
+}
+.btn:hover .line span:nth-child(2){
+    opacity: 0;
+    transform: rotate(90deg);
+}
+.btn:hover .line span:nth-child(3){
+    bottom: 50%;
+    transform: translateY(50%) rotate(45deg);
+}
+

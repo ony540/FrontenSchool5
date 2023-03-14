@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe</title>
+    <style>
+        iframe{
+            width: 100%;
+            /* aspect-ratio 요소의 크기를 비율대로 조정 */
+            /* 요소의 너비가 100%라면 하단의 경우 높이는 50% */
+            /* https://mong-blog.tistory.com/entry/css-Aspect-Ratio-%EC%9A%94%EC%86%8C%EB%A5%BC-%EB%B9%84%EC%9C%A8%EB%8C%80%EB%A1%9C-%EC%A1%B0%EC%A0%95%ED%95%98%EA%B8%B0  */
+            aspect-ratio: 2/ 1;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe width="1280" height="720" src="https://www.youtube.com/embed/-iuX3r8PSzU" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+    <!-- 네이버는 iframe안됨 -->
+    <iframe src="https://www.naver.com"></iframe>
+</body>
+
+</html>
