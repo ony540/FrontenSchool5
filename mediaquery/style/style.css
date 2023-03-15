@@ -1,0 +1,181 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrap {
+    margin: 240px auto 0;
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tit {
+    word-break: keep-all;
+    width: 612px;
+}
+
+.tit h1 strong {
+    display: block;
+}
+
+.tit h1 {
+    color: #121314;
+    font-weight: 400;
+    margin: 0;
+    font-size: 70px;
+    line-height: 88px;
+}
+
+.tit p {
+    color: #47494D;
+    margin: 0;
+    width: 343px;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 20px;
+}
+
+.employ {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 486px;
+    gap: 20px;
+}
+
+.employ li {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    aspect-ratio: 344 / 198;
+    color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.li-video {
+    background: url(../img/Rectangle1.png) no-repeat 0 0 / contain;
+}
+
+.li-book {
+    background: url(../img/Rectangle2.png) no-repeat 0 0 /contain;
+}
+
+
+.employ li p {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 38px;
+    padding: 40px;
+    margin: 0;
+}
+
+.employ li a {
+    color: #fff;
+    text-decoration: none;
+    position: absolute;
+    font-size: 16px;
+    line-height: 20px;
+    bottom: 30px;
+    right: 30px;
+}
+
+.employ li a::after {
+    content: ">";
+    display: inline-block;
+    margin-left: 0.4em;
+}
+
+
+@media (max-width:768px) and (min-width:391px) {
+    .wrap {
+        /* width: 708px; */
+        width: calc(100% - 60px);
+        flex-direction: column;
+        margin: 100px auto;
+    }
+
+    .tit {
+        width: 90vw;
+    }
+
+    .tit p {
+        font-size: 18px;
+        line-height: 26px;
+        margin-bottom: 60px;
+    }
+
+    .employ {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .employ li {
+        width: calc(50% - 10px);
+        height: unset;
+        aspect-ratio: 344 / 198;
+    }
+
+    .employ li p {
+        font-size: 24px;
+        padding: 30px;
+    }
+
+    .employ li a {
+        bottom: 20px;
+        right: 20px;
+    }
+
+}
+
+
+@media (max-width:390px) {
+    .wrap {
+        /* width: 356px; */
+        width: calc(100% - 32px);
+        flex-direction: column;
+        margin: 100px auto;
+    }
+
+    .tit {
+        width: 90vw;
+        margin-left: 16px;
+    }
+
+    .tit h1 {
+        font-size: 36px;
+        line-height: 45px;
+    }
+
+    .tit p {
+        width: 240px;
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 40px;
+    }
+
+    .employ {
+        width: 100%;
+        gap: 14px;
+    }
+
+    .employ li {
+        width: 100%;
+        height: unset;
+    }
+
+    .employ li p {
+        font-size: 20px;
+        line-height: 25px;
+        padding: 30px;
+    }
+
+    .employ li a {
+        font-size: 14px;
+        line-height: 18px;
+        bottom: 20px;
+        right: 20px;
+    }
+}

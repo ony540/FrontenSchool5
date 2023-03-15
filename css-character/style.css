@@ -1,0 +1,210 @@
+body {
+    background: #FFE68B;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+.redpanda {
+    margin: 70px auto;
+    width: 606px;
+    height: 526px;
+    position: relative;
+}
+
+.redpanda div {
+    position: absolute;
+}
+
+
+.ear {
+    top: 0;
+    width: 230px;
+    height: 187px;
+    background: #3F2B20;
+    border: 26.5px solid #FFFFFF;
+    border-radius: 69% 31% 50% 50% / 87% 86% 14% 13%;
+}
+
+.ear.left {
+    transform: rotate(-25deg) scale(-1, 1);
+}
+
+.ear.right {
+    transform: rotate(25deg);
+    right: 0;
+}
+.redpanda:hover .ear.left{
+    transform: rotate(-35deg) scale(-1, 1);
+    left: -20px;
+}
+.redpanda:hover .ear.right{
+    transform: rotate(35deg) ;
+    right: -20px;
+}
+
+
+.face {
+    bottom: 0;
+    left: 18.8px;
+    width: 568px;
+    height: 459px;
+    background-color: #F5903B;
+    border-radius: 70% 70% 68% 68%;
+}
+
+.brow {
+    width: 68.28px;
+    height: 41.99px;
+    top: 119px;
+    border-radius: 50%;
+    background: #FFFFFF;
+
+}
+
+.brow.left {
+    transform: rotate(13.65deg) scale(-1, 1);
+    left: 147px;
+}
+
+.brow.right {
+    transform: rotate(-13.65deg);
+    right: 147px;
+}
+
+
+.lash {
+    width: 44px;
+    height: 42px;
+    border-radius: 0 0 100% 0;
+    border: transparent;
+    border-right: 14px solid #201208;
+    border-bottom: 14px solid #201208;
+    box-sizing: content-box;
+    top: 185px;
+    transition: all 0.2s;
+}
+
+.lash::after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #201208;
+    position: absolute;
+    top: -7px;
+    right: -14px;
+}
+
+.lash.left {
+    transform: rotate(-20deg) scale(-1, 1);
+    left: 132px;
+}
+
+.lash.right {
+    transform: rotate(20deg);
+    right: 132px;
+}
+
+.redpanda:hover .lash.left{
+    transform: rotate(-30deg) scale(-1, 1);
+}
+.redpanda:hover .lash.right{
+    transform: rotate(30deg) ;
+}
+
+.eye {
+    top: 195px;
+    width: 73px;
+    height: 73px;
+    border-radius: 50%;
+    background: #201208;
+}
+
+.eye.left {
+    left: 138.5px;
+}
+
+.eye.right {
+    right: 138.5px;
+}
+
+.mouth {
+    top: 242px;
+    left: 224px;
+    width: 122px;
+    height: 79px;
+    background: #FFFFFF;
+    border-radius: 50% 50% 50% 50% / 58% 61% 39% 42%;
+}
+
+.lip {
+    top: 18px;
+    left: 34px;
+    transform: rotate(-4deg);
+    transition: all 0.1s;
+}
+
+.lip div {
+    width: 16px;
+    background: #201208;
+    border-radius: 16px;
+}
+
+.lip .l-top {
+    height: 44px;
+    transform: rotate(30deg);
+}
+
+.lip .l-bottom {
+    top: 4.3px;
+    left: 18px;
+    transform: rotate(90deg);
+    height: 60px;
+}
+
+.lip .l-open {
+    width: 42px;
+    height: 40px;
+    border-radius: 0px 0px 25px 30px;
+    background-color: #E79E61;
+    border: 14px solid #201208;
+    border-top: transparent;
+    z-index: -1;
+    top: 30px;
+    left: 13px;
+    transform: scale(1,0);
+}
+.redpanda:hover .mouth{
+    top: 237px;
+    height: 89px;
+}
+.redpanda:hover .lip{
+    top: 12px;
+}
+.redpanda:hover .l-open{
+    transform: scale(1);
+}
+
+.cheek {
+    bottom: 90px;
+    width: 102px;
+    height: 85px;
+    border-radius: 100%;
+    background: #FFFFFF;
+}
+
+.cheek.left {
+    transform: rotate(23deg) scale(-1, 1);
+    left: 89px;
+}
+
+.cheek.right {
+    transform: rotate(-23deg);
+    right: 89px;
+
+}

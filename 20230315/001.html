@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@media</title>
+    <style>
+        /*뷰포트방향 - 가로 */
+        @media(orientation:portrait) {
+            body {
+                background: royalblue;
+            }
+        }
+
+        /* 뷰포트 - 세로 */
+        @media(orientation:landscape) {
+            body {
+                background: skyblue;
+            }
+        }
+
+        /* and 연산자 */
+        /* 최소 1000px부터 뷰포트의 방향이 가로일때 스타일 적용 */
+        @media (min-width: 1000px) and (orientation: landscape) {
+            body {
+                background: white;
+            }
+        }
+
+        /* , or이랑 같은 역할 연산자 */
+        /* 최소 1000px이거나 뷰포트의 방향이 가로일때 스타일 적용 */
+        @media (min-width: 1000px),
+        (orientation: landscape) {}
+        
+
+        /* 자주쓰는 것 */
+        /* ~ 최대 1400px까지 스타일 적용 */
+        @media (max-width: 1400px) {}
+
+        /* 최소 500px부터 ~ 스타일 적용 */
+        @media (min-width: 500px) {}
+
+        /* 잡지사 -? 인쇄 결과물 미리보기 */
+        @media print {}
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

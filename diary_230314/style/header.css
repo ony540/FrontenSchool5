@@ -20,8 +20,9 @@ header .btn-logo{
 
 /* 이거 위로 올라가있음 */
 header .btn-join{
-    float: right;
+    /* 주는 이유 - 다양한 사용성을 위해 (다른 컴포넌트로 또  사용할 수  있도록 넣어둠 */
     display: block;
+    float: right;
     padding: 1em 1em 1em 2.8em;
     margin: 10px;
     text-decoration: none;
