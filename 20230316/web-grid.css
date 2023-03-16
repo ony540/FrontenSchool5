@@ -1,0 +1,175 @@
+/* layout */
+.container {
+  display: grid;
+  grid-template-areas:
+    "a b"
+    "a c";
+  gap: 20px;
+
+}
+
+.grid-a {
+  grid-area: a;
+}
+
+.grid-b {
+  grid-area: b;
+}
+
+.grid-c {
+  grid-area: c;
+}
+
+/* 1200px까지만!! 그거보다 작게 */
+@media (max-width:1200px) {
+  .container {
+    grid-template-areas:
+      "a a"
+      "b c";
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width:768px) {
+  .container {
+    grid-template-areas:
+      "a"
+      "b"
+      "c";
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* 중앙정렬 - 세로 일정길이보다 길면 */
+@media (min-height: 820px) {
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* 중앙정렬 - 높이가 819px이하이면 마진으로! */
+@media (max-height: 819px) {
+  .container {
+    margin: 40px auto;
+  }
+}
+
+/* style */
+
+.container {
+  width: 1200px;
+  /* 최대크기가 이거라서 1200보다 작아지면 이 크기로 바뀜! */
+  max-width: calc(100% - 60px);
+}
+
+.grid-a h1 {
+  font-weight: normal;
+  color: #121314;
+
+  /* 변동값 70 70 36 */
+  font-size: 70px
+}
+
+.grid-a p {
+  color: #47494D;
+  line-height: 143%;
+
+  /* 20 18 14 */
+  font-size: 20px;
+  /* 20 20 14 */
+  margin-top: 20px;
+}
+
+.grid-b,
+.grid-c {
+  border-radius: 20px;
+  color: #fff;
+  aspect-ratio: 486 / 280;
+  /* 변동됨 */
+  padding: 40px 30px 30px 40px;
+
+  /* 안의 텓스트도 flex로 정렬하기 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.grid-b {
+  background: url(./img/background1.jpg) no-repeat 0 0 / cover;
+  /* cover - 꽉차서 여백이 없도록 */
+}
+
+.grid-c {
+  background: url(./img/background2.jpg) no-repeat 0 0 / cover;
+}
+
+.grid-b strong,
+.grid-c strong{
+  font-size: 30px;
+}
+
+.grid-b span,
+.grid-c span{
+  align-self: flex-end;
+}
+
+/* 1. 가상요소로 하는 법 */
+.go-after::after{
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  transform: rotate(-45deg);
+  margin-left: 0.2em;
+  margin-bottom: 1px;
+}
+
+/* 2.배경으로 가져오기 */
+.go-bg{
+  background: url(./img/arrow.svg) no-repeat 100% center;
+  /* 배경의위치 인식 */
+  padding-right: 1.2em; 
+
+}
+
+@media (max-width:1200px) {
+  
+  .grid-a p {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  
+  .grid-b,
+  .grid-c {
+    /* 변동되는 값*/
+    padding: 30px 20px 20px 30px;
+
+  }
+  
+  .grid-b strong,
+  .grid-c strong{
+    font-size: 24px;
+  }
+
+}
+
+@media (max-width:768px) {
+  .grid-a h1 {
+    font-size: 36px
+  }
+
+  .grid-a p {
+    font-size: 14px;
+    margin-top: 14px;
+  }
+
+  .grid-b strong,
+  .grid-c strong{
+    font-size: 20px;
+  }
+}

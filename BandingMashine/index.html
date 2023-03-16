@@ -1,22 +1,75 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banding Mashine</title>
+    <link rel="stylesheet" href="./style/style.css">
 </head>
+
 <body>
-    <header>
+
         <h1><a href="#">
-            <img src="./img/Logo.png" alt="밴딩머신">
-        </a></h1>
-    </header>
+                <img src="./img/Logo.png" alt="밴딩머신">
+            </a></h1>
+   
+    <div class="wrapper">
+        <main>
+            <ul class="banding-list">
+                <li  class="selected"><a href="#">
+                    <img src="./img/original.png" alt="기본콜라">
+                    <p class="item">Original_Cola</p>
+                    <p class="item-price">1000원</p>
+                </a></li>
+                <li class="sold"><a href="#">
+                    <img src="./img/violet.png" alt="보라콜라">
+                    <p class="item">Violet_Cola</p>
+                    <p class="item-price">1000원</p>
+                </a></li>
+                <li><a href="#">
+                    <img src="./img/yellow.png" alt="옐로콜라">
+                    <p class="item">Yellow_Cola</p>
+                    <p class="item-price">1000원</p>
+                </a></li>
+                <li><a href="#">
+                    <img src="./img/cool.png" alt="쿨콜라">
+                    <p class="item">Cool_Cola</p>
+                    <p class="item-price">1000원</p>
+                </a></li>
+                <li class="selected"><a href="#">
+                    <img src="./img/green.png" alt="그린콜라">
+                    <p class="item">Green_Cola</p>
+                    <p class="item-price">1000원</p>
+                </a></li>
+                <li><a href="#">
+                    <img src="./img/orange.png" alt="오렌지콜라">
+                    <p class="item">Orange_Cola</p>
+                    <p class="item-price">1000원</p>
+                </a></li>      
+            </ul>
 
-    <main></main>
-    <section></section>
-    <section>
+            <form class="form-wrap">
+                <div class="money-box">잔액:<span>1000원</span></div>
+                <button class="btn" type="button">거스름돈 반환</button>
 
-    </section>
+                <label class="a11y-hidden" for="paid-money">입금액</label>
+                <input id="paid-money" type="text" required class="input-style" placeholder="입금액 입력">
+
+                <button class='btn' type="submit">입금</button>
+            </form>
+        </main>
+        <section>
+            <div>
+                소지금
+            </div>
+            <div>
+              획득한 음료  
+            </div>
+
+        </section>
+    </div>
 </body>
+
 </html>

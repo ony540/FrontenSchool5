@@ -1,0 +1,179 @@
+/* 기본설정 */
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+body,
+ul,
+h1,
+h2,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+li {
+    list-style: none;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+   
+
+/* 타이틀 로고 */
+
+h1 a {
+    display: block;
+    margin: 0 auto 76px;
+    /* 18로 변동 */
+    margin: 0 auto 76px;
+    width: 386px;
+    max-width: calc(100% - 364px);
+}
+
+h1 a img {
+    width: 100%;
+}
+
+/* 레이아웃 */
+
+.wrapper {
+    margin: 0 auto;
+    width: 748px;
+    max-width: calc(100% - 27px);
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+main,
+section {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+section {
+    background-color: yellow;
+}
+
+
+@media (max-width: 749px) {
+    h1 a {
+        margin: 0 auto 18px;
+        width: 166px;
+        max-width: calc(100% - 196px);
+    }
+
+    .wrapper {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+/* 스타일 */
+
+body {
+    background: #EAE8FE;
+}
+
+main {
+    padding: 31px 27px;
+    background-color: #fff;
+}
+
+/* 콜라 목록 */
+.banding-list {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.banding-list li {
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.banding-list li img {
+    /* 변동있음 */
+    max-width: calc(100% - 58px);
+    margin-top: 11px;
+}
+
+.banding-list li .item {
+    font-size: 9px;
+    color: #333333;
+    margin: 6px 0;
+}
+
+.banding-list li .item-price {
+    display: inline-block;
+    background-color: #6327FE;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 12px;
+    padding: 6px 15px;
+    margin-bottom: 9px;
+}
+
+.banding-list .selected {
+    border: 3px solid #6327FE;
+}
+
+.banding-list .sold::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.banding-list .sold::before {
+    content: '품절';
+    display: block;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #fff;
+    padding: 0.15em 0.6em;
+    border: 4px double #EAE8FE;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    z-index: 2;
+    transform: translate(-50%,0) rotate(-17.97deg);
+}
+
+/* form 리스트 */
+.form-wrap{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: minmax(200px,auto) minmax(94px,auto);
+    grid-template-rows: 32px 32px;
+    gap: 12px;
+}
+.form-wrap .money-box{
+    background: #EAE8FE;
+
+}
