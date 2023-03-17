@@ -1,0 +1,60 @@
+h1, p {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #ddd;
+}
+
+.pokemon {
+    border-radius: 5px;
+    background-color: white;
+    width: 300px;
+    text-align: center;
+    border-right: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    margin: 250px auto 0;
+}
+
+.pokemon img {
+    box-shadow: inset 0 0 30px red;
+    margin-top: 100px;
+    margin-top: -50px;
+    margin-bottom: -50px;
+
+    /* 이미지가 차지하고있는 공간을 브라우저에게 아래위 50씩깎은 거라고 속인다 - 근데 보이기는 그대로 보인다 */
+    /* 네거티브된 값 만큼 그냥 존재않는다고 인식 - 이미지는 껍데기일뿐 */
+}
+
+
+.pokemon h1 {
+    color: orange; 
+    border-bottom: 5px solid orange;
+    width: 120px;
+    margin: 0 auto 20px;
+}
+
+.pokemon p {
+    padding: 20px 20px 40px;
+}
+
+.icons {
+    background-color: #eee;
+    padding: 20px 0;
+}
+
+.icons a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-indent: -9999px;
+    background-image: url(images/icon-sprite.png);
+}
+
+.icons a.twitter   { background-position: left top;  }
+.icons a.facebook  { background-position: center top;  }
+.icons a.pinterest { background-position: right top;  }
+
+.icons a:hover {
+    background-position-y: bottom;
+}

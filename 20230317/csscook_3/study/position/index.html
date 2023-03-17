@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>06 Position</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #ddd;
+        }
+
+        .grand-father {
+            background-color: #eee;
+            width: 800px;
+            margin: 0 auto;
+            padding: 1px;
+            position: relative;
+        }
+
+        .father {
+            background-color: white;
+            width: 300px;
+            height: 200px;
+            margin: 50px auto;
+            /* position: relative; */
+        }
+
+        .children {
+            width: 100px;
+            height: 100px;
+            /* transform: translateX(-50px); */
+
+            /* 위로 뜬다 - 상대적으로 결정된 내 위치 */
+            /* position: relative; */
+            /* 0 0 하면 동일함 */
+            top: 0;
+            left: 0;
+
+            /* 내공간은 사라지고 전체창!(뷰포트)기준으로 뜨기만 함 */
+            /* position: absolute; */
+
+            /* 중앙배치 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .wow {
+            background-color: orange;
+            position: absolute;
+
+            /* 컨테이닝 블럭에 맞춰서 늘어난다 width랑 margin의 auto랑 같다 */
+            /* left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            height: 100px;
+            margin: auto; */
+
+            /* inset - top, right, bottom, left의 축약 스타일 속성 */
+            inset: 0;
+            opacity: 0.5;
+            /* margin: 0; */
+            transition: all .4s;
+        }
+
+        .wow:hover{
+            margin: -20px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="grand-father">
+        <div class="father">
+            <div class="wow">wow</div>
+            <!-- <img class="children" src="img.png"> 언리얼 -->
+        </div>
+    </div>
+
+</body>
+
+</html>
