@@ -11,61 +11,112 @@
 
 <body>
 
-        <h1><a href="#">
-                <img src="./img/Logo.png" alt="밴딩머신">
-            </a></h1>
-   
+    <h1><a href="#">
+            <img src="./img/Logo.png" alt="밴딩머신">
+        </a></h1>
+
     <div class="wrapper">
         <main>
             <ul class="banding-list">
-                <li  class="selected"><a href="#">
-                    <img src="./img/original.png" alt="기본콜라">
-                    <p class="item">Original_Cola</p>
-                    <p class="item-price">1000원</p>
-                </a></li>
-                <li class="sold"><a href="#">
-                    <img src="./img/violet.png" alt="보라콜라">
-                    <p class="item">Violet_Cola</p>
-                    <p class="item-price">1000원</p>
-                </a></li>
-                <li><a href="#">
-                    <img src="./img/yellow.png" alt="옐로콜라">
-                    <p class="item">Yellow_Cola</p>
-                    <p class="item-price">1000원</p>
-                </a></li>
-                <li><a href="#">
-                    <img src="./img/cool.png" alt="쿨콜라">
-                    <p class="item">Cool_Cola</p>
-                    <p class="item-price">1000원</p>
-                </a></li>
                 <li class="selected"><a href="#">
-                    <img src="./img/green.png" alt="그린콜라">
-                    <p class="item">Green_Cola</p>
-                    <p class="item-price">1000원</p>
-                </a></li>
+                        <img src="./img/original.png" alt="기본콜라">
+                        <p class="item">Original_Cola</p>
+                        <p class="item-price">1000원</p>
+                    </a></li>
+                <li class="sold"><a href="#">
+                        <img src="./img/violet.png" alt="보라콜라">
+                        <p class="item">Violet_Cola</p>
+                        <p class="item-price">1000원</p>
+                    </a></li>
                 <li><a href="#">
-                    <img src="./img/orange.png" alt="오렌지콜라">
-                    <p class="item">Orange_Cola</p>
-                    <p class="item-price">1000원</p>
-                </a></li>      
+                        <img src="./img/yellow.png" alt="옐로콜라">
+                        <p class="item">Yellow_Cola</p>
+                        <p class="item-price">1000원</p>
+                    </a></li>
+                <li><a href="#">
+                        <img src="./img/cool.png" alt="쿨콜라">
+                        <p class="item">Cool_Cola</p>
+                        <p class="item-price">1000원</p>
+                    </a></li>
+                <li class="selected"><a href="#">
+                        <img src="./img/green.png" alt="그린콜라">
+                        <p class="item">Green_Cola</p>
+                        <p class="item-price">1000원</p>
+                    </a></li>
+                <li><a href="#">
+                        <img src="./img/orange.png" alt="오렌지콜라">
+                        <p class="item">Orange_Cola</p>
+                        <p class="item-price">1000원</p>
+                    </a></li>
             </ul>
 
             <form class="form-wrap">
-                <div class="money-box">잔액:<span>1000원</span></div>
+                <div class="money-box">잔액 :<span>1000 원</span></div>
                 <button class="btn" type="button">거스름돈 반환</button>
 
                 <label class="a11y-hidden" for="paid-money">입금액</label>
                 <input id="paid-money" type="text" required class="input-style" placeholder="입금액 입력">
 
                 <button class='btn' type="submit">입금</button>
+
+                <ul class="selected-box">
+                    <li class="selectd-item">
+                        <img src="./img/original.png" alt="기본콜라">
+                        <p class="item">Original_Cola</p>
+                        <div class="count">1</div>
+                    </li>
+                    <li class="selectd-item">
+                        <img src="./img/green.png" alt="그린콜라">
+                        <p class="item">Green_Cola</p>
+                        <div class="count">2</div>
+                    </li>
+                    <li class="selectd-item">
+                        <img src="./img/orange.png" alt="오렌지콜라">
+                        <p class="item">Orange_Cola</p>
+                        <div class="count">1</div>
+                    </li>
+                    <li class="selectd-item">
+                        <img src="./img/yellow.png" alt="옐로콜라">
+                        <p class="item">Yellow_Cola</p>
+                        <div class="count">5</div>
+                    </li>
+                </ul>
+                <button class='btn colorbtn' type="submit">획득</button>
             </form>
+
+
         </main>
         <section>
-            <div>
-                소지금
+            <div class="section1">
+               <p>
+                소지금 : <span>25,000 원</span>
+               </p> 
             </div>
-            <div>
-              획득한 음료  
+            <div class="section2">
+                <h2>획득한 음료</h2>
+                <ul class="selected-box bigbox">
+                    <li class="selectd-item">
+                        <img src="./img/original.png" alt="기본콜라">
+                        <p class="item">Original_Cola</p>
+                        <div class="count">1</div>
+                    </li>
+                    <li class="selectd-item">
+                        <img src="./img/green.png" alt="그린콜라">
+                        <p class="item">Green_Cola</p>
+                        <div class="count">2</div>
+                    </li>
+                    <li class="selectd-item">
+                        <img src="./img/orange.png" alt="오렌지콜라">
+                        <p class="item">Orange_Cola</p>
+                        <div class="count">1</div>
+                    </li>
+                    <li class="selectd-item">
+                        <img src="./img/yellow.png" alt="옐로콜라">
+                        <p class="item">Yellow_Cola</p>
+                        <div class="count">5</div>
+                    </li>
+                </ul>
+                <p>총금액 : 9,000 원</p>
             </div>
 
         </section>

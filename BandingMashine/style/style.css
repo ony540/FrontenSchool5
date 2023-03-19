@@ -1,10 +1,14 @@
 /* 기본설정 */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap');
+
 html {
     font-size: 10px;
 }
 
 body {
     font-size: 1.6rem;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 body,
@@ -26,23 +30,26 @@ li {
 }
 
 .a11y-hidden {
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
 }
-   
+
+
 
 /* 타이틀 로고 */
 
+h1 {
+    font-size: 0;
+}
+
 h1 a {
     display: block;
-    margin: 0 auto 76px;
-    /* 18로 변동 */
     margin: 0 auto 76px;
     width: 386px;
     max-width: calc(100% - 364px);
@@ -52,12 +59,11 @@ h1 a img {
     width: 100%;
 }
 
-/* 레이아웃 */
+/* 피씨 레이아웃 */
 
 .wrapper {
     margin: 0 auto;
     width: 748px;
-    max-width: calc(100% - 27px);
     display: flex;
     justify-content: space-between;
     gap: 28px;
@@ -69,24 +75,6 @@ section {
     flex-grow: 1;
 }
 
-section {
-    background-color: yellow;
-}
-
-
-@media (max-width: 749px) {
-    h1 a {
-        margin: 0 auto 18px;
-        width: 166px;
-        max-width: calc(100% - 196px);
-    }
-
-    .wrapper {
-        flex-direction: column;
-        gap: 0;
-    }
-}
-
 /* 스타일 */
 
 body {
@@ -94,15 +82,18 @@ body {
 }
 
 main {
-    padding: 31px 27px;
+    box-sizing: border-box;
     background-color: #fff;
 }
+
 
 /* 콜라 목록 */
 .banding-list {
     margin: auto;
+    padding: 31px 27px 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 130px);
     gap: 12px;
 }
 
@@ -111,32 +102,38 @@ main {
     border-radius: 10px;
     text-align: center;
     position: relative;
+    box-sizing: border-box;
 }
 
 .banding-list li img {
-    /* 변동있음 */
+    width: 36px;
     max-width: calc(100% - 58px);
-    margin-top: 11px;
+    margin: 11px auto 0;
+    display: block;
 }
 
 .banding-list li .item {
-    font-size: 9px;
+    font-size: 0.9rem;
     color: #333333;
     margin: 6px 0;
+    line-height: 13px;
 }
 
 .banding-list li .item-price {
     display: inline-block;
     background-color: #6327FE;
     color: #fff;
-    font-size: 12px;
+    font-size: 1.2rem;
     border-radius: 12px;
-    padding: 6px 15px;
+    padding: 4px 14px;
+    height: 22px;
+    line-height: 100%;
+    box-sizing:border-box;
     margin-bottom: 9px;
 }
 
 .banding-list .selected {
-    border: 3px solid #6327FE;
+    outline: 3px solid #6327FE;
 }
 
 .banding-list .sold::after {
@@ -157,23 +154,202 @@ main {
     font-size: 1.4rem;
     color: #fff;
     padding: 0.15em 0.6em;
+    width: 2em;
     border: 4px double #EAE8FE;
     position: absolute;
     left: 50%;
     top: 25%;
     z-index: 2;
-    transform: translate(-50%,0) rotate(-17.97deg);
+    transform: translate(-50%, 0) rotate(-17.97deg);
 }
 
 /* form 리스트 */
-.form-wrap{
-    margin-top: 20px;
+.form-wrap {
+    padding: 0 27px 28px;
     display: grid;
-    grid-template-columns: minmax(200px,auto) minmax(94px,auto);
-    grid-template-rows: 32px 32px;
+    grid-template-columns: minmax(200px, auto) minmax(94px, auto);
+    grid-template-rows: 32px 32px 106px;
     gap: 12px;
 }
-.form-wrap .money-box{
-    background: #EAE8FE;
 
+.form-wrap .money-box {
+    background: #EAE8FE;
+    font-size: 1.4rem;
+    padding: 6px 10px;
+    line-height: 22px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+
+.form-wrap .btn {
+    font-size: 1.3rem;
+    border: none;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.form-wrap .input-style {
+    text-indent: 6px;
+    font-size: 1.3rem;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-wrap .colorbtn {
+    font-weight: 700;
+    background: #6327FE;
+    color: #fff;
+}
+
+
+/* 콜라 획득 목록 */
+.selected-box {
+    background: #EAE8FE;
+    border: 1px solid #BDBDBD;
+    overflow-y: auto;
+    border-radius: 5px;
+    padding: 12px 6px 12px 12px;
+    box-sizing: border-box;
+}
+
+.selected-box .selectd-item {
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    margin-bottom: 6px;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.selected-box .selectd-item img {
+    margin: 6px 10px;
+    width: 18px;
+}
+
+.selected-box .selectd-item .count {
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    margin: 8px 8px 8px auto;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* 스크롤바의 커스텀 */
+
+.selected-box::-webkit-scrollbar {
+    width: 12px;
+    background-color: #EAE8FE;
+}
+
+.selected-box::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    border: 4px solid transparent;
+    background-color: #fff;
+    border-radius: 6px;
+    height: 80%;
+}
+
+.selected-box::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+
+/* 섹션 */
+section {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section>div {
+    background-color: #fff;
+    padding: auto 27px;
+}
+
+/* 섹션1 - 소지금 */
+.section1 p {
+    width: 306px;
+    min-width: calc(100% - 54px);
+    height: 32px;
+    background: #EAE8FE;
+    margin: 9px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section1 p span {
+    font-weight: 700;
+}
+
+/* 섹션2 - 획득목록 */
+.section2 h2 {
+    text-align: center;
+    margin: 25px auto 13px;
+    line-height: 20px;
+    font-size: 1.4rem;
+}
+
+.section2>p {
+    text-align: right;
+    margin: 9px 27px 29px auto;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+}
+
+/* 획득목록 큰버전 */
+.bigbox {
+    margin: 0 27px;
+    height: 364px;
+    /* 오버플로우 안될때!! - 추후 수정필요 */
+    padding: 12px;
+}
+
+
+/* 모바일레이아웃 */
+@media (max-width: 749px) {
+
+    /* 타이틀 로고 */
+    h1 a {
+        margin: 0 auto;
+        width: 166px;
+        max-width: calc(100% - 196px);
+        display: block;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        gap: 0;
+        width: 100vw;
+    }
+
+    body {
+        background: #fff;
+    }
+
+    .form-wrap {
+        padding-bottom: 20px;
+    }
+
+    section {
+        gap: 10px;
+    }
 }
