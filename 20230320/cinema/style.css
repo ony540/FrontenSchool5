@@ -1,0 +1,278 @@
+/* reset */
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+button {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: 0;
+    background: none;
+    font: inherit;
+}
+
+button:not(:disabled) {
+    cursor: pointer;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+/* 스타일 */
+
+.tit {
+    font-size: 2.4rem;
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 37px;
+    margin: auto;
+    width: 650px;
+    max-width: calc(100% - 50px);
+    border-bottom: 2px solid #BDBDBD;
+}
+
+nav ul {
+    margin: 18px auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav ul li button {
+    padding: 10px 15px;
+    color: #828282;
+    font-size: 1.6rem;
+}
+
+nav ul li button.selected {
+    font-weight: 900;
+    color: #000;
+
+}
+
+/* 레이아웃 */
+
+.wrapper {
+    border: 2px solid #BDBDBD;
+    border-radius: 15px;
+    margin: 86px auto 135px;
+    background: #F2F2F2;
+    padding: 40px 28px 30px;
+    width: 1060px;
+    /* 최대너비 - 줄어들어도 이크기는 유지! */
+    max-width: calc(100% - 20px);
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    gap: 24px 23px;
+    border: 2px solid #BDBDBD;
+    border-radius: 15px;
+    padding: 30px;
+    background-color: #FFFFFF;
+}
+
+/* 아티클 - 카드 */
+
+.card {
+    border: 1px solid #BDBDBD;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.card-contents {
+    padding: 19px 20px 18px;
+}
+
+.card .poster {
+    border: 1px solid #BDBDBD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    /* 이미지 들어가는 비율, 크기 이미지규격유지 */
+    aspect-ratio: 180 / 250;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card .cinema-tit {
+    margin: 12px 0;
+    font-weight: 900;
+    font-size: 16px;
+
+    /* 말줄임표 */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+}
+
+.card .movie-detail {
+    font-size: 13px;
+    color: #828282;
+
+    /* 평점 우측정렬 ! ! -flex로 가능*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+
+/*  출연자 - 디자이너에게가 1줄이 넘으면 어떻게 할건지 물어보기!(말줄임처리) */
+.ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.mintit+.ellipsis {
+    float: right;
+    width: 150px;
+}
+
+.card .movie-detail li:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.movie-detail li :last-child {
+    color: #000;
+    margin-left: 5px;
+}
+
+/* 이미지대신 배경으로!! */
+.movie-detail .star {
+    background: url(./img/icon-star.svg) no-repeat;
+    padding-left: 1.8rem;
+}
+
+/* 카드 버튼들 */
+.btn-wrap {
+    display: flex;
+    border-top: 1px solid #BDBDBD;
+}
+
+.btn-wrap .btn {
+    background: #F2F2F2;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-wrap a {
+    border-radius: 0 0 0 10px;
+}
+
+/* 포커스에도 접근성높이기 */
+.btn-wrap a:focus {
+    z-index: 2;
+}
+
+.btn-wrap button {
+    border-left: 1px solid #BDBDBD;
+    border-radius: 0 0 10px 0;
+}
+
+.btn-wrap .btn.play::before {
+    /* content: url(./img/icon-play.svg); */
+    content: "";
+    background: url(./img/icon-play.svg) no-repeat 0 0/ 1em;
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+/* 푸터 */
+
+footer {
+    background: #F2F2F2;
+    width: 100%;
+    padding: 57px auto 38px;
+    color: #4F4F4F;
+    box-sizing: border-box;
+}
+
+footer .ft1,
+footer .ft2 {
+    margin: auto;
+    width: 1190px;
+    max-width: calc(100% - 30px);
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+footer .ft1 {
+    padding: 57px 0 42px;
+}
+
+footer .ft2 {
+    padding: 36px 0 38px;
+}
+
+footer h2 {
+    color: #000;
+    font-size: 22px;
+}
+
+footer .sns li {
+    display: inline-block;
+    margin-right: 22px;
+}
+
+footer .line {
+    margin: auto;
+    width: 1190px;
+    max-width: calc(100% - 30px);
+    border: 1px solid #C4C4C4;
+}
+
+footer .info li{
+    display: inline;
+    margin-right: 0.6em;
+}
+footer .info span{
+    font-weight: 400;
+}
+
+footer .info li:not(:last-child):after {
+    content: "|";
+    font-weight: 400;
+    margin-left: 0.6em;
+}

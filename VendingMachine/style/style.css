@@ -40,8 +40,6 @@ li {
     position: absolute;
 }
 
-
-
 /* 타이틀 로고 */
 
 h1 {
@@ -88,7 +86,7 @@ main {
 
 
 /* 콜라 목록 */
-.banding-list {
+.vending-list {
     margin: auto;
     padding: 31px 27px 20px;
     display: grid;
@@ -97,29 +95,28 @@ main {
     gap: 12px;
 }
 
-.banding-list li {
+.vending-list li {
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     text-align: center;
     position: relative;
-    box-sizing: border-box;
 }
 
-.banding-list li img {
+.vending-list li img {
     width: 36px;
     max-width: calc(100% - 58px);
     margin: 11px auto 0;
     display: block;
 }
 
-.banding-list li .item {
+.vending-list li .item {
     font-size: 0.9rem;
     color: #333333;
     margin: 6px 0;
     line-height: 13px;
 }
 
-.banding-list li .item-price {
+.vending-list li .item-price {
     display: inline-block;
     background-color: #6327FE;
     color: #fff;
@@ -132,11 +129,13 @@ main {
     margin-bottom: 9px;
 }
 
-.banding-list .selected {
+/* 선택됨 */
+.vending-list .selected {
     outline: 3px solid #6327FE;
 }
 
-.banding-list .sold::after {
+/* 품절 */
+.vending-list .sold::after {
     content: '';
     display: block;
     width: 100%;
@@ -147,7 +146,7 @@ main {
     background: rgba(0, 0, 0, 0.8);
 }
 
-.banding-list .sold::before {
+.vending-list .sold::before {
     content: '품절';
     display: block;
     font-weight: 700;
