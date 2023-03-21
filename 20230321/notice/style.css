@@ -1,0 +1,69 @@
+body,
+h1,
+h2,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    background: inherit;
+    font: inherit;
+}
+
+/* layout */
+
+.wrapper {
+    width: 728px;
+    color: #29363D;
+    margin: 0 auto;
+}
+
+.wrap-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.wrap-head h2 button {
+    font-size: 30px;
+}
+
+.list {
+    border-top: 1px solid #EEEEEE;
+    font-size: 13px;
+}
+
+.list li a {
+    padding: 0 16px;
+    border-bottom: 1px solid #EEEEEE;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    gap: 37px;
+}
+
+.list li a p {
+    /* 말줄임표 */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.list li a strong {
+    margin-right: 16px;
+    color: #2E6FF2;
+}
