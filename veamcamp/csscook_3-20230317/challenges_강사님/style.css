@@ -1,0 +1,165 @@
+/* 개발자가 이렇게 하는데에 이유가 있어야함 */
+body,
+p,
+ul {
+	margin: initial;
+}
+
+li {
+	list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: initial;
+	font: inherit;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+
+/* 이유 - 폰트패밀리는 상속되니까 굳이 유니버셜 셀렉터를 선택할 필요가 없음 */
+:root {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+}
+
+.l_wrapper {
+	box-shadow: inset 0 0 10px red;
+	width: 1080px;
+	margin: 0 auto;
+}
+
+.section {
+	padding: 100px 0;
+}
+
+.section_purple {
+	background-color: #673399;
+	color: white;
+}
+
+.section_pink {
+	background-color: seashell;
+	color: salmon;
+}
+
+.section-header {
+	box-shadow: inset 0 0 10px cyan;
+	margin-bottom: 100px;
+}
+
+.section-contents {
+	box-shadow: inset 0 0 10px deeppink;
+}
+
+/* tit */
+.title {
+	display: flex;
+	align-items: center;
+}
+
+
+.title-headings {
+	/* 너비말고 basis 더안늘어나도록 */
+	flex-basis: 26%;
+	flex-shrink: 0;
+	font-size: 40px;
+}
+.title-headings strong{
+	font-weight: 500;
+	box-shadow: inset 0 -20px 0 orangered;
+}
+
+.title p {
+	max-width: 500px;
+}
+
+.title p::before{
+	content: ' ';
+	width: 60px;
+	height: 2px;
+	background-color: currentColor;
+	margin-right: 20px;
+}
+
+
+/* contents */
+.card {
+	background-color: white;
+	color: #222;
+	display: flex;
+	min-width: 200px;
+}
+
+.card:nth-child(even) {
+	flex-direction: row-reverse;
+}
+
+.card+.card {
+	margin-top: 24px;
+}
+
+.card-cover {
+	box-shadow: inset 0 0 10px darkorange;
+	flex-basis: 26%;
+	flex-shrink: 0;
+	position: relative;
+}
+
+/*  배경보다는 마크업으로 들어가는게 좋다 (지연로딩)  */
+.card-cover img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* 이상함!! 확인 */
+.card-cover h2 {
+	position: relative;
+	background-color: rgba(0, 0, 0, 0.2);
+	inset: 0;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	padding: 30px;
+}
+
+.card-contents {
+	flex-basis: 0;
+	flex-grow: 1;
+	/* 의미가머지 */
+	min-width: 0;
+	padding: 30px;
+}
+
+/* 이거 왜준다고?? */
+.lists li{
+	text-indent: -20px;
+	padding-left: 20px;
+}
+.lists li + li{
+	margin-top: 6px;
+}
+
+.lists li::before {
+	content: ' ';
+	background: orange;
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	border-radius: 50%;
+	margin-right: 10px;
+}

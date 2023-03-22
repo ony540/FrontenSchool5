@@ -1,0 +1,204 @@
+/* reset */
+body,
+ul,
+li,
+p,
+h2,
+h3,
+input {
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+    background-color: inherit;
+    border: none;
+}
+
+.a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+/*  */
+section {
+    width: 520px;
+    border-radius: 10px;
+    border: 1px solid #C4C4C4;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+section h2 {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 500;
+    height: 58px;
+    line-height: 58px;
+    /* 패딩왜안됨? */
+    padding: 20px auto 18px;
+    border-bottom: 1px solid #C4C4C4;
+}
+
+section .x {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    background: url(./images/close.svg) no-repeat 0 0 /contain;
+    width: 16px;
+    height: 16px;
+}
+
+.wrapper {
+    padding: 26px 24px 25px;
+    box-sizing: border-box;
+}
+
+section h3 {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+section form {
+    margin: 24px 0 20px;
+    font-size: 16px;
+}
+
+section form .input-style {
+    border: 1px solid #C4C4C4;
+    border-radius: 5px;
+    padding: 15px 16px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+section form .input-style::placeholder {
+    color: #767676;
+}
+
+#input-id {
+    border: 2px solid #F4492E;
+}
+
+.input-style+span {
+    color: #F4492E;
+    font-size: 14px;
+    margin: 6px 0 10px;
+    display: block;
+}
+
+/* 로그인 상태유지 */
+.inp-hold{
+    appearance: none;
+    width: 1.4em;
+    height: 1.4em;
+    background:  url(./images/check-box.svg) no-repeat center / 100% ;
+    margin:  0 3px 3px 0;
+    vertical-align: middle;
+    transition: all 0.1s;
+}
+
+.inp-hold:checked{
+    background-image: url(./images/check-box-checked.svg);
+}
+
+.label-hold {
+    color: #767676;
+    font-size: 16px;
+}
+
+/* 로그인버튼 */
+
+.btn-login {
+    display: block;
+    width: 100%;
+    background: #2F80ED;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    padding: 14px 0;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+.join{
+    text-align: center;
+    color: #767676;
+    font-size: 14px;
+}
+.join li{
+    display: inline-block;
+
+}
+.join li:first-child{
+    margin-right: 12px;
+}
+.join li:first-child::after {
+    content: '|';
+    display: inline-block;
+    margin-left: 12px;
+}
+
+/* 또는 */
+.or{
+    text-align: center;
+    color: #767676;
+    font-size: 14px; 
+    margin: 30px auto 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.or span{
+    content: '';
+    width: calc(50% - 24px);
+    height: 1px;
+    background: #C4C4C4;
+    display: block;
+    position: relative;
+}
+
+/* 다른 로그인법 */
+
+.other-login li button{
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px 0; 
+    border: 1px solid #767676;
+    border-radius: 5px;
+    color: #767676;
+    background: url(./images/Google.svg) no-repeat 12px center/ 1.8em;
+}
+
+.other-login li:nth-child(2) button{
+    border-color:#2D9CDB;
+    background-image: url(./images/facebook.svg);
+}
+.other-login li:nth-child(3) button{
+    border-color: #00BF18;
+    background-image: url(./images/Naver.svg);
+}
+.other-login li:nth-child(4) button{
+    border-color:#F2C94C;
+    background-image: url(./images/Kakao.svg);
+}

@@ -84,6 +84,7 @@ article:nth-child(2) {
 	flex-direction: row-reverse;
 }
 
+/* 이미지랑 타이틀 */
 article h2 {
 	display: flex;
 	color: #fff;

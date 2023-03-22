@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 또는 회원가입</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <section>
+        <h2>로그인 또는 회원가입</h2>
+        <div class="wrapper">
+            <h3>위니브에서 여러분의 궁금증을 해결하세요! :)</h3>
+            <form>
+                <label for="input-id" class="a11y-hidden">아이디</label>
+                <input id="input-id" type="text" placeholder="아이디" class="input-style" required>
+                <span>아이디를 입력해주세요.</span>
+                <label for="input-password" class="a11y-hidden">비밀번호</label>
+                <input id="input-password" type="password" placeholder="비밀번호" class="input-style">
+                <span>아이디 혹은 비밀번호과 일치하지 않습니다.</span>
+
+                <input type="checkbox" id="inpHold" class="inp-hold">
+                <label for="inpHold" class="label-hold">로그인 상태 유지</label>
+
+                <button type="submit" class="btn-login">로그인</button>
+            </form>
+
+            <ul class="join">
+                <li><a href="#">회원가입</a></li>
+                <li><a href="#">아이디/비밀번호 찾기</a></li>
+            </ul>
+
+            <div class="or">
+                <span></span>
+                <p>또는</p>
+                <span></span>
+            </div>
+
+            <ul class="other-login">
+                <li><button type="button">구글 계정으로 로그인</button></li>
+                <li><button type="button">페이스북 계정으로 로그인</button></li>
+                <li><button type="button">네이버 계정으로 로그인</button></li>
+                <li><button type="button">카카오톡 계정으로 로그인</button></li>
+            </ul>
+        </div>
+        <button class="x">
+            <p class="a11y-hidden">로그인 창닫기</p>
+        </button>
+    </section>
+</body>
+
+</html>

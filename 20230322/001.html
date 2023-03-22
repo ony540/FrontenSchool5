@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Custom </title>
+    <style>
+        .txt-hide {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+
+        .label-hold{
+            display: inline-block;
+            margin: 20px 0;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .label-hold::before{
+            content: '';
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            border: 1px solid black;
+            /* 버티컬얼라인에 px가능 */
+            vertical-align: -5px;
+            margin-right: 10px;
+        }
+
+        /* 키보드 입력이 일어났을때만 가상선택자를 만듦 - 접근성 구현에 효과적 */
+        .inp-hold:focus-visible +  .label-hold::before{
+            outline: 2px solid black;
+            outline-offset: 5px;
+        }
+
+        .label-hold::after{
+            position: absolute;
+            display: inline-block;
+            content: '';
+            width: 22px;
+            height: 22px;
+            top: 2px;
+            left: 24px;
+            /* background-size:22px ; */
+            background:
+             url(./images/checkmark.png) 0 0/22px no-repeat;
+             transition: 0.3s;
+             /* opacity: 0; */
+        }
+
+        .inp-hold:checked+.label-hold::after{
+            left: 1px;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox" id="'inpHold" class="inp-hold txt-hide">
+    <label for="inpHold" class="label-hold">로그인 상태 유지</label>
+    <!--클래스명 ) 형테-의미-상태 -->
+</body>
+
+</html>
