@@ -40,6 +40,7 @@ header h1 {
 	color: #fff;
 	font-weight: 500;
 	flex-basis: 26%;
+	flex-shrink: 0;
 	font-size: 40px;
 }
 
@@ -49,7 +50,7 @@ header h1 span {
 
 header p {
 	color: #bd8fe8;
-	width: 45%;
+	max-width: 400px;
 	font-size: 14px;
 	display: flex;
 	align-items: center;
@@ -59,9 +60,8 @@ header p {
 
 header p::before {
 	content: "";
-	display: block;
 	background: #bd8fe8;
-	height: px;
+	height: 1px;
 	width: 75px;
 	position: absolute;
 	left: 0;
@@ -90,7 +90,9 @@ article h2 {
 	color: #fff;
 	font-size: 30px;
 	font-weight: 500;
-	width: 26%;
+	/* width: 26%; */
+	flex-basis: 26%;
+	flex-shrink: 0;
 	justify-content: center;
 	align-items: center;
 	position: relative;
@@ -121,7 +123,9 @@ article .content-img3::after {
 	padding: 24px;
 	background-color: #fff;
 	color: #353535;
-	width: 74%;
+	flex-basis: 0;
+	flex-grow: 1;
+	min-width: 0;
 	font-size: 14px;
 	line-height: 160%;
 }
@@ -131,6 +135,15 @@ article .content-img3::after {
 	margin-bottom: 32px;
 	font-size: 18px;
 	line-height: 100%;
+}
+
+.lists li{
+	text-indent: -20px;
+	padding-left: 20px;
+}
+
+.lists li + li{
+	margin-top: 6px;
 }
 
 .list ul li::before{

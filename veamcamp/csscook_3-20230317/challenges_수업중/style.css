@@ -80,6 +80,8 @@ img {
 
 .title p {
 	max-width: 500px;
+	display: flex;
+	align-items: center;
 }
 
 .title p::before{
@@ -97,14 +99,15 @@ img {
 	color: #222;
 	display: flex;
 	min-width: 200px;
-}
-
-.card:nth-child(even) {
-	flex-direction: row-reverse;
+	
 }
 
 .card+.card {
 	margin-top: 24px;
+}
+
+.card:nth-child(even) {
+	flex-direction: row-reverse;
 }
 
 .card-cover {
@@ -116,17 +119,14 @@ img {
 
 /*  배경보다는 마크업으로 들어가는게 좋다 (지연로딩)  */
 .card-cover img {
-	position: absolute;
-	left: 0;
-	top: 0;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
 
-/* 이상함!! 확인 */
+/*  */
 .card-cover h2 {
-	position: relative;
+	position: absolute;
 	background-color: rgba(0, 0, 0, 0.2);
 	inset: 0;
 	color: white;
@@ -134,22 +134,21 @@ img {
 	justify-content: center;
 	align-items: center;
 	font-size: 30px;
-	padding: 30px;
 }
 
 .card-contents {
 	flex-basis: 0;
 	flex-grow: 1;
-	/* 의미가머지 */
 	min-width: 0;
 	padding: 30px;
 }
 
-/* 이거 왜준다고?? */
+/* 목록에서 줄바꿈시 가상요소 밑으로 내려가는 것을 방지 */
 .lists li{
 	text-indent: -20px;
 	padding-left: 20px;
 }
+
 .lists li + li{
 	margin-top: 6px;
 }

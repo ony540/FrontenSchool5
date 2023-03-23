@@ -151,7 +151,6 @@ main {
     gap: 5px;
 }
 
-
 /*  출연자 - 디자이너에게가 1줄이 넘으면 어떻게 할건지 물어보기!(말줄임처리) */
 .ellipsis {
     white-space: nowrap;
@@ -161,6 +160,7 @@ main {
 
 .mintit+.ellipsis {
     float: right;
+    /* width값줘서 오버플로우 처리하기 */
     width: 150px;
 }
 

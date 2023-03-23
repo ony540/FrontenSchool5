@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
@@ -18,9 +18,10 @@
 
         .label-hold{
             display: inline-block;
-            margin: 20px 0;
-            cursor: pointer;
             position: relative;
+            margin: 20px 0;
+            font-size: 16px;
+            cursor: pointer;
         }
 
         .label-hold::before{
@@ -35,7 +36,7 @@
         }
 
         /* 키보드 입력이 일어났을때만 가상선택자를 만듦 - 접근성 구현에 효과적 */
-        .inp-hold:focus-visible +  .label-hold::before{
+        .inp-hold:focus-visible+.label-hold::before{
             outline: 2px solid black;
             outline-offset: 5px;
         }
@@ -58,14 +59,17 @@
         .inp-hold:checked+.label-hold::after{
             left: 1px;
             opacity: 1;
+
+            
         }
+        
     </style>
 </head>
 
 <body>
     <input type="checkbox" id="'inpHold" class="inp-hold txt-hide">
-    <label for="inpHold" class="label-hold">로그인 상태 유지</label>
-    <!--클래스명 ) 형테-의미-상태 -->
+    <label for="inpHold" class="lable-hold">로그인 상태 유지</label>
+    <!--형테-의미-상태 -->
 </body>
 
 </html>
