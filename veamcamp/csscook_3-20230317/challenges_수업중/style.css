@@ -139,6 +139,7 @@ img {
 .card-contents {
 	flex-basis: 0;
 	flex-grow: 1;
+	/* overflow되는 것을 방지 */
 	min-width: 0;
 	padding: 30px;
 }

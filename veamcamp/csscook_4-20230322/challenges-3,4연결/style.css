@@ -1,12 +1,8 @@
 :root {
 	font-family: 'Montserrat', sans-serif;
-	/*
-	font-weight: 500;
-	font-weight: 700;
-	*/
 }
 
-h1,
+body, h1,
 h2,
 h3,
 p,
@@ -14,6 +10,8 @@ ul,
 li {
 	margin: 0;
 	padding: 0;
+	font-size: inherit;
+	font-weight: inherit;
 }
 
 ul,
@@ -21,23 +19,32 @@ li {
 	list-style: none;
 }
 
-body {
-	background-color: #673399;
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+.section {
+  padding: 100px 0;
+  color: #fff;
 }
 
 .wrapper {
-	margin: 100px auto;
+	margin: auto;
 	width: 1080px;
 }
 
-/* 헤더 */
+/* 보라섹션 */
+.section_purple {
+	background-color: #673399;
+}
+
+/* 보라 헤더 */
 header {
 	display: flex;
-	/* width: 100%; */
 }
 
 header h1 {
-	color: #fff;
 	font-weight: 500;
 	flex-basis: 26%;
 	flex-shrink: 0;
@@ -67,7 +74,7 @@ header p::before {
 	left: 0;
 }
 
-/* 메인 */
+/* 보라 컨텐츠 */
 
 main {
 	margin-top: 100px;
@@ -87,21 +94,20 @@ article:nth-child(2) {
 /* 이미지랑 타이틀 */
 article h2 {
 	display: flex;
-	color: #fff;
 	font-size: 30px;
 	font-weight: 500;
-	/* width: 26%; */
 	flex-basis: 26%;
 	flex-shrink: 0;
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	z-index: 1;
 }
 
 article h2::after {
 	display: block;
 	content: "";
-	opacity: 0.5;
+	opacity: 0.3;
 	position: absolute;
 	inset: 0 0;
 	z-index: -1;
