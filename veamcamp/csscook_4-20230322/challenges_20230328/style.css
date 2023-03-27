@@ -87,6 +87,7 @@ button{
 	border-radius: 6px;
 	padding: 15px 9px;
 	box-shadow: 0 6px  #B23105;
+	text-align: center;
 }
 
 /* 베이지컨텐츠 */
@@ -98,7 +99,7 @@ button{
 .sal-card{
 	flex-basis: calc(100% / 3);
 	flex-shrink: 1;
-	min-width: 200px;
+	min-width: 260px;
 }
 
 .card-cover img {
@@ -116,7 +117,8 @@ button{
 .card-contents{
 	background-color: white;
 	color:  #919191;
-	padding: 12px
+	padding: 24px;
+	padding-bottom: 0;
 }
 
 .tag{
@@ -137,6 +139,24 @@ button{
 	color: black;
 	font-size: 24px;
 	font-weight: 700;
+	margin-bottom: 32px;
+	min-height: 58px;
+}
+.card-info{
+	padding-bottom: 24px;
+	box-sizing: border-box;
+	min-height: 182px;
+	position: relative;
+}
+
+.card-info::after{
+	content: '';
+	height: 2px;
+	width: calc(100% + 24px);
+	background-color: #eee;
+	position: absolute;
+	bottom: 0px;
+	display: block;
 }
 
 .more{
@@ -146,6 +166,57 @@ button{
 	justify-content: space-between;
 	align-items: center;
 }
+
+.more .people li{
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 3px solid white;
+}
+.more .people li:not(:last-child){
+	margin-right: -10px;
+}
+
+/* 콘텐츠 높이 맞추기 */
+@media (max-width: 946px) {
+	.card-tit{
+		min-height: 87px;
+	}
+	.card-info{
+		min-height: 200px;
+	}
+}
+
+/* 반응형 */
+@media (max-width: 828px) {
+.sal-contents{
+	flex-direction: column;
+}
+.card-tit{
+	min-height: unset;
+}
+.card-info{
+	min-height: unset;
+}
+
+}
+
+/* 반응형- 버튼위치 */
+@media (max-width: 554px) {
+	.sal-header{
+		display: block;
+		margin-bottom: 130px;
+	}
+
+	.btn-addcal{
+		float: right;
+		margin-top: 10px;
+	}
+}
+
+
 
 
 /* 보라영역------------------- */
