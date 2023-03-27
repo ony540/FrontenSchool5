@@ -1,0 +1,33 @@
+@mixin one {
+    width: 100px;
+    height: 100px;
+    color: white;
+    @content;
+}
+
+.test1 {
+    @include one;
+}
+
+.test2 {
+
+    // one에 있는 속성 포함하고 + 백그컬러 레드까지
+    @include one {
+        background-color: red;
+    }
+}
+
+
+// 아래 두개 동일, 중괄호 없어도! - 잘 안쓴다
+.test3 {
+    @include one {
+        background-color: red;
+        font-size: 32px;
+    }
+}
+
+.test4 {
+    @include one;
+    background-color: red;
+    font-size: 32px;
+}

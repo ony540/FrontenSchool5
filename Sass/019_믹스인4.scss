@@ -1,0 +1,38 @@
+@mixin pri-button($width, $height, $radius:10px) {
+    width: $width;
+    height: $height;
+    border-radius: $radius;
+    background-color: aqua;
+}
+
+@mixin pri-button_($width:100px, $height:50px, $radius:10px) {
+    width: $width;
+    height: $height;
+    border-radius: $radius;
+    background-color: aqua;
+}
+
+.btn {
+    @include pri-button(100px, 50px, 20px)
+}
+
+.btn_ {
+    // radius값이 기본값인 10px로 들어감!
+    @include pri-button(100px, 50px)
+}
+
+.btn__ {
+    // null일 경우 -  heigh값이 들어가지않음
+    @include pri-button(100px, null, 20px)
+}
+
+.btn__ {
+     // null일 경우 -  heigh값이 기본값이 있어도 들어가지 않음!
+    @include pri-button_(100px, null, 20px)
+}
+
+// 중앙값 비우기
+.btn__ {
+    // 뒤에 있는 요소 $00:~ 으로 지정
+    @include pri-button_(100px, $radius:20px)
+}

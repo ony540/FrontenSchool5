@@ -1,0 +1,7 @@
+@mixin font-style($font, $size, $color) {
+  color: $color;
+  font-size: $size;
+  font-family: $font;
+}
+
+// 함수같은 역할 - 회사에서 사용하는 것은 고정 

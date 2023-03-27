@@ -1,0 +1,320 @@
+/* reset */
+:root {
+	font-family: 'Montserrat', sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+	margin: 0;
+	padding: 0;
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+
+button{
+	all: unset;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+   
+/* layout */
+.section {
+	padding: 100px 0;
+	color: #fff;
+}
+
+.wrapper {
+	margin: auto;
+	width: 1080px;
+	max-width: calc(100% - 50px);
+}
+
+.section_purple {
+	background-color: #673399;
+}
+
+.section-salmon{
+	background-color: #FDF5EF;
+}
+
+
+/* 베이지 영역---------------- */
+
+/* 베이지 헤더 */
+.sal-header{
+	display: flex;
+	margin-bottom: 100px;
+	color: salmon;
+	font-size: 40px;
+	justify-content: space-between;
+	align-items: center;
+
+}
+.sal-tit{
+	min-width: 344px;
+	flex-basis: 33%;
+	flex-shrink: 0;
+}
+.btn-addcal{
+	background-color: orangered;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 6px;
+	padding: 15px 9px;
+	box-shadow: 0 6px  #B23105;
+}
+
+/* 베이지컨텐츠 */
+.sal-contents{
+	display: flex;
+	gap: 24px;
+	width: 100%;
+}
+.sal-card{
+	flex-basis: calc(100% / 3);
+	flex-shrink: 1;
+	min-width: 200px;
+}
+
+.card-cover img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-bottom: 3px solid black;
+}
+
+.badge{
+	margin: -10px;
+	position: absolute;
+}
+
+.card-contents{
+	background-color: white;
+	color:  #919191;
+	padding: 12px
+}
+
+.tag{
+	display: flex;
+	gap: 3px;
+	margin-bottom: 24px;
+}
+
+.tag li{
+	background-color: #f1e0f8;
+	color: #673399;
+	font-size: 12px;
+	padding: 0.4em 0.6em;
+	border-radius: 4px;
+}
+
+.card-tit{
+	color: black;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+.more{
+	font-size: 12px;
+	height: 68px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+/* 보라영역------------------- */
+/* 보라 헤더 */
+.pup_header {
+	display: flex;
+}
+
+.pup_header h1 {
+	font-weight: 500;
+	flex-basis: 33%;
+	flex-shrink: 0;
+	font-size: 40px;
+}
+
+.pup_header h1 span {
+	box-shadow: inset 0 -0.6em orangered;
+}
+
+.pup_header p {
+	color: #bd8fe8;
+	max-width: 400px;
+	flex-basis: 55%;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding-left: 12%;
+}
+
+.pup_header p::before {
+	content: "";
+	background: #bd8fe8;
+	height: 1px;
+	width: 75px;
+	position: absolute;
+	left: 2%;
+}
+
+/* 보라 컨텐츠 */
+
+.pup_main {
+	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}
+
+.pup_arti {
+	display: flex;
+}
+
+.pup_arti:nth-child(2) {
+	flex-direction: row-reverse;
+}
+
+/* 이미지랑 타이틀 */
+.pup_arti h2 {
+	display: flex;
+	font-size: 30px;
+	font-weight: 500;
+	flex-basis: 26%;
+	flex-shrink: 0;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	z-index: 1;
+}
+
+.pup_arti h2::after {
+	display: block;
+	content: "";
+	opacity: 0.3;
+	position: absolute;
+	inset: 0 0;
+	z-index: -1;
+}
+
+.pup_arti .content-img1::after {
+	background: url(./images/photo01.png) no-repeat center / cover;
+}
+
+.pup_arti .content-img2::after {
+	background: url(./images/photo02.png) no-repeat center / cover;
+}
+
+.pup_arti .content-img3::after {
+	background: url(./images/photo03.png) no-repeat center / cover;
+}
+
+.list {
+	padding: 24px;
+	background-color: #fff;
+	color: #353535;
+	flex-basis: 0;
+	flex-grow: 1;
+	min-width: 0;
+	font-size: 14px;
+	line-height: 160%;
+}
+
+.list h3 {
+	color: #673399;
+	margin-bottom: 32px;
+	font-size: 18px;
+	line-height: 100%;
+}
+
+.list li {
+	text-indent: -27px;
+	padding-left: 20px;
+}
+
+.list li+li {
+	margin-top: 6px;
+}
+
+.list ul li::before {
+	content: "";
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-color: #bd8fe8;
+	border-radius: 5px;
+	margin-right: 16px;
+}
+
+
+/* pad */
+@media (max-width: 844px) {
+	.pup_header {
+		flex-direction: column;
+	}
+
+	.pup_header h1 span {
+		display: block;
+		width: 450px;
+	}
+
+	.pup_header p {
+		padding: 0;
+		margin-top: 40px;
+
+	}
+
+	.pup_header p::before {
+		display: none;
+	}
+
+	.pup_main {
+		margin-top: 50px;
+	}
+}
+
+/* phone */
+
+@media (max-width: 654px) {
+
+	.pup_arti,
+	.pup_arti:nth-child(even) {
+		flex-direction: column;
+	}
+
+	.pup_arti h2 {
+		padding: 25%;
+	}
+
+	.list h3 {
+		margin-bottom: 15px;
+	}
+
+}

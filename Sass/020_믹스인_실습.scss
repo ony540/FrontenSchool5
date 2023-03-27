@@ -1,0 +1,64 @@
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-item {
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+}
+
+.product {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.product-item {
+    width: 200px;
+    height: 200px;
+    border-radius: 20%;
+}
+
+/* 믹스인 사용하기 */
+
+@mixin flex($direction) {
+    display: flex;
+    justify-content:$direction;
+    align-items: $direction;
+
+}
+
+@mixin item($value: 1) {
+    width: 100px * $value;
+    height: 100px * $value;
+    border-radius: 10% * $value;
+}
+
+@mixin itemT($length, $radius) {
+    width: $length;
+    height: $length;
+    border-radius:$radius;
+}
+
+.card {
+    @include flex(center);
+
+}
+
+.card-item {
+    @include item();
+    @include itemT(100px,10%);
+
+}
+
+.product {
+    @include flex(flex-end);
+}
+
+.product-item {
+    @include item(2);
+    @include itemT(200px,25%);
+}

@@ -1,0 +1,10 @@
+// 내부에서 사용하기를 권장하지 않습니다.
+.card {
+    @mixin box {
+        width: 100px;
+        height: 100px;
+    }
+
+    @include box;
+    background-color: blue;
+}

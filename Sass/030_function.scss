@@ -1,0 +1,33 @@
+// Scss - function
+// Sass 공식문서
+// 거듭제곱을 구하는 함수
+@function pow($base, $exponent) { 
+    $result: 1;
+    // 의미없는 변수 선언 -> $_
+    @for $_ from 1 through $exponent {
+      $result: $result * $base;
+    //   결과 1곱하기 4
+    //   결과 4곱하기 4
+    //   결과 16곱하기 4
+    }
+    @return $result;
+  }
+  
+  .sidebar {
+    float: left;
+    margin-left: pow(4, 3) * 1px;
+  }
+
+
+//  유닛체크
+  @function unitCheck($x) {
+
+    // 단위체크
+    @if(type-of($x)==number) {
+        @if(unitless($x)) {
+            @return $x+px;
+        }
+    }
+
+    @return $x;
+}

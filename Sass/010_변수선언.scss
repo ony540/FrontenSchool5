@@ -1,0 +1,16 @@
+$font-p : 15px; // 전역변수
+
+.one{
+    // 지역변수
+    $value: red;
+    color: $value;
+
+    .three {
+        background-color: $value;
+    }
+}
+
+// .two{
+//     // 변수가 선언되어있지않아서 오류 발생
+//     color: $value;
+// }

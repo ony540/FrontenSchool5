@@ -1,0 +1,14 @@
+$hojun: 5;
+// @while - 계속해서 반복 ~~하는 동안
+
+@while $hojun > 1 {
+    $hojun: $hojun - 1;
+
+    .content-#{$hojun} {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+}
+
+// 4,3,2 ,1 들어간다

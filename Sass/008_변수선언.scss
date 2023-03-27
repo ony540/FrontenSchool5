@@ -1,0 +1,20 @@
+$nayeong1: #000;
+$nayeong2: #fff;
+// 한글변수를 권장하지 않는다
+// 고유명사 같은 경우는 한글 변수를 사용할 수 있다
+$나영: #f00;
+$큰글자: 34px;
+
+.one{
+    font-size: $큰글자;
+    color: $nayeong2;
+}
+
+.two{
+    color: $nayeong1;
+    background-color: $nayeong1;
+}
+
+.three{
+    color: $나영;
+}

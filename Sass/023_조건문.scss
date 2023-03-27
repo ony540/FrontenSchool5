@@ -1,0 +1,31 @@
+@mixin button($color) {
+
+    @if $color == black {
+        font-size: 32px;
+        background-color: white;
+    } @else if $color == white {
+        font-size: 24px;
+        background-color: black;
+    } @else if $color == green {
+        font-size: 24px;
+        background-color: black;
+    } @else {
+        font-size: 16px;
+        background-color: blue;
+    }
+}
+
+// 1. if 단독
+// 2. if / else
+// 3. if / elif / else
+// 4. if / elif / elif .... / else
+
+.btn {
+    @include button(red); 
+    //파선아실 -파라미터는 선언할때, 아규먼트는 실제로 사용할떄
+}
+
+// else로 끝날떄까지 하나의 덩어리 black조건문에 들어가서 실행되고가면 elseif 로 들어가지않고 그냥 조건문 탈출
+.btn_ {
+    @include button(black); 
+}
