@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수</title>
+</head>
+<body>
+    <script>
+        //산술연산, 논리연산, 비교연산
+        const x = true; //1
+        const y = false; // 0
+        const z = 10;
+
+        console.log(x && y) //and 곱
+        console.log(x || y) //or 합
+
+        console.log(!z); // 부정표현 (반대 결과)
+        console.log(!!z); // 긍정 (같은 결과 - 참인지 확인하기 위해서 사용)
+
+        //매우 중요하지 않습니다. 비트연사자
+        console.log(3 & 5) // 비트 곱하기
+        // 0011
+        // 0101
+        // -----
+        // 0001
+
+        console.log(3 | 5) //비트 더하기
+        //0011
+        //0101
+        //-----
+        //0111
+
+        // 비트연산자 중에서 유일하게 중요한 연산 (부정연산)
+        console.log(~3)
+        console.log(~~3) // 2진수는 소숫점을 계산하지않기 떄문에 - 소수점제거 할 수 있음
+        console.log(~~3.14)
+        console.log(parseInt(3.14)) //이게 더 안전하다
+
+
+
+    </script>
+</body>
+</html>
