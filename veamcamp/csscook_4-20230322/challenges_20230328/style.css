@@ -29,6 +29,7 @@ img {
 
 button{
 	all: unset;
+	cursor: pointer;
 }
 
 .a11y-hidden {
@@ -79,6 +80,10 @@ button{
 	min-width: 344px;
 	flex-basis: 33%;
 	flex-shrink: 0;
+}
+.sal-tit strong{
+	box-shadow: inset 0 -0.6em white;
+
 }
 .btn-addcal{
 	background-color: orangered;
@@ -190,7 +195,7 @@ button{
 }
 
 /* 반응형 */
-@media (max-width: 828px) {
+@media (max-width: 893px) {
 .sal-contents{
 	flex-direction: column;
 }
