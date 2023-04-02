@@ -22,10 +22,31 @@
         console.log(txt.substring(5,3)) //작동한다 - 순서가 뒤집혀도
         console.log(txt.substring(2,-3)) //마이너스 값을 0으로 인식해서 2,0으로 인식된다!
 
-        let txt2 =''
-        // replace 확인하기
+        // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/substr
+        // substr는 지원이 중단된 문법입니다.
+
+
+        // replace
+        let txt2 = 'paullab CEO leehojun CEO'
+
+        console.log(txt2.replace('CEO', 'COO'))
+        console.log(txt2.replace(/CEO/g, 'COO'))
+        // 구 브라우저 지원이 안될 가능성이 큼, 회사가서 확인하세요.
+        // 21년도에 추가되었습니다.
+        console.log(txt2.replaceAll('CEO', 'COO'))
+
+        console.log(txt2.toLowerCase())
+        console.log(txt2.toUpperCase())
+
+        // 많이 사용됩니다. 특히 알고리즘 문제에서요.
+        console.log(txt2.includes('CEO'))
+        console.log(txt2.includes('CDO'))
+
+        // 메서드 채이닝 계속해서 . . 을 늘리는 것
+        txt2.replace('CEO', 'CDO').includes('CDO').toString().toUpperCase()
+
         // split - 어디서나 정말 많이 사용되는 매서드
-        txt2.split(' ') //띄어쓰기 단위로 잘린다
+        txt2.split(' ') //띄어쓰기 단위로 잘린다.
 
         //실습문제
         let text1 = 'aa bb cc dd'
@@ -48,6 +69,9 @@
         // trim() - 공백 제거! /자주 사용되진않지만 직접 구현하면 번거로운 
         let test = '           hello world';
         console.log(test.trim());
+
+
+
 
     </script>
 </body>
