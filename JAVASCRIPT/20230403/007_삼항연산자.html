@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number 연산</title>
+</head>
+
+<body>
+    <script>
+        //3항 연산자
+        // 조건식 ? 참일 경우 실행되는 표현식 : 거짓일 경우 실행되는 표현식
+
+
+        let sale = true;
+        price = sale ? 100 : 200;
+        console.log(price); //100
+
+        // const price = 7000;
+        // const message = price >= 5000 ?  '비싸요' : '저렴해요';
+        // console.log(message) //비싸요
+
+        // 9000 이상 / 9000 미만 7000 이상 / 7000 미만
+        const price = 7500; //이값을 변경해보세요
+        const message = (price >= 9000) ?  '비싸요' : (price >= 7000) ?  '적절해요' : '저렴해요' ;
+        console.log(message) //적절해요
+
+
+
+        //드모르간 법칙
+        //헷갈리는 연산 모음
+    </script>
+</body>
+
+</html>

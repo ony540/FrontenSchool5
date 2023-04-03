@@ -29,11 +29,11 @@
         // replace
         let txt2 = 'paullab CEO leehojun CEO'
 
-        console.log(txt2.replace('CEO', 'COO'))
-        console.log(txt2.replace(/CEO/g, 'COO'))
+        console.log(txt2.replace('CEO', 'COO')) //첫번째 하나만 바뀜
+        console.log(txt2.replace(/CEO/g, 'COO')) //둘다바뀜 1
         // 구 브라우저 지원이 안될 가능성이 큼, 회사가서 확인하세요.
         // 21년도에 추가되었습니다.
-        console.log(txt2.replaceAll('CEO', 'COO'))
+        console.log(txt2.replaceAll('CEO', 'COO')) //둘다바뀜 2
 
         console.log(txt2.toLowerCase())
         console.log(txt2.toUpperCase())
@@ -66,12 +66,9 @@
         //replac하고 split
         console.log(text4.replace(',','-').split('-'));
 
-        // trim() - 공백 제거! /자주 사용되진않지만 직접 구현하면 번거로운 
+        // trim() - 공백 제거! //자주 사용되진않지만 직접 구현하면 번거로운 
         let test = '           hello world';
         console.log(test.trim());
-
-
-
 
     </script>
 </body>
