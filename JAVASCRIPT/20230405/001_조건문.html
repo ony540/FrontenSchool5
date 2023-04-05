@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let score = 69;
+        // let money = 1000;
+
+        // if (score > 90) {
+        //     document.write('참 잘했습니다!<br>');
+        //     money += 100000
+        // } else if (score > 80) {
+        //     document.write('잘했습니다!<br>');
+        //     money += 10000
+        // } else if (score > 70) {
+        //     document.write('했습니다!<br>');
+        //     money += 1000
+        // } else {
+        //     money = 0
+        // }
+
+        // document.write(money);
+
+
+        // const age = parseInt(prompt('나이를 말씀해주세요!'))
+
+        // if (age >= 18) {
+        //     document.write('안녕하세요!<br>');
+        // } else if (age >= 10) {
+        //     document.write('안녕! 반가워 꼬마친구!<br>');
+        // } else {
+        //     document.write('부럽다…<br>');
+        // }
+
+
+        //         1. 성적이 90점 이상이면 "A", 
+        // 2. 80점 이상이면 "B", 
+        // 3. 70점 이상이면 "C",
+        // 4. 60점 이상이면 "D", 
+        // 5. 그 외에는 “강해져서 돌아와라”를 출력합니다
+
+        const score = parseInt(prompt('성적을 말씀해주세요!'))
+
+        if (score > 100) {
+            alert('값이 너무 커요')
+        } else {
+
+            if (score >= 90) {
+                document.write('A<br>');
+            } else if (score >= 80) {
+                document.write('B<br>');
+            } else if (score >= 70) {
+                document.write('C<br>');
+            } else if (score >= 60) {
+                document.write('D<br>');
+            } else {
+                document.write('강해져서 돌아와라<br>');
+            }
+        }
+
+
+        //동일 문 삼항연산자로 표현하기
+        const result = (score >= 90) ? 'A'
+                        : (score >= 80) ? 'B'
+                        : (score >= 70) ? 'C'
+                        : (score >= 60) ? 'D' : '강해져서 돌아와라!'
+        console.log(result);
+
+
+
+    </script>
+</body>
+
+</html>

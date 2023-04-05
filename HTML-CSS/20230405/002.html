@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동영상</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        /* 이미지와동일 */
+        /* video {
+            width: 100%;
+            max-width: 100%;
+        } */
+
+        /* 동영상을 배경으로 */
+        .full-screen-vid {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            /* min-height: 100%; */
+            height: 100%;
+            transform: translate(-50%,-50%);
+            /* opacity: 0.3; */
+        }
+
+        /* 많은 개발자들이 잘 모르는 CSS 매직 */
+        /* 부모요소에 높이값이 없으면 height의 %가 적용되지않는다!! 따라서 height가 아닌 padding으로 주어야한다 */
+        /* padding-top, padding-bottom 속성의 % 값은 부모 요소의 넓이에 비례합니다. */
+        /* 예를 들어 부모의 넚이가 1200px 이라면 자식요소의 padding-top=50% 의 값은 600px 과 같습니다.
+        56.25% -> 16:9비율로 100:56.25비율
+        */
+
+        /* aspect-ratio  -> 있지만 지원하지않는 브라우저가 많다 */
+
+        .cont-video {
+            position: relative;
+            padding-top: 56.25%;
+
+        }
+
+        .video-next-level {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 파일있어서 video -->
+    <video class="full-screen-vid" autoplay controls loop muted src="nextlevel.mp4"></video>
+
+    <!-- youtube 동영상으로 -->
+    <article class="cont-video">
+        <!-- <iframe class="video-next-level"
+            src="https://www.youtube.com/embed/4TWR90KJl84?autoplay=1&mute=1&loop=1&playlist=4TWR90KJl84&controls=1"
+            title="YouTube video player" frameborder="0" allowfullscreen></iframe> -->
+    </article>
+    <!-- <iframe class="video-next-level" src="https://www.youtube.com/embed/VCDWg0ljbFQ?start=13" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+</body>
+
+</html>
