@@ -20,7 +20,7 @@
         </ol>
     </article>
     
-    <!-- <script>
+    <script>
         // 이벤트 전파가 (캡처링, 버블링) 단계가 있기때문에 자식에게 타겟설정을 하지않아도 자식이 선택된다
         const parent = document.querySelector('.parent');
         // 부모에게 타겟 달기
@@ -28,9 +28,9 @@
             console.log(event.target); //각각의 타겟!! 버튼1, 버튼2등을 의미함
             console.log(event.currentTarget); //parent요소
         })
-    </script> -->
+    </script>
 
-<script>
+<!-- <script>
     const parent = document.querySelector('.parent');
     parent.addEventListener('click', function (event) {
         console.log(event.target);
@@ -39,7 +39,7 @@
             event.target.innerText = "버튼4";
         }
     })
-</script>
+</script> -->
 </body>
 
 </html>
