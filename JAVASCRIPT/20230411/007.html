@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img class="terran battle-cruiser" src="battle-cruiser.png" data-ship-id="324" data-weapons="laser"
+        data-health="400" data-mana="250" data-skill="yamato-cannon" />
+    <script>
+        // data- 으로 작성된 태그의 속성
+        // .dataset.shipId 으로 제어 가능!
+        const target = document.querySelector('.terran');
+        console.log(target.dataset);
+        console.log(target.dataset.shipId);
+    </script>
+</body>
+
+</html>

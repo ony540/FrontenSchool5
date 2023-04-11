@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>hello</p>
+    <script>
+        const txt = document.querySelector('p');
+
+        //이런경우 에러가 발생하기 떄문에 코드 넣는 것을 방지하기!
+        //따라서 일반 텍스트를 삽입할 때는 innerHTML보다는 innerText, textContent를 사용해라!
+        const name = "<img src='c' onerror='alert(12133)'>"
+
+        txt.innerHTML = name;
+    </script>
+</body>
+</html>

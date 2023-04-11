@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>돔 트리에 접근하기</title>
+</head>
+
+<body>
+    <!-- <p>hello</p>
+    <p>hello</p>
+    <p id="'myTxt">hello</p>
+    <p class="txt1">hello</p>
+    <p class="txt1">hello</p>
+
+    <script>
+        console.log( document.getElementById('myTxt') )
+        console.log( document.getElementsByTagName('p') )
+        console.log( document.getElementsByClassName('txt1') )
+
+        const element = document.getElementsByClassName('txt1');
+    </script> -->
+
+    점심 식단
+    <article id="container">
+        <ul>
+            <li>탕수육</li>
+            <li class="item-second">유산슬</li>
+            <li>짜장면</li>
+        </ul>
+    </article>
+    저녁 식단
+    <article>
+        <ul>
+            <li>된장국</li>
+            <li class="item-second">김치찌개</li>
+            <li>해장국</li>
+        </ul>
+    </article>
+    <script>
+        //getElements - HTMLCollection으로 반환
+        const contt = document.getElementById('container')
+        contt.getElementsByTagName('li')
+        document.getElementsByTagName('li')[0] // li 태그중에 첫번째
+        document.getElementsByClassName('item-second')[0] //item-second 중에!! 첫번째 객체
+
+
+        // querySelector - NodeList로 반환, css선택자로 선택함
+        document.querySelector('li'); //첫번째요소 1개만 반환
+        // css 선택자로 여러 요소에 접근하기
+        document.querySelectorAll('#container li'); // container id안에 li인 모든! 요소 
+
+
+        //HTMLCollection과 NodeList
+        console.log(document.querySelectorAll('li'))
+        console.log(document.getElementsByTagName('li'))
+
+        const listitem =  document.createElement('li')
+        contt.append(listitem) //요소 추가
+
+        const target = document.getElementsByClassName('.item-second')
+        // target.remove();
+
+        target.textContent = '라조기'
+        container.querySelector('.item-second').classList.add('new');
+        // 안에 있는 요소의 값이나 그런 것들의 변화는 바로 적용이 된다. 또 완전히 정적인거는 아님 
+
+        //돔트리에 변경이 발생하면 - HTMLCollection에는 바로 적용이 된다. (쿼리셀렉터에는 당장은 아님!)
+        document.querySelectorAll('li')
+
+
+        
+    </script>
+</body>
+
+</html>

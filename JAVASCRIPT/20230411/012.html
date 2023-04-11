@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 전파(event propagation)</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+    </style>
+</head>
+
+<body>
+    <article class="parent">
+        <button class="btn" type="button">버튼</button>
+    </article>
+
+    <script>
+        const parent = document.querySelector('.parent');
+        const btnFirst = document.querySelector('.btn');
+
+         // 이러한 과정에서 이벤트 리스너가 차례로 실행되는것을 이벤트 전파(event propagation)라고 합니다.
+
+        // 맨위에 실행시켰음에도 불구하고 윈도,도큐먼,패런츠,버튼 순으로 캡쳐 이벤트실행 -> 그다음 역순으로 올라가면서 버블링
+        btnFirst.addEventListener('click', (event) => {
+            console.log("btn capture!");
+        }, true) // 세번째 인자로 true를 주면 캡쳐링단계에서 이벤트가 실행된다! 
+
+        window.addEventListener('click', () => {
+            console.log("window capture!");
+        }, true); 
+
+        document.addEventListener('click', () => {
+            console.log("document capture!");
+        }, true);
+
+        parent.addEventListener('click', () => {
+            console.log("parent capture!");
+        }, true);
+
+        btnFirst.addEventListener('click', (event) => {
+            console.log("btn bubble!");
+        }) // 버블링 이벤트 리스너 (3번째 인자가 없음)
+
+        parent.addEventListener('click', () => {
+            console.log("parent bubble!");
+        });
+
+        document.addEventListener('click', () => {
+            console.log("document bubble!");
+        });
+
+        window.addEventListener('click', () => {
+            console.log("window bubble!");
+        });
+    </script>
+</body>
+
+</html>

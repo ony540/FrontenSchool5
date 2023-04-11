@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p></p>
+    <input type="text">
+    <button>Write Something!</button>
+
+    <script>
+        const myBtn = document.querySelector("button");
+        const myP = document.querySelector("p");
+        const myInput = document.querySelector("input");
+
+        //'click' 이벤트 add - 클릭하면 변경
+        myBtn.addEventListener('click', function () {
+            myP.textContent = myInput.value;
+        });
+
+        // 'input' 이벤트 add - 실시간으로 값이 반영
+        myInput.addEventListener('input', () => {
+            myP.textContent = myInput.value;
+        });
+
+        // 초기값 설정 - innerHTML / 문자열 + 마크업까지
+        myP.innerHTML = "<strong>I'm Strong!!</strong>";
+
+        // - innerText / '렌더링된' 문자열만 
+        // myP.innerText = "<strong>I'm Strong!!</strong>";
+
+        // innerHTML 은 요소(element) 내에 포함된 HTML 마크업을 가져오거나 설정합니다. 즁요한 기능은 innerHTML로 값을 할당할 때, 마크업으로 변환할 수 있는 문자열이 있다면 마크업으로 만들어 보여준다는 것 입니다. 만약 그런 문자열이 없다면 그냥 문자열만 컨텐츠로 설정합니다.
+
+        // innerText - 요소의 '렌더링된, 처리를 끝내고' 텍스트 콘텐츠를 나타냅니다. (br도 적용되고, display none 처리되어있는 것이 있다면 해당 내용은 나오지않음 ! ! ! )
+
+        // textContent - 노드의 텍스트 콘텐츠를 표현합니다. 컨텐츠를 단순히 텍스트로만 인식 (display none 처리되어있는 텍스트, 스타일태그안에 있는 것까지 문자로 인식해서 나온다!!)
+    </script>
+</body>
+
+</html>
