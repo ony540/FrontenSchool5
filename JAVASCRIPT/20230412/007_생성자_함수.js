@@ -30,6 +30,9 @@ let newBook3 = new Book('JavaScript',10000, '홍길동', '2023.04.12')  //정의
 
 function Book(책이름, 책가격, 저자, 출판일){
     // this = {}
+    this.출력 = function (){
+        console.log(this)
+    }
     this.책이름 = 책이름
     this.책가격 = 책가격
     this.저자 = 저자
