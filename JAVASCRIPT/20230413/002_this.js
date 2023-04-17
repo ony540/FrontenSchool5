@@ -170,3 +170,36 @@ a()
 
 //a,b,c 모두 window
 //위 함수는 a.b.c() 이런 식으로 호출한 객체를 타고 올라가는 형태가 아닙니다
+
+//-------------0417추가
+function attackBeam() { // 레이저 공격
+    this.hp -= 20
+}
+
+function attackKnife() { // 칼공격
+    if (this.name === 'thanos'){
+        this.hp -= 1
+        return
+    }
+    this.hp -= 5
+}
+
+let jombi = {
+    name: 'jombi',
+    damaged1: attackBeam,
+    damaged2: attackKnife,
+    hp: 1000,
+    power: 2
+}
+
+let thanos = {
+    name: 'thanos',
+    damaged1: attackBeam,
+    damaged2: attackKnife,
+    hp: 10000,
+    power: 100
+}
+
+jombi.damaged1() // Beam
+jombi.damaged2() // Knife
+jombi.hp
