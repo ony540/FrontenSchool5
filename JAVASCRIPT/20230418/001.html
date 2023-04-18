@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <article class="parent">
+        <ol>
+            <li><button class="btn-first" type="button">버튼1</button></li>
+            <li><button type="button">버튼2</button></li>
+            <li><button type="button">버튼3</button></li>
+        </ol>
+    </article>
+    
+    <script>
+        // const parent = document.querySelector('.parent');
+        // parent.addEventListener('click', function (event) {
+        //     console.log(event.target); // 이벤트가 발생한 진원지의 정보 - btn-first
+
+        //     console.log(this); // 이벤트가 연결된 노드를 참조 - parent
+        //     console.log(event.currentTarget); //이벤트 리스너가 연결된 요소가 참조 - parent
+        // })
+
+        // // *****  화살표 함수로 쓴다면 this 가 가리키는 대상이 달라진다는 점에 유의!!
+        // parent.addEventListener('click', (event) => {
+        //     console.log(this); // window
+        //     console.log(event.currentTarget); //이벤트 리스너가 연결된 요소가 참조 - parent
+        // })
+
+        const btnFirst = document.querySelector('.btn-first');
+
+        const myObj = {
+            nameObj : 'testObj',
+            test(){
+                btnFirst.addEventListener('click',() => { //화살표함수
+                    console.log(this); //이 함수의 상위 스코프를 바라본다 (myObj)
+                })
+            },
+            test2(){
+                btnFirst.addEventListener('click',function(){ //함수표현식을 넣으면 이벤트가 add된 것기준
+                    console.log(this); //이 함수의 상위 스코프를 바라본다 (btn-first)
+                })
+            }
+        }
+        myObj.test(); //this - myObj자체
+        myObj.test2(); //this - btn-first
+        //화살표함수의 this는 조심스럽게 사용해야한다
+
+
+    </script>
+</body>
+</html>

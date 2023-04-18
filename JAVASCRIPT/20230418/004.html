@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stopPropagation() 실습</title>
+    <style>
+        p {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h5>stopPropagation()  - 의도치않은 부모요소에 붙어있는 이벤트리스너가 적용되는 것을 막을때 주로 사용!! </h6>
+    <h1>나의 todo list</h1>
+
+    <p>1. 오늘 저녁에는 부대찌개를 끓여 먹겠다.<button type="button">삭제</button></p>
+    <p>2. 후식으로 슈팅스타를 먹겠다.<button type="button">삭제</button></p>
+    <p>3. 자기 전에 반드시 내일 아침 메뉴를 생각해두겠다.<button type="button">삭제</button></p>
+
+
+    <script>
+        const p = document.querySelectorAll('p')
+        const cancel = document.querySelectorAll('button')
+
+        p.forEach((item) => {
+            item.addEventListener('click', (e) => {
+                // if (!e.target.closest("button")) {
+                    alert(item.textContent.slice(0, -2));
+                // }
+                console.log('p clicked');
+            })
+        })
+
+        cancel.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                if (confirm('정말 삭제하시겠습니까?')) {
+                    // e.target.closest('p').remove();
+                    e.parentElement.remove();
+                    e.stopPropagation(); //if절없이 이렇게 버블링을 막아야 위의 console log도 실행이 안됨 위의 버블링 이벤트가 실행안됨 
+                }
+                
+            })
+        })
+        // 
+    </script>
+</body>
+
+</html>
