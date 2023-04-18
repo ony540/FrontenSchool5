@@ -50,7 +50,33 @@ var bruce = {
 peter.sayName.apply(bruce, ['batman', 'richman']);  //배열로 전달
 //배열형식으로 두번째 인자를 받아서 해당함수의 아규면트로 인식!!
 
-//어플라이와 콜의 차이빼먹음~~
+// call과 apply 비교
+// 비교1
+var peter = {
+    name: 'Peter Parker',
+    sayName: function (감탄사1, 감탄사2) {
+        console.log(this.name + 감탄사1 + 감탄사2);
+    }
+}
+
+var bruce = {
+    name: 'Bruce Wayne',
+}
+peter.sayName.call(bruce, '!', '!!'); //Bruce Wayne!!!
+
+// 비교2
+var peter = {
+    name: 'Peter Parker',
+    sayName: function (감탄사1, 감탄사2) {
+        console.log(this.name + 감탄사1 + 감탄사2);
+    }
+}
+
+var bruce = {
+    name: 'Bruce Wayne',
+}
+peter.sayName.call(bruce, ['!', '!!']);//Bruce Wayne!,!!undefined 배열을 걍 문자열통째로 하고 undefined
+peter.sayName.apply(bruce, ['!', '!!']);//Bruce Wayne!!!
 
 
 //////////
