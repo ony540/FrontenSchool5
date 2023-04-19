@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        // 실습 : 음식 이름의 배열을 전달하면 배열안에서 랜덤하게 메뉴를 뽑아내는 기능을 가진 로봇객체의 생성자를 만들어보세요. 예를들어 new FoodPicker(['짜장면', '청국장', '김치찌게']) 이렇게 인스턴스를 만들면 인스턴스는 짜장면, 청국장, 김치찌게 중에 한 가지 메뉴를 랜덤하게 콘솔로 출력하는 기능을 가져야합니다.
+
+        function FoodPicker(list) {
+            this.list = list;
+            this.setMenu = function () {
+                console.log(`오늘의 메뉴는 ${this.list[Math.floor(Math.random() * this.list.length)]}입니다.`)
+                console.log(this.list.length)
+            }
+        }
+
+        const cooker1 = new FoodPicker(['짜장면', '청국장', '김치찌개'])
+        cooker1.setMenu()
+
+        //우리는 100개의 객체를 생성할때마다 역시 100개의 함수를 새로 만들고 있는것 -> 자원의 낭비
+        const cooker2 = new FoodPicker()
+        const cooker3 = new FoodPicker()
+
+
+        //-----------------
+
+        function NewFactory2(name) {
+            this.name = name;
+        }
+
+        //프로토타입 - 생성자 함수가 인스턴스를 생성하면 - 내가 만든적없는 [[Prototype]]이라는 프로퍼티가 생성된다
+        NewFactory2.prototype.sayYourName = function () {
+            console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+        }
+        //프로토타입 - 특정 객체에 대한 참조(어떠한 공간)
+
+        /*
+        new 키워드를 통해서~ 
+        1. 생성자함수랑 같이 호출되면 this랑 인스턴스를 연결한다 
+
+        1. (생성자)함수에는 prototype이라는 (오직 function안에 존재하는 참조값)이 있다.
+        2. __proto__라는 프로퍼티가 인스턴스에 존재한다 (객체 안에 존재하는 숨겨진 프로퍼티)
+        3. 위에 __proto__는 생성자함수의 prototype과 연결된다.
+
+        prototype 과 __proto__ 는 다른 것!
+        */
+
+        function Test() {};
+        const obj = new Test();
+
+        obj.__proto__ === Test.prototype //true
+        console.log(obj.prototype);
+
+        Test.prototype.consol = function(){
+            console.log('proto 테스트입니다')
+        }
+
+        const obj1 = new Test()
+        const obj2 = new Test()
+        obj1.consol();
+        obj2.consol();
+
+        obj1.consol === obj2.consol //true
+        //프로토타입은 모든 인스턴스가 하나의 메서드를 공유하도록 만들어 자원을 더 효율적으로 사용하도록 도와준다. 생성된 객체끼리 메서드를 비교하여 같은 곳을 참조하는지 살펴보는것도 이해하는데 도움이 된다.
+    </script>
+</body>
+
+</html>

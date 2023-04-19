@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            name: 'test'
+        }
+
+        console.log(obj.hasOwnProperty('name')); //true
+
+        const arr = [1, 2, 3];
+
+        console.log(arr.hasOwnProperty('name')); //false
+
+
+        //애초에 배열이면서 객체가 가지고있는 hasOwnProperty 매서드를 사용할 수 있는 이유
+        Array.__proto__ === Object.__proto__
+
+        //Array 함수의 __proto__ 가 Object 함수의 __proto__ 를 참조하고 있기 때문에 Array의 prototype에 존재하지 않는 Object 객체의 프로퍼티와 메서드를 사용할 수 있습니다. 이처럼 자기 자신에게 존재하지 않는 프로퍼티나 메서드를 프로토타입을 통해 추적하는 과정을 프로토타입 체이닝이라고 합니다. 
+
+
+        //----------
+        function Parent() {
+            this.name = '재현';
+        }
+        Parent.prototype.rename = function (name) {
+            this.name = name;
+        }
+        Parent.prototype.sayName = function () {
+            console.log(this.name);
+        }
+
+        const parent = new Parent();
+
+        function Child() {
+            Parent.call(this);
+            //Child 를 통해 생성된 인스턴스의 this 가 Parent 함수안의 프로퍼티에 접근할 수 있게합니다. 
+            //call() - this를 지정할 수 있다
+        }
+
+        Child.prototype = Object.create(Parent.prototype);
+        //  Object.create(Parent.prototype)의 기능
+        //  주어진 인자를 Child.prototype에 연결하는 역할
+        // Parent 객체의 프로토타입을 Child 객체의 프로토타입이 참조
+
+        //위의 두 가지 과정을 통해 Child 객체는 Parent 객체의 모든 것을 상속받게 됩니다 ! !
+        Child.prototype.canWalk = function () {
+            console.log(ç);
+        }
+
+        const child = new Child();
+        child.name //재현
+
+        child.rename('나영')
+        child.name //나영
+        child.sayName() // 나영
+        child.canWalk() // child.canWalk()
+
+
+        // --------클래스 문법이 나오기 전에 사용하던 방식-----------
+    </script>
+</body>
+
+</html>

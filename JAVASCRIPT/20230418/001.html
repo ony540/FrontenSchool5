@@ -41,7 +41,7 @@
             },
             test2(){
                 btnFirst.addEventListener('click',function(){ //함수표현식을 넣으면 이벤트가 add된 것기준
-                    console.log(this); //이 함수의 상위 스코프를 바라본다 (btn-first)
+                    console.log(this); //이벤트 리스너 함수 내부에서의 this 값은 이벤트가 연결된 노드를 참조
                 })
             }
         }

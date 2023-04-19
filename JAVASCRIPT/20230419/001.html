@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체지향프로그래밍</title>
+</head>
+
+<body>
+    <script>
+        const teacher = {
+            name: '웨이드',
+            address: '제주도 제주시 인다 1길',
+            phoneNum: '010-8001-6536',
+            canWalk: function () {
+                console.log('웨이드가 걷는다.');
+            },
+            teaching: function (myStudent) {
+                myStudent.levelUp();
+            }
+        }
+
+        const student = {
+            level: 1,
+            levelUp: function () {
+                this.level++;
+            }
+        }
+
+        me.teaching(student);
+        student.level //올라감
+
+        const me = {
+            name: '오나영',
+            address: '부산광역시 부산진구',
+            isLikeLionStudent: true,
+            phoneNum: '010-1234-1234',
+            family: ['엄마', '아빠', '언니', '나'],
+            majorU: 'User eXperience Design',
+            coding: function (myMacBook) {
+                myMacBook.writeCode(this.name);
+            },
+            project: 1,
+            studying: function () {
+                this.project++;
+                this.rank = this.project >= 10 ? "grand-master" : "bronze";
+                console.log(`현재 진행한 프로젝트: ${this.project} 현재 랭크: ${this.rank}`);
+            }
+        }
+
+        const myMacBook = {
+            cpu: 'M1',
+            writeCode: function (name) {
+                console.log(`${name}은 코딩을 시작했다...`);
+            },
+        };
+
+        me.coding(myMacBook);
+        me.studying();
+
+        function NewFactory(name) {
+            this.name = name;
+            this.sayYourName = function () {
+                console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+            }
+        }
+        //원래 함수안에서의 this는 함수를 호출한 객체를 참조합니다.
+        // 생성자 함수 앞에 new 연산자가 사용되면 함수안의 this는 생성자가 만들어낸 객체 즉, 인스턴스(robot, robot2)를 참조합니다. 
+
+        let robot = new NewFactory('브랜든');
+        robot.sayYourName(); // 삐리비리. 제 이름은 브랜든입니다. 주인님.
+
+        const robot2 = new NewFactory('한솔')
+        robot2.sayYourName(); // 삐리비리. 제 이름은 한솔입니다. 주인님.
+
+
+        //robot1 은 인스턴스
+        //this는 인스턴스를 의미한다 
+
+        //new Array() 라는 생성자를 만든 것과 동일하다.
+        // 프로퍼티와 메서드를 공유
+    </script>
+</body>
+
+</html>

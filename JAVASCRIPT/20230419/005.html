@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //실습 : 우리가 위에서 만들어본 여러분 자신의 생성자 함수를 class 문법으로 변경해봅시다.
+
+        class Me {
+            constructor() {
+                this.name = '웨이드',
+                    this.address = '제주도 제주시 인다 1길',
+                    this.phoneNum = '010-8001-6536'
+            }
+
+            teaching(myStudent) {
+                myStudent.levelUp();
+            }
+        }
+        const teacher = new Me()
+
+        //-----------
+        // function Robot(name) {
+        //     this.name = name;
+        // }
+
+        // Robot.prototype.sayYourName = function () {
+        //     console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+        // }
+
+
+        class Robot {
+            // 클래스의 생성자 함수입니다. 하나의 클래스는 하나의 생성자만 정의할 수 있습니다. 
+            // 그리고 생성자 함수는 new 키워드가 호출될때 자동으로 실행됩니다.
+            constructor(name) {
+                this.name = name;
+            }
+
+            // 메소드를 정의합니다. 메소드는 클래스가 생성한 인스턴스를 통해 사용할 수 있습니다.
+            sayYourName() {
+                console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+            }
+        }
+
+        const robot1 = new Robot('나비스')
+        robot1.sayYourName()
+
+        //자바스크립트만의 사용자 정의 타입 생성(객체 생성) 방법을 다른 언어의 클래스 문법처럼 바꿔준 것이 바로 자바스크립트 클래스(class)입니다!
+        // 💡 이처럼 내부적인 동작은 동일하지만 더 보기 좋고 편리하게 개선된 문법을 슈가신텍스 (Syntactic sugar) 라고 부릅니다.
+
+        //----------
+        //상속받기
+        class BabyRobot extends Robot {
+            constructor(name) {
+                //super - 부모에 있는 프로퍼티 상속받기
+                super(name);
+                this.ownName = '아이크';
+            }
+
+            sayBabyName() {
+                //this.~() - 부모에 있는 매서드 상속받기
+                // 또한 상속을 받게되면 부모 클래스의 메소드를 사용할 수 있게 됩니다. 때문에 this로 접근 할 수 있습니다.
+                this.sayYourName();
+                console.log('Suceeding you, Father!');
+            }
+        }
+        //
+    </script>
+</body>
+
+</html>

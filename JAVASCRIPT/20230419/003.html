@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        function Nayeong() {
+            this.age = 20; // 이렇게 만들면 인스턴스 각각 다른 것을 의미함 복사해서 새로만든다
+        }
+
+        Nayeong.prototype.name = '나영';
+
+        const 오나영 = new Nayeong();
+        const 육나영 = new Nayeong();
+        const 칠나영 = new Nayeong();
+        육나영.name // 나영
+
+        오나영.__proto__.name = '사공'
+
+        //같은 값을 바라본다
+        오나영.__proto__.name //사공
+        육나영.__proto__.name //사공
+        육나영.name //사공
+
+        //-----------
+        // 실습1.
+        // 우리가 만들었던 음식 로봇객체의 메서드를 프로토타입으로 분리해보세요, 그리고 객체의 메서드가 서로 동일한 주소를 참조하는지 확인해보세요.
+
+        function FoodPicker(list) {
+            this.list = list;
+        }
+
+        FoodPicker.prototype.setMenu = function () {
+            console.log(`오늘의 메뉴는 ${this.list[Math.floor(Math.random() * this.list.length)]}입니다.`)
+        }
+
+        const cooker1 = new FoodPicker(['짜장면', '청국장', '김치찌개'])
+        const cooker2 = new FoodPicker(['과카몰리', '포케'])
+        cooker1.setMenu()
+        cooker2.setMenu()
+        cooker1.setMenu === cooker2.setMenu //true
+
+        // 실습2.
+        // 우리가 객체지향 개념에서 만들었던 ‘나’ 와 ‘대상’ 객체를 생성자를 통해서 만들어 볼 수 있도록 코드를 수정해봅시다.
+
+        const me = {
+            name: '웨이드',
+            address: '제주도 제주시 인다 1길',
+            phoneNum: '010-8001-6536',
+            canWalk: function () {
+                console.log('웨이드가 걷는다.');
+            },
+            teaching: function (myStudent) {
+                myStudent.levelUp();
+            }
+        }
+
+        const student = {
+            level: 1,
+            levelUp: function () {
+                this.level++;
+            }
+        }
+
+        me.teaching(student);
+        student.level //올라감
+
+        //---프로토타입을 이용해서 생성자 함수 만들기
+        function Me(){
+            this.name =  '웨이드',
+            this.address = '제주도 제주시 인다 1길',
+            this.phoneNum = '010-8001-6536'
+        }
+        Me.prototype.teaching = function(myStudent){
+            myStudent.levelUp();
+        }
+
+        const teacher = new Me()
+    </script>
+</body>
+
+</html>
