@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            margin: auto;
+            /* transition: 0.2s; */
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        const box = document.querySelector('.box');
+        let pos = 0;
+
+
+        //초반방법 뚝뚝끊기는 느낌
+        // document.addEventListener('keydown', move);
+        // function move(e){
+        //     if (e.key === 'ArrowLeft') {  //왼쪽 keycode 37
+        //         pos -= 5;
+
+        //     } else if(e.key === 'ArrowRight'){ //오른쪽 keycode 39
+        //         pos += 5;
+        //     }
+        //     box.style.transform = `translateX(${pos}px)`
+        // }
+
+
+        //부드러운 방식
+        // 사용자가 어떤 키를 눌렀는지 정보를 저장하는 객체
+        let keys = {};
+
+        //키를 누르고 있을 때 실행
+        function move() {
+            console.log(event.key) //ArrowLeft같은 것
+            keys[event.key] = true; // keys배열에 {ArrowLeft(event.key):true}를 넣는다
+            console.log(keys)
+        }
+
+        //키를 손에서 땔 때 실행
+        function stop() {
+            keys[event.key] = false;
+        }
+
+        document.addEventListener('keydown', move);
+        document.addEventListener('keyup', stop);
+
+        function play() {
+            if (keys.ArrowRight) {
+                pos -= 5;
+            } else if (keys.ArrowLeft) {
+                pos += 5;
+            }
+            box.style.transform = `translateX(${pos}px)`
+            requestAnimationFrame(play); 
+
+            // requestAnimationFrame(callback) - 다음 리페린트되기전에 해딩 애니메이션을 업데이트(자연스러운 애니메이션적용)
+            //다음 리페인트를 위한 애니메이션을 업데이트할 때 호출할 함수를 아규먼트로 받는다
+
+            // 이는 브라우저가 다음 리페인트를 수행하기전에 호출된 애니메이션 함수를 요청
+            // 콜백의 수는 보통 1초에 60회
+        }
+        play();
+        //재귀함수 play는 계속해서 실행됨!
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //클로저 테크닉 -비공개 프로퍼티 만들기 위해서 나온 테크닉
+
+        //생성자 함수
+        function PersonGenerator() {
+            this.age = 25;
+
+            //내부에 생성자함수 + 프로토타입
+            function innerPersonType() {};
+            innerPersonType.prototype.getAge = function () {
+                return age;
+            }
+            return innerPersonType; //얘가 있어서 PersonGenerator 자체는 생성자 함수가 될 수 없음
+        }
+
+        const Person = PersonGenerator(); //innerPersonType 값이 들어옴
+        const myPerson = new Person();
+
+        myPerson.age //접근 불가 - undefined
+        myPerson.getAge() //접근 가능 - 25
+
+
+
+        //즉시 실행함수 IIFE - 위처럼 new 안해도 되고 값이 바로 사용가능
+        const PersonGenerator2 = (
+            function () {
+                let age = 25;
+
+                //생성자함수 + 프로토타입
+                function innerPersonType() {};
+                innerPersonType.prototype.getAge = function () {
+                    return age;
+                }
+                return innerPersonType;
+            }
+        )();
+
+        const myPerson2 = new PersonGenerator2();
+        myPerson2.getAge(); //접근 가능 
+    </script>
+</body>
+
+</html>

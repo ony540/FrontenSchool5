@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class를 이용한 TODO LIST</title>
+</head>
+
+<body>
+    <script>
+        /*
+        1. 해야할 일 Todo 클래스(내용, 상태 두 가지 프로퍼티를 가집니다.)
+        
+        2. Todo 클래스는 상태를 변경하는 changeState 메서드를 가집니다.
+        
+        3. 할일의 목록을 관리하는 관리자를 추상화한 TodoManager 클래스(할일 목록을 프로퍼티로 가집니다.)
+        
+        4. 할 일을 저장하고(addItem), 할 일의 목록을 보여주며(getItems), 할 일의 남은 갯수를 반환하는(getLeftTodoCount) 세 가지 메소드를 가집니다.
+        */
+
+
+        class Todo {
+            constructor(context, state) {
+                this.context = context;
+                this.state = state;
+            }
+
+            changeState() {
+                this.state = !this.state;
+            }
+        }
+        const todo = new Todo('점심먹기', false);
+        todo.changeState() //true로 바뀜
+
+
+        class TodoManager {
+            constructor() {
+                this.todoList = [];
+            }
+
+            //할일 저장
+            addItem(context, state = false) {
+                const todo = new Todo(context, state);
+                this.todoList.push(todo);
+            }
+
+            //목록 보여주기
+            getItems() {
+                return this.todoList;
+            }
+
+            //남은 할일 개수 반환
+            getLeftTodoCount() {
+                //방법2. filter 
+                // return this.todoList.filter(item => item.state === false).length;
+
+                //방법1. reduce
+                this.todoList.reduce((total, current) => {
+                    if (current.state === false) {
+                        return ++total; //해당하면 현재 값을 total에 넣는다
+                    } else {
+                        return total
+                    }
+                })
+
+                //방법3. reduce 단순화 - 그 개수를 반환 (직관적이지 않다)
+                return this.todoList.reduce((a, b) => a + !b.finished,0)
+                //초기값0!! / finished가 false인 것이 true ==>  0 + true(자동형변환)는 1이므로 1을 더하기 떄문에 개수 반환
+            }
+        }
+        const todoList = new TodoManager();
+        todoList.addItem('달리기1');
+        todoList.addItem('달리기2');
+        todoList.addItem('달리기3');
+        todoList.getItems()[0].changeState();
+        todoList.getItems(); //달리기1의 state가 false임을 확인가능 
+        todoList.getLeftTodoCount();
+    </script>
+</body>
+
+</html>

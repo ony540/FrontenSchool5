@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //- 실습 : 소시지를 만드는 클래스를 정의해봅시다.
+        // 1. 생성자 함수는 두 가지 매개변수를 전달 받을 수 있으며 전달되는 매개변수에 따라 소시지의 맛이 결정됩니다.
+        // 2. 소시지 객체는 taste 라는 메서드가 존재합니다. 생성자함수에서 전달받은 재료에 따라 맛을 나타내는 콘솔로그를 출력하는 역할을 합니다. (예시 : ‘소고기’ 와 ‘파’ 를 매개변수로 전달하였을 경우, ‘소고기와 파 맛이 난다!’ 는 콘솔 메세지를 출력합니다.)
+        // 3. 소시지 클래스를 상속받는 FiresSausage 파생클래스를 생성해봅니다. 파생클래스의 taste 메서드를 실행하면 콘솔 메세지에 불맛이 나기 시작합니다.
+
+        class Sausage {
+            constructor(...taste1) {
+                this.taste1 = taste1;
+            }
+
+            taste() {
+                console.log(`소세지는 ${this.taste1} 맛이 난다!`)
+            }
+        }
+
+        const deSau = new Sausage('소고기', '파', '버섯');
+        deSau.taste();
+        //소세지는 소고기,파,버섯 맛이 난다!
+
+        class FiresSausage extends Sausage {
+            // constructor(taste1,taste2){
+            //     super(taste1,taste2);
+            // }
+            // 서브 클래스에 생성자 함수가 없다면!! super 함수가 자동으로 호출되어 부모 클래스의 프로퍼티를 상속 받게 된다!
+
+
+            // 오버로딩 - 하나의 메서드지만 인자를 1개 전달하면 첫번째, 2개 전달하면 2번째, 3개면 3번째 가 실행되는 기능인데 - JS에서는 실행되지않는다?고 본다. JS는 인자4개를 전달해도 오류를 내지않는다.
+            /*
+            taste(el1) {
+                console.log(`불맛소세지는 ${this.taste1} 맛과 불맛이 난다!`);
+            }
+            taste(el1,el2) {
+                console.log(`불맛소세지는 ${this.taste1} 맛과 불맛이 난다!`);
+            }
+            taste(el1,el2,el3) {
+                console.log(`불맛소세지는 ${this.taste1} 맛과 불맛이 난다!`);
+            }
+            */
+
+
+            // 오버라이딩 - 상속받은 클래스의 메서드와 부모클래스의 메서드 이름이 같으면, 자식 (상속받은) 클래스의 메서드가 실행된다!
+            taste() {
+                console.log(`불맛소세지는 ${this.taste1} 맛과 불맛이 난다!`);
+            }
+        }
+        const fiSau = new FiresSausage('소고기', '파');
+        fiSau.taste();
+        //불맛소세지는 소고기,파 맛과 불맛이 난다!
+    </script>
+</body>
+
+</html>
