@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사진과 텍스트 바꾸기 - 돔선택 최적화</title>
+</head>
+
+<body>
+    <article class="parent">
+        <figure>
+            <img class="figImg"
+                src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202112/13/e4725896-2596-44f0-8b95-ab3faaa76d7d.jpg"
+                alt="">
+            <figcaption class="figCap">
+                유재석씨가 코로나에 돌파 감염되었다는 소식입니다.
+            </figcaption>
+        </figure>
+    </article>
+
+    <!-- 
+    1. 이미지는 https://file.mk.co.kr/meet/neds/2021/07/image_readtop_2021_654175_16256093474708254.jpg 로 변경합니다.
+    2. figcaption 안의 텍스트는 '유재석씨가 수상식에서 환하게 웃고 있다.' 로 변경합니다.
+    -->
+
+    <script>
+        // const img = document.querySelector('.figImg');
+        // const cap = document.querySelector('.figCap');
+
+        //최적화 - 돔을 접근할때는 최소한의 접근 범위를 주는 것이 중요하다  ! !
+        //하위의 있는 것을 탐색할 때 - img,cap을 탐색할때 도큐먼트 전체를 찾기보다 parent라는 범위를 줘서 거기만 찾을 수 있도록하기!! 
+        const parent = document.querySelector('.parent')
+        const img = parent.querySelector('.figImg');
+        const cap = parent.querySelector('.figCap');
+
+        img.setAttribute('src',
+            "https://file.mk.co.kr/meet/neds/2021/07/image_readtop_2021_654175_16256093474708254.jpg");
+        cap.textContent = '유재석씨가 수상식에서 환하게 웃고 있다.';
+
+        //템플릿 리터럴 - 추천하지않는 방법 !! 
+        /*
+        parent.innerHTML = `<figure>
+            <img class="figImg"
+            src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202112/13/e4725896-2596-44f0-8b95-ab3faaa76d7d.jpg"
+            alt="">
+            <figcaption class="figCap">
+                유재석씨가 코로나에 돌파 감염되었다는 소식입니다.
+                </figcaption>`
+        */
+
+
+
+    </script>
+</body>
+
+</html>

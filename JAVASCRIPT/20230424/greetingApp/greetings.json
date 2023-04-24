@@ -1,0 +1,12 @@
+{
+    "greeting" : [
+        {
+            "userName": "nayeong",
+            "password": "반갑다 반가워"
+        },
+        {
+            "userName": "sengkwan",
+            "password": "반가버"
+        }
+    ]
+}

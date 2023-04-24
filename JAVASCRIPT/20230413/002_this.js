@@ -17,7 +17,7 @@ let myObj = {
     }
 }
 
-myObj.func1(); //myobj!! func1이 아니다!!
+myObj.func1(); //myobj!! func1도 아니다!!
 //. 앞에 있는 것을 출력한다
 
 //---------

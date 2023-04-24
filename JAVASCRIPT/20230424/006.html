@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        // 브라우저 콘솔에서는 적용이 안됨 ! ! 
+        "use strict";
+
+
+        // 에러가 발생하는 상황
+
+        // 1. 선언하지 않은 변수에 값을 할당할 수 없다.
+        // strd ='dd'; //strd is not defined 
+        let str = 'hello strict'; //가능
+        
+        // 2. 읽기 전용 객체에 값을 할당하면 에러가 발생합니다.
+        Infinity =10; // cannot assign to read only property 'Infinity' of object '
+        Math.PI = 10;
+
+        // 지울수 없는 값을 지우려고 하면 에러가 발생합니다.
+        // cannot delete property 'prototype' of function Object() { [native code] }
+        delete Object.prototype
+
+
+        // 함수 파라메터에 중복된 이름을 사용할 수 없습니다.
+        // duplicate parameter name not allowed in this context
+        function myfunc(a,a,b){ 
+            console.log(a + a + b)
+        }
+
+        myfunc(1,2,3)  
+        //6이 아니라 7이 나온다 - a를 같은거로 인식
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가비지 컬랙션</title>
+</head>
+
+<body>
+    <script>
+        //case.1
+        let me = {
+            age: 30
+        } //참조카운트 1
+        let you = me; //참조카운트 2
+
+        me = null; // 참조카운트 1  
+        //you == {age:30}
+
+        //case.2
+        let x = {
+            y: {
+                z: 1
+            }
+        }
+
+        //x가 참조하는 객체는 object1 y:{z:1}, y참조하고 있는 객체를 object2 {z:1}
+
+        let a = x //object1의 참조 카운트 2 (x,a)
+        x = 1; //object1의 참조 카운트 1 (a만 참조)
+
+        let b = a.y //object2의 참조 카운트 2 (a.y, b)
+        a = 2 //object1의 참조 카운트 0 (a가 다른 것을 참조)
+              //object2의 참조 카운트 1 (b만 참조 - a.y가 사라짐)
+
+        //b가 object2를 참조하기 때문에 object1 객체는 제거되지 않는다.
+        //따라서 object1 객체는 사용하지않지만 불필요하게 남아있는 거죠.
+        //-> 메모리 누수
+
+        //예전에는 객체끼리 서로 맞물려있어 제거되지 않던 문제(순환 참조 문제)가 있었지만 최신 브라우저에서는 마크스위프(Mark and Sweep) 알고리즘을 사용하여 이런 문제가 해결되어 있습니다.
+
+        // 클로저는 메모리 누수에 문제가 있다
+        //  case.3 클로져 메모리 누수
+        function outer() {
+            let privateVal = ['test'];
+
+            function getPrivate() {
+                return privateVal
+            }
+
+            return getPrivate;
+        }
+
+        const getPrivate = outer(); // return privateVal
+        let secretVal = getPrivate();
+
+        console.log(secretVal); //['test']
+        secretVal = null;
+        console.log(secretVal); //null
+    </script>
+</body>
+
+</html>

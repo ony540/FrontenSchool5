@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백지옥</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+
+        class UserStorage {
+            searchUser() {
+                const xhr = new XMLHttpRequest();
+                xhr.open()
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        const result = JSON.parse(xhr.responseText);
+                    }
+                }
+
+                xhr.send()
+            }
+
+            sayHi()
+        }
+
+        
+    </script>
+</body>
+
+</html>

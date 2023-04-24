@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        const aespa = ["카리나", "윈터", "지젤", "닝닝"];
+        // 결과 : ['카리나💖', '윈터💖', '지젤💖', '닝닝💖']
+
+        const aespaE = [];
+        for (let index = 0; index < aespa.length; index++) {
+            aespaE.push(aespa[index] + '💖');
+        }
+        console.log(aespaE)
+
+        // forEach map에 익숙해지기!!!
+        // aespa.forEach((item,index) =>{
+        //     aespa[index] = item + '💖';
+        // })
+
+        //map - 콜백 함수를 이용해 각각의 요소에 호출해서 그 값을 변환할 수 있게 해줍니다. 다시 말하자면 콜백 함수는 배열의 각 요소에 실행
+        const aespa2 = aespa.map((item) =>{
+            return item + '💖' 
+        });
+
+        console.log(aespa)
+        console.log(aespa2)
+
+        //배열이나 객체를 불변하는 객체처럼 다루기!!
+    </script>
+</body>
+
+</html>

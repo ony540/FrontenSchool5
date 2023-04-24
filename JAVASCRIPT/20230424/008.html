@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <p>hello lions!!</p>
+    <button type="button">통신버튼</button>
+    <script>
+        const btn = document.querySelector('button');
+        // btn.addEventListener('click', xhrRequest);
+        let result;
+
+        function xhrRequest(){
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('GET','msg.txt');
+
+            xhr.onreadystatechange = () => { //readystate 바뀔때
+
+                if(xhr.readyState === 4 && xhr.status === 200){ //통신이 잘 완료되면
+                    // const result = xhr.responseText;
+                    result = xhr.responseText;
+                    console.log(result);
+                    document.querySelector('p').textContent = result;
+                }
+            }
+
+            xhr.send(); //서버로 요청 보내기
+        }
+
+        xhrRequest(); //이게 더 나중에 처리됨!! - onreadystatechange는 비동기적으로 실행된다
+
+        console.log(result); // 이게 먼저 처리되고
+    
+    </script>
+</body>
+
+</html>
