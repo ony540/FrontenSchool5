@@ -1,17 +1,21 @@
 //this가 뭔지 확인하기 위해서는 그 앞을 확인하라 
 
 //전역공간에서 - 브라우저 환경 / 엄격모드 / Node.js
-// "use strict"
+"use strict";
+
 console.log(this)
 
 
 // 함수에서 (그 함수가 메서드 내부에함수여도 window임! 일단 기억만하고 넘어갈게요)
 
 function a() {
-    console.log(this) //이때의 this는 window
+    console.log(this) 
 }
-a();
-window.a();
+
+a(); //window
+
+
+window.a(); //window
 
 
 //메서드에서
@@ -24,7 +28,9 @@ let myObj = {
     }
 }
 
-myObj.func1(); //myobj!! func1도 아니다!!
+myObj.func1(); //myobj!
+myObj['func1'](); //myobj!
+//! func1도 아니다!!
 //this는 멤버접근연산자 앞에 객체
 // . 앞에나 [] 앞에 / 자신을 호출한 객체!!
 
@@ -37,10 +43,14 @@ var c = {
     'hello': 'world',
     'say': sayName
 }
+c.say() // c 
 
-// hello가 있는 c가 출력됨 console.log(this)로 (직전에 있는 것)
-c.say()
-c['say']()
+//-------
+var b = { // var b ={c}
+    'c': c
+}
+
+b.c.say() 
 
 
 //한번 더 꼬우자면
@@ -50,6 +60,11 @@ var b = { // var b ={c}
 
 b.c.say() //b.c는 c / c.say는 function sayName / 이것의 this는 c (메서드 호출 주체- 메서드 명 앞의 객체)
 // . 앞에 있는 것!!
+
+// hello가 있는 c가 출력됨 console.log(this)로 (직전에 있는 것)
+//여기서 say는 뭘까요?
+//펑션이 따로 정의되어있지만 say라는 메서드로 해당함수가 이용되었기때문에 이거는 메서드 입니다
+//sayName이라는 함수가 'say'라는 메서드가 되었기때문에 c가 출력
 
 
 //함수상황과 메서드 비교
@@ -73,8 +88,10 @@ let bruce = {
 }
 
 //(메서드에서)
-peter.say() //Peter Parker - 메서드에서의 this는  메서드를 호출하는 주체
+peter.say() //Peter Parker 
 bruce.say() //Bruce Wayne
+
+//- 메서드에서의 this는  메서드를 호출하는 주체
 
 
 //함수에서 - 헷갈리는 경우
@@ -108,7 +125,6 @@ let user = {
     sayHi() {
         let arrow = function () { // 메서드의 내부 함수
             console.log(this);
-            console.log(this.firstName);
         }
         arrow();
     }
@@ -126,9 +142,8 @@ user.sayHi();
 let user = {
     firstName: "보라",
     sayHi() {
-        let arrow = () => { // 메서드의 내부 함수 지만 화살표 함수
+        let arrow = () => { // 메서드의 내부함수 지만 화살표 함수
             console.log(this);
-            console.log(this.firstName);
         }
         arrow();
     }
