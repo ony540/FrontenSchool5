@@ -43,19 +43,19 @@ $('.test')
 
 //javascript는 call by value만 존재합니다. - ~~
 //많이 헷갈려하기에 꼭 기억해주세요!!!!
-let test1 = [10,20,30]
+let test1 = [10, 20, 30]
 let test2 = 100
 
 
-function 값변경1(arr){
-    arr[0]=100
+function 값변경1(arr) {
+    arr[0] = 100
 }
 값변경1(test1)
 console.log(test1) //100,20,30
 //배열의 주소가 넘어가는 것이 아니라 주소가 복사가 되어 넘어간다!!
 
 
-function 값변경2(value){
+function 값변경2(value) {
     //함수안에 test2가 들어가도 복사해서 그 값이 들어가는 거기때문에 test2자체에는 변경이 일어나지않는다!!
     value = 1000 //재할당 되는 순간에는 다른 값을 가리킴 
 
@@ -63,26 +63,66 @@ function 값변경2(value){
 값변경2(test2)
 console.log(test2) //100 
 //중간에 1000으로 바꿔도 그대로 100 안바뀜 !!! 위치를 저장한것이 아니기때문에 
-//아니 왜!??! 이해안됨  다시 확인 윗부분 콜바이 어쩌구부터
 
 
+//https://velog.io/@younoah/call-by-value-call-by-reference
+var a = {};
+var b;
+a = b;
+b = 1000;
+a //1000
+
+//
+const swap = (a, b) => {
+    let tmp = a;
+    a = b;
+    b = tmp
+}
+
+let x = 1;
+let y = 2;
+
+swap(x, y);
+console.log(x, y); //스왑되지않음
+////
+
+
+var a = {};
+var b;
+a = b;
+b = 1000;
+
+a //{}
+
+a == b; //false
+a === b; //false
+
+
+///근데 이걸보면 call by ref같지만 아님
+let user = {
+    name: 'John'
+};
+let admin = user;
+admin.name = 'Pete'; // 'admin' 참조 값에 의해 변경됨
+
+alert(user.name) //'Pete'라는 결과값!! 객체의 주소가 복사되어서 -> 거기에 값을 바꿨으니까 되는 것.
 
 
 //call by ref가 없는 반례
 //반례
 var a = {};
-function test(b){
+
+function test(b) {
     b = 1000;
 }
 
 test(a)
 a // {} 여전히 빈값 도출
-//다른 언어의 경우 call by ref로 동작하여 a의 값이 1000으로 바뀐다. 
+//다른 언어의 경우 call by ref로 동작하여 a의 값이 1000으로 바뀐다.  (C나  C++)
 /*
-1. b에 a의주소값이 넘어온다 (객체 파일이라는 것)
+1. b에 a의 주소값이 넘어온다 (객체 파일이라는 것)
 2.  b = 1000 으로 a의 해당 주소에 1000을 넣는다.
 3. 따라서 a를 출력하면 1000 
-근데 이거 파이썬에서는 안바뀌는데 뭐지??
  */
 
 

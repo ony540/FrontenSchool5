@@ -15,24 +15,25 @@
         // key(index) – 인덱스(index)에 해당하는 키 호출
         // length – 저장된 항목의 개수
 
-        const memo = []
-        memo.push('메모1')
+        const memo = [] //배열
+        memo.push('메모1') 
         memo.push('메모2')
+        console.log(memo) // ['메모1', '메모2']
 
-        localStorage.setItem('메모',memo)
+        localStorage.setItem('메모',memo) //메모 -키 '메모1', '메모2' -벨류
 
         //저장할때는 문자열로 변환해서 넣어야한다
-        const memo2 = {}
+        const memo2 = {} //객체
         memo2['one'] = '메모1'
-        memo2['two'] = '메모2'
+        memo2['two'] = '메모2' 
+
         localStorage.setItem('메모2',JSON.stringify(memo2))
 
 
-        console.log(localStorage.getItem('메모'))
+        console.log(localStorage.getItem('메모')) 
         console.log(localStorage.getItem('메모2'))
-        console.log(JSON.parse(localStorage.getItem('메모2')))
-        
-      
+        console.log(JSON.parse(localStorage.getItem('메모2'))) //json파일을 자바스크립트 객체로 변환
+
     </script>
 </body>
 </html>

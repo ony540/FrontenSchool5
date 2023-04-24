@@ -44,7 +44,7 @@ var a = { // var a ={b}
 
 //3개 전부 - hello가 있는 c가 출력됨 console.log(this)로 (직전에 있는 것)
 c.say() 
-b.c.say() 
+b.c.say()  //b.c는 c / c.say는 function sayName / 이것의 this는 c (메서드 호출 주체- 메서드 명 앞의 객체)
 a.b.c.say()
 
 /////////
@@ -55,8 +55,15 @@ let myObj = {
     }
 }
 
-let test = myObj.func1;
-test() //여기서 this는 window!!!
+myObj.func1(); // this는 myObject
+
+let test = myObj.func1; //안에 들어간 value를 복사해서 들고오는것
+//즉 아래와 같은 의미 
+let test = function () {
+    console.log(this); 
+}
+test() //따라서 여기서 this는 window!!! (매서드가 아닌 함수에서의 this는 무조건 window)
+// 
 
 //https://school.programmers.co.kr/learn/courses/30/lessons/120852
 //소인수분해
@@ -84,7 +91,7 @@ function sayName(){
     console.log(this.name)
 }
 
-sayName() //hojun
+sayName() //hojun - 여기서 this는 window
 
 let peter = {
     name: 'Peter Parker',
@@ -95,7 +102,7 @@ let bruce = {
     say: sayName
 }
 
-peter.say()  //Peter Parker
+peter.say()  //Peter Parker - 메서드에서의 this는  메서드를 호출하는 주체
 bruce.say() //Bruce Wayne
 
 //////
@@ -106,7 +113,7 @@ function attackBeam(){ //레이저공격
 
 let jombi = {
     name: 'busan jombi',
-    damaged: attackBeam,
+    damaged: attackBeam, //메서드안에서의 this 
     hp: 100,
     power: 2
 }
@@ -118,7 +125,7 @@ let thanos = {
     power: 100
 }
 
-jombi.damaged()
+jombi.damaged() //this는 jombi를 의미
 jombi.hp //20 깎겨있음
 thanos.hp //안깎겨있음 (다른 this)
 
