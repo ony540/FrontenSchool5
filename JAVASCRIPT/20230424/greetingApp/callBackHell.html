@@ -13,22 +13,83 @@
         'use strict'
 
         class UserStorage {
-            searchUser() {
+
+            //유저가 등록되어있는지 확인
+            searchUser(userName, password, onSuccess, onError) {
                 const xhr = new XMLHttpRequest();
-                xhr.open()
-                xhr.onreadystatechange = () => {
+                xhr.open('GET', 'users.json') //초기화
+                xhr.onreadystatechange = () => { //잘 통신이 완료되면 결과값받기 (비동기함수)
                     if (xhr.readyState === 4 && xhr.status === 200) {
-                        const result = JSON.parse(xhr.responseText);
+                        const result = JSON.parse(xhr.responseText).user.find((item) => {
+                            return item.userName === userName && item.password === password
+                        });
+                        console.log(result); //조건에 맞는 객체 1개가 출력됨
+
+                        if (result) {
+                            onSuccess(userName);
+                        } else {
+                            onError(new Error('user not found')); //사용자 정의 에러를 만들 수 있는 생성자 
+                        }
                     }
                 }
 
-                xhr.send()
+                xhr.send() //서버에게 전송
             }
 
-            sayHi()
+            //등록되어있으면 그에 따른 인사를 함
+            sayHi(userName, onSuccess, onError) {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', 'greetings.json') //초기화
+                xhr.onreadystatechange = () => { //잘 통신이 완료되면 결과값받기 (비동기함수)
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        const result = JSON.parse(xhr.responseText).greeting.find((item) => {
+                            return item.userName === userName
+                        });
+                        console.log(result); //조건에 맞는 객체 1개가 출력됨
+
+                        if (result) {
+                            onSuccess({
+                                name: result.userName,
+                                greeting: result.greeting
+                            });
+                        } else {
+                            onError(new Error('no greetings')); //사용자 정의 에러를 만들 수 있는 생성자 
+                        }
+                    }
+                }
+
+                xhr.send() //서버에게 전송
+            }
         }
 
-        
+        // 인스턴스의 메서드 실행
+        const userStorage = new UserStorage();
+
+        const userName = prompt('이름을 입력하세요');
+        const password = prompt('비밀번호를 입력하세요');
+
+        //콜백지옥!!
+        userStorage.searchUser(
+            userName,
+            password,
+            (name) => {
+                userStorage.sayHi(
+                    name,
+                    (result) => {
+                        alert(`당신에게 인사합니다! ${result.name}님 ${result.greeting}`);
+                    },
+                    (error) => {
+                        console.log(error);
+                    }
+                );
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+
+        // 브라우저나 자바스크립트는 싱글 스레드 - 순서대로 밖에 실행될 수 없다 (이렇게 순서대로 실행되는 장소를 메인 스레드라고 한다. 엄청 오래걸리는게 떡하니 있으면 다른게 실행안되고 막힘 -> 따라서 개발자들이 사이드 스레드를 만든다 (비동기함수를 실행할 때 생성됨))
+
     </script>
 </body>
 

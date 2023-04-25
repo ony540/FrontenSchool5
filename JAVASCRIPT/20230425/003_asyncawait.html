@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        async function message() {
+            let hello = await new Promise((resolve) => { //promise함수가 반환할때까지 다음코드 실행안함!!
+                setTimeout(() => {
+                    console.log('hello');
+                    // resolve('hello');
+                }, 1500) //1.5초 후에  resolve('hello'); 즉 
+            })
+            console.log(`${hello}`);
+
+            let world = await new Promise((resolve) => { //그다음 
+                setTimeout(() => {
+                    resolve('world');
+                }, 1500) //0.1초 후에 resolve('world');
+            })
+
+            console.log(`${hello} ${world}`);
+        }
+
+        message();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        //1 .
+        // let result = fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json');
+        // console.log(result); //fetch는 promise를 반환한다
+
+        //2.
+        // let result = fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json');
+        // result.then((data) => {
+        //     console.log(data);
+        // });
+        //promise객체는 then메서드를 통해서 - Response 라는 객체의 데이터를 받을 수 있다. 
+        //Response 객체 - 요청에 대한 종합적인 응답 정보가 저장되어 있는 객체
+
+        //3.
+        let result = fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json');
+        result
+            .then((data) => data.json()) // 자바스크립트 객체로 변환이 가능한 'promise 객체'를 반환
+            .then((result) => { //한번 더 then 메소드를 이용해야 우리가 필요한 데이터 'Object'객체를 뽑아낼 수 있다
+                console.log(result);
+                return result;
+            })
+            .catch((result) => {
+                console.log(new Error(result));
+            });
+    </script>
+
+</body>
+
+</html>
