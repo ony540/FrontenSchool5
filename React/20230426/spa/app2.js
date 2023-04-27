@@ -3,22 +3,18 @@ const container = document.querySelector('#root');
 // api 주소는 바뀌지 않을 것 - 대문자로 변수 지정
 // 환경변수 - 숨겨야함
 const NEWSLIST_URL = 'https://api.hnpwa.com/v0/news/1.json';
-const CONTENT_URL = 'https://api.hnpwa.com/v0/news/$id.json';
+const CONTENT_URL = 'https://api.hnpwa.com/v0/item/$id.json';
 
-//현재사용자가 보고있는 페이지의 정봐와 화면에 보여질 아이템의 개수를 저장하는 객체
+
 const store = {
     currentPage: 1,
-    datasPerPage: 10,
+    datasPerPage: 10
 }
 
-// api 데이터 받아오는 함수
-// 이 함수도 async 함수이기때문에 이걸 실행하는 함수도 as- awai- 붙여서 비동기처리를 해야함 
+
 async function getData(url) {
     try {
-        // const response = fetch(url);
-        // console.log(response) // async await을 안하면 지금은 pending상태의 Promise 객체 (동기로 처리하면 안됨 비동기로 처리하기!) 
         const response = await fetch(url);
-
         if (!response.ok) {
             throw new Error('네트워크에 문제가 있습니다.');
         }
@@ -31,7 +27,7 @@ async function getData(url) {
 
 async function newsFeed() {
     const newsFeed = await getData(NEWSLIST_URL);
-    const totoalPages = Math.ceil(newsFeed.length / store.datasPerPage); //올림
+    const totalPages = Math.ceil(newsFeed.length / store.datasPerPage); 
     console.log(newsFeed);
     const newsList = [];
 
@@ -47,8 +43,8 @@ async function newsFeed() {
 
     newsList.push('</ul>');
 
-    let pageList = ``;
-    for (let i = 0; i < totoalPages; i++) {
+    let pageList = '';
+    for (let i = 0; i < totalPages; i++) {
         pageList += `<li><a href="#/page/${i + 1}">${i + 1}</a></li>`
     }
 
@@ -64,8 +60,8 @@ async function newsFeed() {
 
 // 뉴스 디테일 페이지 구성 함수
 async function newsDetail() {
-    const id = location.hash.substring(9); //id번호 뒤에 잘라서 가져오기
-    const newsContent = await getData(CONTENT_URL.replace('$id', id)) //id를 주소에 넣기
+    const id = location.hash.substring(9);
+    const newsContent = await getData(CONTENT_URL.replace('$id', id)) 
 
     container.innerHTML = `
     <h1>${newsContent.title}</h1>
@@ -79,7 +75,7 @@ function router() {
 
     if (routePath === '') {
         newsFeed(); //기본화면
-    } else if (routePath.includes('#/page/')) {//이문자열이 있으면 
+    } else if (routePath.includes('#/page/')) {
         store.currentPage = parseInt(routePath.substring(7));
         newsFeed();
     } else {
@@ -87,7 +83,6 @@ function router() {
     }
 }
 
-// 오타!!
 window.addEventListener('hashchange', router);
 
 router();
