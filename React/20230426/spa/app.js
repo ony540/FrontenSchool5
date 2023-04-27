@@ -81,8 +81,7 @@ function router() {
         newsFeed(); //기본화면
     } else if(routePath.includes('#/page/')) { //이문자열이 있으면
         store.currentPage = parseInt(routePath.substring(7));
-        console.log(store.currentPage)
-        // 여기 뭐 있는 듯 확인
+        newsFeed();
     }else {
         newsDetail(); //뭔가 있으면 바꿔라
     }

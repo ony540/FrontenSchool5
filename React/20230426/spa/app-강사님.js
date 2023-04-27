@@ -4,6 +4,12 @@ const container = document.querySelector('#root');
 const NEWSLIST_URL = 'https://api.hnpwa.com/v0/news/1.json';
 const CONTENT_URL = 'https://api.hnpwa.com/v0/item/$id.json';
 
+// 현재 사용자가 보고있는 페이지의 정보와 화면에 보여질 아이템의 갯수를 저장하는 객체
+const store = {
+    currentPage: 1,
+    datasPerPage: 10
+}
+
 // api 데이터 받아오는 함수
 async function getData(url) {
     try {
@@ -20,12 +26,13 @@ async function getData(url) {
 
 async function newsFeed() {
     const newsFeed = await getData(NEWSLIST_URL);
+    const totalPages = Math.ceil(newsFeed.length / store.datasPerPage);
     console.log(newsFeed);
     const newsList = [];
 
     newsList.push('<ul>');
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = (store.currentPage - 1) * store.datasPerPage; i < store.currentPage * store.datasPerPage; i++) {
         newsList.push(`
             <li>
                 <a href="#/detail/${newsFeed[i].id}">${newsFeed[i].title}(${newsFeed[i].comments_count})</a>
@@ -34,6 +41,19 @@ async function newsFeed() {
     }
 
     newsList.push('</ul>');
+
+    let pageList = '';
+    for (let i = 0; i < totalPages; i++) {
+        pageList += `<li><a href="#/page/${i + 1}">${i + 1}</a></li>`
+    }
+
+    newsList.push(
+        `<nav>
+            <ul>
+                ${pageList}
+            </ul>
+        </nav>`
+    )
 
     container.innerHTML = newsList.join('');
 }
@@ -47,7 +67,7 @@ async function newsDetail() {
 
     container.innerHTML = `
         <h1>${newsContent.title}</h1>
-        <div><a>목록으로 돌아가기</a></div>
+        <div><a href="#/page/${store.currentPage}">목록으로 돌아가기</a></div>
     `;
 }
 
@@ -57,6 +77,9 @@ function router() {
     const routePath = location.hash;
 
     if (routePath === '') {
+        newsFeed();
+    } else if (routePath.includes('#/page/')) {
+        store.currentPage = parseInt(routePath.substring(7));
         newsFeed();
     } else {
         newsDetail();
