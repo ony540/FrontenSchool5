@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <style>
+        div,
+        span {
+            display: block;
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grandparent">
+        grandparent
+        <div class="parent">
+            parent
+            <div class="child">
+                child
+                <span class="subchild">subchild</span>
+            </div>
+        </div>
+        <div class="surrogateParent1">surrogateParent1</div>
+        <div class="surrogateParent2">surrogateParent2</div>
+    </div>
+
+    <script>
+        // parent() : 바로 위 부모 엘리먼트를 탐색 -----------
+        // div.child를 반환합니다.
+        $("span.subchild").parent();
+
+        // 주어진 선택자와 일치하는 모든 부모를 선택합니다.
+        // div.parent를 반환합니다.
+        $("span.subchild").parents("div.parent");
+
+        // 모든 부모를 선택합니다.
+        // div.child, div.parent, div.grandparent를 반환합니다.
+        $("span.subchild").parents();
+
+        $(function () {
+
+        });
+    </script>
+</body>
+
+</html>

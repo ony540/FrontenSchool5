@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <style>
+        .box {
+            margin: 1rem;
+            padding: 1rem;
+            min-height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <button id="btn1">버튼1</button>
+        <button id="btn2">버튼2</button>
+        <button id="btn3">버튼3</button>
+    </div>
+    <div id="result1" class="box"></div>
+    <div id="result2" class="box"></div>
+    <div id="result3" class="box"></div>
+
+    <script>
+        //버튼1클릭하면 json 불러오기
+        $("#btn1").on("click", function () {
+            $("#result1").load(
+                'https://raw.githubusercontent.com/paullabkorea/coronaVaccinationStatus/main/data/data.json'
+            );
+        });
+
+        // 비동기로 http 요청
+
+        /*
+        const data_url = "https://raw.githubusercontent.com/paullabkorea/coronaVaccinationStatus/main/data/data.json";
+
+        $.ajax({
+            url: data_url,
+            method: "GET",
+            dataType: "json"
+        }).done(function (response_data) { //성공했을때
+            console.log(response_data);
+        }).fail(function (xhr, status, errorThrown) { //실패했을때
+            console.log(status);
+            console.log(errorThrown);
+        }).always(function () { //항상 실행할것
+            console.log("FINISH");
+        });
+        */
+
+        //코로나 데이터 가져와서 시도명과 1차 접종 퍼센트 출력하기
+        const data_url = "https://raw.githubusercontent.com/paullabkorea/coronaVaccinationStatus/main/data/data.json";
+
+        $.ajax({
+            url: data_url,
+            method: "GET",
+            dataType: "json"
+        }).done(function (response_data) {
+            response_data.forEach(function (data) {
+                console.log(data["시·도별(1)"]);
+                console.log(data["1차 접종 퍼센트"]);
+                const location = data["시·도별(1)"];
+                const first_percent = data["1차 접종 퍼센트"];
+                $("#result1").append(`<p>${location} : ${first_percent}</p>`);
+            });
+        })
+
+        //유저목록 생성하기
+        const url = "https://reqres.in/api/users";
+
+        $.ajax({
+            url: url,
+            method: "GET", //확인
+            dataType: "json"
+        }).done(function (response_data) {
+            response_data["data"].forEach(function (user) {
+                $user = $("<div></div>");
+                $user.append(`<img src="${user['avatar']}">`);
+                $user.append(`<p>${user["id"]} - ${user["email"]}</p>`);
+                $("#result1").append($user);
+            });
+        })
+    </script>
+</body>
+
+</html>
