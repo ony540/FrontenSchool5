@@ -5,11 +5,10 @@ class ColaGenerator {
 
     async setup() {
         const response = await this.loadData();
-
         this.colaFactory(response);
     }
 
-
+    //데이터 가져오기
     async loadData() {
         try {
             const response = await fetch('./items.json');
@@ -24,8 +23,9 @@ class ColaGenerator {
         }
     }
 
+    //자판기 내 콜라 넣기
     colaFactory(data) {
-        const docFrag = document.createDocumentFragment(); //이거 확인
+        const docFrag = document.createDocumentFragment(); //단편적인 부분을 정의할 수 있는 노드, HTML의 DOM 트리에는 영향을 주지 않으며, 메모리에서만 정의 "미니돔"
         data.forEach((el) => {
             const item = document.createElement('li');
             const itemTemplate = `
@@ -38,6 +38,8 @@ class ColaGenerator {
 
             item.innerHTML = itemTemplate;
             docFrag.append(item);
+            //body에 추가하면 DocumentFragment에는 남아있는 내용이 없다
+            //DocumentFragment에 변경이 일어나도 Reflow나 Repaint가 일어나지 않는다 (DOM에 반영하기 전까지는 메모리상에서만 존재)
         })
         this.itemList.append(docFrag);
     }

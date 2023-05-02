@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>위니브 샵</title>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // 환경변수
+        const data_URL = 'http://test.api.weniv.co.kr/mall';
+
+        // api 데이터 받아오는 함수
+        async function getData(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('네트워크에 문제가 있습니다.');
+                }
+                return response.json();
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+
+        async function render() {
+            const data = await getData(data_URL);
+            console.log(data);
+            return data;
+        };
+        
+    
+
+        async function Card(data) {
+            return (
+                <div>
+                    <h3>{data[0].productName}</h3>
+                    <p>{data[0].price}</p>
+                    <img src={data[0].price} alt={data[0].productName}/>
+                </div>
+            )
+        }
+
+        const body = (
+            <div>
+                <Card data={render()}/>
+            </div>
+        )
+
+        // 오류 발생 내일 다시...
+
+        const domContainer = document.querySelector('#root');
+        const root = ReactDOM.createRoot(domContainer);
+        root.render(body);
+
+    </script>
+</body>
+
+</html>
