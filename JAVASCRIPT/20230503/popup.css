@@ -1,0 +1,91 @@
+/* reset */
+ul,
+li {
+    list-style: none;
+    padding: 0;
+}
+*{
+    color: unset;
+    text-decoration: none;
+}
+
+.a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+.btn-open {
+    width: 100px;
+    height: 36px;
+    color: white;
+    background-color: #d97652;
+    cursor: pointer;
+    border: 0;
+    border-radius: 40px;
+    font-weight: bold;
+}
+
+.popup {
+    width: 300px;
+    height: 240px;
+    background-color: #f2e9d8;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    z-index: 100;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+/* 검은배경 */
+.dim{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.active, .active + .dim{
+    display: block;
+}
+
+.menu li {
+    border-bottom: 1px solid #fff;
+}
+
+.menu li a {
+    display: block;
+    padding: 10px;
+
+}
+
+.btn-close {
+    border: 0;
+    background-color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.btn-close img {
+    width: 100%;
+    display: block;
+}
