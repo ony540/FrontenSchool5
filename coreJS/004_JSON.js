@@ -1,3 +1,5 @@
+let json = JSON.stringify(value[, replacer, space])
+
 //JSON.stringify – 객체를 JSON으로 바꿔줍니다.
 
 let student = {
@@ -64,7 +66,7 @@ let meetup = {
 };
 
 console.log(JSON.stringify(meetup));
-/* 객체 전체가 문자열로 변환되었습니다.
+/* 
 {
   "title":"Conference",
   "room":{"number":23,"participants":["john","ann"]},
