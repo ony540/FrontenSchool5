@@ -1,0 +1,44 @@
+*{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 250px;
+    width: 250px;
+    border: solid 3px black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.container-list {
+    height: 250px;
+    width: 250px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    list-style: none;
+    margin: auto;
+}
+
+.btn-item {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.btn-item:hover {
+    background-color: yellowgreen;
+}
+.btn-item.selected {
+    background-color: skyblue;
+}
