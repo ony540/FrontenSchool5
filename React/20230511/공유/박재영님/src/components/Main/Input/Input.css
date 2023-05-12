@@ -1,0 +1,55 @@
+[class$='section']{
+    font-family: 'GmarketSansMedium';
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+}
+
+.input-section{
+    margin-top: 102px;
+}
+
+.input-text+.input-text{
+    margin-top: 27px;
+}
+
+.input-text input{
+
+    font-family: 'GmarketSansMedium';
+    font-size: 24px;
+
+    margin-left: 17px;
+    margin-right: 17px;
+    width: 228px;
+    height: 57px;
+    border-radius: 7px;
+    padding: 17px auto 16px auto;
+
+    color: black;
+    
+    text-align: center;
+}
+.input-text input::placeholder{
+    color: #BABCBE;
+}
+
+.inp-btn-wrap{
+    position: relative;
+}
+
+.input-btn{
+    margin-top: 115px;
+
+    width: 565px;
+    height: 66px;
+
+    background: #FCEE21;
+    
+}
+
+.click-img{
+    width: 64px;
+    height: 72px;
+    position: absolute;
+    bottom: -20px;
+}

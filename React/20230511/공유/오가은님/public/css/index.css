@@ -1,0 +1,115 @@
+@font-face {
+  font-family: 'OTEnjoystoriesBA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSansBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2") format('woff2'),
+  url("https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff") format('woff'),
+  url("https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf") format('opentype');
+}
+
+body {
+  background-color: #5B2386;
+  color: #fff;
+  font-family: 'GmarketSansMedium';
+  
+}
+
+#wrap {
+  width: 60%;
+  margin: 0 auto;
+}
+
+#root {
+  margin: 80px 0;
+}
+
+header h1 {
+  position: relative;
+  width: 550px;
+  z-index: 100;
+  text-align: center;
+  margin: 120px auto;
+}
+
+header h1 img {
+  width: 100%;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  top: 9%;
+  left: 42.5%;
+  width: 230px;
+  height: 230px;
+  background: url(../img/clock.png) center center no-repeat;
+}
+
+.intro-up {
+  font-family: 'OTEnjoystoriesBA';
+  color:#F5DF4D;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.intro-down {
+  font-size: 17px;
+  line-height: 1.7;
+  text-align: center;
+  position: relative;
+}
+
+.intro-down strong {
+  font-family: 'GmarketSansBold';
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.intro-down::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  width: 103%;
+  height: 100px;
+  background: url(../img/quotes.png) center center no-repeat;
+}
+
+footer h2 {
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+footer h2 img {
+  width: 125px;
+}
+
+footer p {
+  font-size: 10px;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 70px;
+}

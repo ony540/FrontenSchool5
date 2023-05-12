@@ -1,0 +1,47 @@
+.result-section{
+    margin-top: 147px;
+    display: none;
+}
+
+.result-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-text strong{
+    font-family: 'GmarketSansBold';
+    font-size: 72px;
+    vertical-align: middle;
+}
+
+.result-text:first-child{
+    margin-bottom: 17px;
+}
+
+.result-strong{
+    margin: 0 12px;
+}
+
+
+.btn-wrap{
+    margin-top: 127px;
+    display: flex;
+    justify-content: center;
+}
+
+.train-btn{
+    width: 356px;
+    height: 66px;
+    background: #FCEE21;
+    margin-right: 18px;
+}
+.share-box{
+    width: 191px;
+    height: 66px;
+}
+.share-btn{
+    width: 191px;
+    height: 66px;
+    background-color: white;
+}

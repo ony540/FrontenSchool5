@@ -1,0 +1,59 @@
+.dim {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.modal-wrap {
+    width: 800px;
+    height: 800px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-title,
+.modal-subtitle {
+    font-family: 'OTEnjoystoriesBA';
+    font-weight: 700;
+    color: #5B2386;
+}
+
+.modal-title {
+    font-size: 96px;
+}
+
+.modal-subtitle {
+    font-size: 36px;
+}
+
+.modal-img {
+    width: 433px;
+    height: 337px;
+    margin-bottom: 74px;
+}
+
+.modal-btn {
+    background: #FCEE21;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 56px;
+    border: none;
+    padding: 21px 49px;
+    font-weight: 900;
+    width: 508px;
+    height: 66px;
+}

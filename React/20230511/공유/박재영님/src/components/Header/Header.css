@@ -1,0 +1,13 @@
+
+.title-img {
+    width: 564px;
+    height: 112px;
+}
+
+header {
+    background: url("../../../public/img/clock.png") no-repeat 50%;
+    height: 225px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
