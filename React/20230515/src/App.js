@@ -1,4 +1,6 @@
-import TryUseRefDom from "./HookUseRef/TryUseRefDom";
+import TryUseMemo from "./HookUseMemo/TryUseMemo";
+// import Counter2 from "./HookUseRef/TryUseRef";
+// import TryUseRefDom from "./HookUseRef/TryUseRefDom";
 // import Time from "./HookUseEffect/Quiz2";
 // import TimeR from "./HookUseEffect/TimeR";
 // import Counter from "./HookUseEffect/TryUseEffect";
@@ -7,10 +9,20 @@ import TryUseRefDom from "./HookUseRef/TryUseRefDom";
 function App() {
   return (
     <div>
-      <TryUseRefDom/>
+      {/* useMemo */}
+      <TryUseMemo/>
+
+
+      {/* useRef */}
+      {/* <Counter2/> */}
+      {/* <TryUseRefDom/> */}
+
+      {/* useEffect */}
       {/* <TimeR/> */}
       {/* <Time/> */}
       {/* <Counter/> */}
+
+      {/* router */}
       {/* <RouteSolve/> */}
     </div>
   );
