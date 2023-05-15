@@ -1,11 +1,10 @@
 //코드 블록
 //코드 블록 {...} 안에서 선언한 변수는 블록 안에서만 사용
 
+// 지역 변수를 선언하고 몇 가지 조작을 했지만 그 결과를 밖에서 볼 수 없습니다.
+// 블록 내에서만 변숫값을 얻을 수 있습니다.
 {
-    // 지역 변수를 선언하고 몇 가지 조작을 했지만 그 결과를 밖에서 볼 수 없습니다.
-  
-    let message = "안녕하세요."; // 블록 내에서만 변숫값을 얻을 수 있습니다.
-  
+    let message = "안녕하세요.";  
     alert(message); // 안녕하세요.
   }
   
@@ -62,7 +61,7 @@ function makeCounter() {
     }
   }
   
-  sayHi();
+  sayHi(); //에러발생
 
   /**
   에러가 발생합니다.
@@ -111,7 +110,7 @@ function getFunc() {
 
 
 
-  function getFunc() {
+function getFunc() {
     let value = "test";
   
     let func = function() { alert(value); };
@@ -119,6 +118,7 @@ function getFunc() {
     return func;
   }
   
+  getFunc()(); // getFunc의 렉시컬 환경에 있는 값 "test"가 출력됩니다.
 
 
 
