@@ -1,30 +1,75 @@
-import TryUseMemo from "./HookUseMemo/TryUseMemo";
-// import Counter2 from "./HookUseRef/TryUseRef";
-// import TryUseRefDom from "./HookUseRef/TryUseRefDom";
-// import Time from "./HookUseEffect/Quiz2";
-// import TimeR from "./HookUseEffect/TimeR";
-// import Counter from "./HookUseEffect/TryUseEffect";
-// import RouteSolve from "./RouterSolve/RouteSolve";
+import React, { useMemo, useRef, useState } from "react";
 
-function App() {
-  return (
-    <div>
-      {/* useMemo */}
-      <TryUseMemo/>
+export default function App() {
+    // const inputName = useRef(null)
+    // const inputId = useRef(null)
+    const [userInfo, setUserInfo] = useState([]);
+    const [name, setName] = useState("");
+    const [id, setId] = useState("");
 
+    function handleInputName(e) {
+        console.log(e);
+        setName(e.target.value);
+        console.log("렌더링 - 1");
+    }
 
-      {/* useRef */}
-      {/* <Counter2/> */}
-      {/* <TryUseRefDom/> */}
+    function handleInputId(e) {
+        console.log(e);
+        setId(e.target.value);
+        console.log("렌더링 - 2");
+    }
 
-      {/* useEffect */}
-      {/* <TimeR/> */}
-      {/* <Time/> */}
-      {/* <Counter/> */}
+    function handleSubmit(e) {
+        e.preventDefault();
+        const newInfo = [...userInfo, { name, id }];
+        // inputName.current.value = ''
+        // inputId.current.value = ''
+        setId("");
+        setName("");
+        e.target[0].focus();
+        // inputName.current.focus()
+        setUserInfo(newInfo);
+        console.log("렌더링 - 3");
+    }
 
-      {/* router */}
-      {/* <RouteSolve/> */}
-    </div>
-  );
+    // 모든 렌더링에 함께 렌더링되는 이슈가 있습니다. 
+    function getNum(li) {
+        console.log("렌더링!");
+        return li.length;
+    }
+
+    // useMemo로 하면!! 바뀔때만 실행됨
+    const num = useMemo(() => {
+        return getNum(userInfo);
+    }, [userInfo]);
+
+    return (
+        <>
+            <form onSubmit={handleSubmit}>
+                {/* <form> */}
+                <input type="text" placeholder="이름을 입력하세요" onChange={handleInputName} 
+                value={name}
+                // ref={inputName} 
+                />
+                <input type="text" placeholder="아이디를 입력하세요" onChange={handleInputId} 
+                value={id}
+                // ref={inputId} 
+                />
+                <button type="submit" >
+                {/* <button type="submit" onClick={handleSubmit}> */}
+                    회원 명부 작성
+                </button>
+            </form>
+            <ul>
+                {userInfo.map((value, index) => (
+                    <li key={index}>
+                        <h3>이름 : {value.name}</h3>
+                        <strong>아이디 : {value.id}</strong>
+                    </li>
+                ))}
+            </ul>
+            {/* <span>현재 회원 수 : {getNum(userInfo)}</span> */}
+            <span>현재 회원 수 : {num}</span>
+        </>
+    );
 }
-export default App;
