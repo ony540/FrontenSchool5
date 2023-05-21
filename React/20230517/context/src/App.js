@@ -1,5 +1,6 @@
 import React, { useContext, createContext } from "react";
 
+//createContext
 const UserInfo = createContext({ name: "gary", id: "garyIsFree" });
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
 };
 
 const HelloLicat = () => {
+    //useContext(UserInfo)
     const { name, id } = useContext(UserInfo);
     return (
         <div>
