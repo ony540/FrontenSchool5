@@ -1,3 +1,4 @@
+//텍스트 벨류 - get set
 class TextManager {
     constructor() {
         this.value = { data: "hello lions!" }

@@ -33,12 +33,14 @@
     <script src="textManager.js"></script>
     <script src="viewManager.js"></script>
     <script>
+        // 즉시 실행 함수
         (() => {
             const viewerEl = document.querySelector(".viewer");
             const inpTxt = document.querySelector('.inp-txt');
             const btnEl = document.querySelector('.btn-push');
             const textManager = new TextManager();
             const viewManager = new ViewManager(textManager, { viewerEl, inpTxt, btnEl });
+            //보여지는 텍스트 업데이트
             viewManager.updateView();
         })()
     </script>
