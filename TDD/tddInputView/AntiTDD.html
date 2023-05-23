@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+
+    <article>
+        <strong class="viewer"></strong>
+        <input type="text" class="inp-txt">
+        <!-- 서로 다른 언어가 섞여있습니다. -->
+        <button class="btn-push" onclick="push()">적용</button>
+    </article>
+
+    <!-- 이렇게 하면 테스트를 할 수 없다.  -->
+    <script>
+        let txt = 'hello lions';
+        const viewer = document.querySelector('.viewer');
+        viewer.textContent = txt;
+
+        //재사용성이 떨어진다. ino-txt라는 클래스를 가진 요소가 존재해야만한다
+        function push(){
+            const inpTxt = document.querySelector('.inp-txt');
+            viewer.textContent =inpTxt.value;
+        }
+
+        //테스트 가능한 코드란!
+        // 1. 테스트랑 코드로 UI에서 완전히 분리해야합니다.
+        // 2. 자바스크립트를 JS파일로 따로 분리해야합니다.
+        // 3. 모든 기능은 함수로 구현합니다. 
+
+    </script>
+</body>
+</html>
