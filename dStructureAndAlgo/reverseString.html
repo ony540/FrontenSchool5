@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자료구조와 알고리즘</title>
+    </head>
+    <body>
+        <script>
+            function reverseStr(str){
+                if(str.length < 2 || typeof(str) !== 'string'){
+                    throw new Error ('제대로된 문자열을 넣어주세요');
+                }
+                return str.split("").reverse().join("")
+            }
+            console.log(reverseStr('안녕하세요'));
+            console.log(reverseStr(120));
+
+
+            const reverseStr = (str) => [...str].reverse().join("");
+        </script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자료구조와 알고리즘</title>
+    </head>
+    <body>
+        <script>
+            let a = "hello";
+            let b = "lions";
+            //1. temp 변수 선언
+            let temp = a;
+            a = b;
+            b = temp;
+
+            console.log(a, b);
+
+            let a1 =10;
+            let b1 = 20;
+            //2. 배열로 구조분해할당
+            [a1,b1] = [b1,a1]
+            console.log(a1,b1)
+
+            //이렇게하면 b2 뒤에 ; 가 없어서 끝났다고 생각하지 못해서 오류발생 ! ! 
+            // 밑에 있는 [a2,b2] 문자열의 인덱스에 접근한다고 생각한다! ! !
+            let a2 = "hello";
+            let b2 = "lions"
+            [a2,b2] = [b2,a2]
+            console.log(a2,b2)
+
+        </script>
+    </body>
+</html>

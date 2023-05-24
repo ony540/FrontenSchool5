@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자료구조와 알고리즘</title>
+    </head>
+    <body>
+        <script>
+            class UltraArray {
+                constructor() {
+                    this.data = {};
+                    this.length = 0;
+                }
+
+                push(item) {
+                    // 유사배열객체
+                    // {0:item, 1:item ..} 식으로 푸시됨
+                    this.data[this.length] = item;
+                    this.length++;
+                    return this.length;
+                }
+                pop() {
+                    const lastState = this.data[this.length - 1];
+                    delete this.data[this.length - 1];
+                    this.length--;
+                    return lastState;
+                }
+
+                deleteWithIndex(index) {
+                    const removedItem = this.data[index];
+                    // delete this.data[index];
+                    this.changeOrderOfItems(index);
+                    return removedItem;
+                }
+
+                //인덱스를 정리하고 속성을 제거합니다.
+                changeOrderOfItems(index) {
+                    if(index < this.length){
+                        this.length--;
+                        for (let i = index; i < this.length; i++) {
+                            this.data[i] = this.data[i + 1];
+                        }
+                        delete this.data[this.length];
+
+                    } else {
+                        throw new Error('해당 인덱스의 값은 없습니다')
+                    }
+                }
+            }
+
+            //내가 한 시도
+            const arr = new UltraArray();
+            arr.push(1);
+            arr.push(2);
+            arr.push(10);
+            console.log(arr.data);
+            
+            console.log(arr.pop());
+            console.log(arr.data);
+            
+            arr.push(10);
+            console.log(arr.deleteWithIndex(1));
+            console.log(arr.data);
+
+
+            class MyUltraArray {
+                constructor() {
+                    this.arr = [];
+                }
+
+                push(a) {
+                    this.arr = [...this.arr, a];
+                }
+                pop() {
+                    const pop = this.arr[this.arr.length - 1];
+                    this.arr = this.arr.slice(0, -1);
+                    return pop;
+                }
+            }
+
+            /*
+            const myArr = new MyUltraArray();
+            myArr.push(1);
+            myArr.push(2);
+            myArr.push(10);
+            console.log(myArr);
+            console.log(myArr.arr);
+            console.log(myArr.pop());
+            console.log(myArr.arr);
+            */
+        </script>
+    </body>
+</html>
