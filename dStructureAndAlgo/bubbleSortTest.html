@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자료구조와 알고리즘</title>
+    </head>
+    <body>
+        <script>
+            // 이 문제는 실제로 입사문제로 사용되던 알고리즘 문제입니다.
+            // 배열이 하나 주어졌을때 [3,3,2,4,5,2,1,0,3];
+            // 함수를 만듭니다. 가장 먼저 반복되는 원소의 값을 반환합니다.
+            let myArr = [3, 2, 4, 5, 2, 1, 0, 3];
+
+            //내가 시도한거 이중for of - O(N^2) / 결과는 O
+            function whatSame(arr) {
+                let getArr = [];
+                //arr 요소를 반복한다
+                for (let item of arr) {
+                    //비교할 배열안에 요소가 있으면
+                    if (getArr) {
+                        //비교배열 안 아이템들을 반복한다
+                        for (let gItem of getArr) {
+                            //그게 아이템이랑 같으면
+                            // console.log(gItem, item);
+                            if (item === gItem) {
+                                //그거 도출
+                                return item;
+                            }
+                        }
+                    }
+                    //비교할 요소 없으면
+                    getArr.push(item);
+                }
+            }
+            console.log(whatSame(myArr));
+            //--------------
+
+            //강사님 1.이중포문 - O(N^2) / 결과 X 가장먼저 중복되는게 아님!! 옳지않음
+            function test1(arr) {
+                for (let i = 0; i < arr.length; i++) {
+                    for (let j = i + 1; j < arr.length; j++) {
+                        // console.log(arr[i], arr[j]);
+                        if (arr[i] === arr[j]) {
+                            return arr[i];
+                        }
+                        // [3,2,4,5,2,1,0,3];
+                    }
+                }
+                return undefined;
+            }
+            console.log(test1(myArr));
+
+            //강사님 2.해시테이블
+            //[3, 2, 2, 4, 5, 2, 1, 0, 3]
+            function test2(arr) {
+                const useHash = {};
+                for (let i = 0; i < arr.length; i++) {
+                    //해시테이블에 또 반복된 값이 있다면 - 그거그대로 반환
+                    if (useHash[arr[i]]) {
+                        return arr[i];
+                    } else {
+                        //아니면 해시테이블의 키로 arr의 원소를 차례로 등록
+                        //{3:0, 2: 1,}
+                        // 키: 3(반복되는지 확인하는 값) 벨류: 0(인덱스번호)
+                        useHash[arr[i]] = i;
+                    }
+                }
+            }
+            console.log(test2(myArr));
+
+            //강사님 3.Set
+            function test3(input) {
+                const makeSet = new Set();
+                for (let i = 0; i < input.length; i++) {
+                    if (makeSet.has(input[i])) {
+                        return input[i];
+                    } else {
+                        // [1,2,3]
+                        makeSet.add(input[i]);
+                    }
+                }
+                return undefined;
+            }
+            console.log(test3(myArr));
+        </script>
+    </body>
+</html>

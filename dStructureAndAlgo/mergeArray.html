@@ -12,7 +12,40 @@
             //[] + []
 
             function mergeArrary(arr1, arr2) {
-                let mergedArray = [...arr1,...arr2].sort((a,b) => a - b);
+                if (arr1.length === 0) {
+                    return "병합할 배열이 없습니다.";
+                }
+                if (arr2.length === 0) {
+                    return "병합할 배열이 없습니다.";
+                }
+                // let mergedArray = [...arr1,...arr2].sort((a,b) => a - b);
+                //증복 x 하려면 Set으로 강사님은 sort쓰지말라고 하셨다..
+                // let mergedArray = [...arr1, ...arr2];
+                // setMergedArray = new Set(mergedArray);
+                // return [...setMergedArray].sort((a, b) => a - b);
+
+                const mergedArrary = [];
+                let arr1FirstEl = arr1[0];
+                let arr2FirstEl = arr2[0];
+                let i = 1;
+                let j = 1;
+
+                // arr1FirstEl, arr2FirstEl 두 값이 모두 falsy 를 반활할 때까지 반복합니다.
+                while (arr1FirstEl !== undefined || arr2FirstEl !== undefined) {
+                    console.log(arr1FirstEl, arr2FirstEl);
+
+                    if (arr2FirstEl === undefined || arr1FirstEl < arr2FirstEl) {
+                        // mergedArray = [arr1FirstEl , arr2FirstEl]
+                        mergedArray.push(arr1FirstEl);
+                        arr1FirstEl = arr1[i];
+                        i++;
+                    } else {
+                        // mergedArray = [arr2FirstEl, arr1FirstEl]
+                        mergedArray.push(arr2FirstEl);
+                        arr2FirstEl = arr2[j];
+                        j++;
+                    }
+                }
                 return mergedArray;
             }
         </script>

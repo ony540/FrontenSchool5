@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자료구조와 알고리즘</title>
+    </head>
+    <body>
+        <script>
+            let a = [1]; // 비교 : 0
+            let b = [2, 3]; // 비교 : 1
+            let c = [3, 2, 1]; // 비교 : 1
+
+            let myArr = [10, 9, 8, 6, 4, 7, 3, 2];
+
+            function bubbleSort(arr) {
+                for (let index = 0; index < arr.length; index++) {
+                    //원소 위치 변경
+                    if (arr[index] > arr[index + 1]) {
+                        [arr[index], arr[index + 1]] = [arr[index + 1], arr[index]];
+                    }
+                }
+            }
+
+            // let result = bubbleSort(myArr);
+
+            function bubbleSortAdvanced(arr) {
+                for (let index = 0; index < arr.length - 1; index++) {
+                    for (let index2 = 0; index2 < arr.length - 1; index2++) {
+                        // 원소의 위치를 변경해줍니다.
+                        if (arr[index2] > arr[index2 + 1]) {
+                            [arr[index2], arr[index2 + 1]] = [arr[index2 + 1], arr[index2]];
+                        }
+                        console.log(arr);
+                    }
+                }
+                return arr;
+            }
+
+            let result2 = bubbleSortAdvanced(myArr);
+            //이게 전부다 오름차순으로 소팅하는것
+
+        </script>
+    </body>
+</html>

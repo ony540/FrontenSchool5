@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자료구조와 알고리즘</title>
+    </head>
+    <body>
+        <script>
+            class SuperHash {
+                constructor(size) {
+                    this.data = new Array(size);
+                    // [[['cat':'is cute'],['cat':'is cute'],['cat':'is cute']], [['dog':'is cool']], [['pig':'is smart']]]
+                }
+
+                //해시함수 (현업에서 사용X - 간단한 예)
+                generateRandomHash(key) {
+                    let hash = 0;
+                    for (let i = 0; i < key.length; i++) {
+                        //주어진 인덱스에 대한 UTF-16 코드를 나타내는 0부터 65535 사이의 정수를 반환
+                        // 0 + 10 * 0
+                        // 나머지 연산자는 일정한 숫자의 범위 안으로 값을 제한하는 특징이 있다.
+                        hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+                    }
+                    return hash;
+                }
+
+                /*
+                            [
+                                [
+                                    ['cat':'is cute'],['rabbit':'is cute'],['rat':'is cute']
+                                ], 
+                                [['dog':'is cool']], 
+                                [['pig':'is smart']
+                                ]
+                            ] 
+                */
+                set(key, value) {
+                    const address = this.generateRandomHash(key);
+                    //기존 주소에 데이터가 있을 경우
+                    if (this.data[address]) {
+                        for (let i = 0; i < this.data[address].length; i++) {
+                            //같은 키를 사용하는 데이터가 있을 경우 덮어씌운다.
+                            if (this.data[address][i][0] === key) {
+                                this.data[address][i][1] = value;
+                                return value;
+                            }
+                        }
+                        //기존 주소에 데이터가 없을 경우
+                        //같은 키를 사용하는 데이터가 없을 경우 데이터를 추가한다.
+                    } else {
+                        this.data[address] = [];
+                    }
+
+                    this.data[address].push([key, value]);
+                    return value;
+                }
+
+                //serch
+                get(key) {
+                    const address = this.generateRandomHash(key);
+                    const targetEl = this.data[address];
+                    //기존 주소에 데이터가 있을 경우
+                    if (targetEl) {
+                        for (let i = 0; i < targetEl.length; i++) {
+                            if (targetEl[i][0] === key) {
+                                return targetEl[i][1];
+                            }
+                        }
+                        //기존 주소에 데이터가 없을 경우
+                        //같은 키를 사용하는 데이터가 없을 경우
+                    }
+                    return undefined;
+                }
+
+                keys() {
+                    const keys = [];
+                    //데이터가 있다면
+                    if (this.data) {
+                        //해시테이블안 모든 데이터 순환
+                        for (let item of this.data) {
+                            for (let i = 0; i < item.length; i++) {
+                                keys.push(item[i][0]);
+                            }
+                        }
+                    }
+                    return keys;
+                }
+            }
+
+            const myHash = new SuperHash(3);
+            myHash.set("승강", "is cute");
+            myHash.set("cat", "is cute");
+            myHash.set("dog", "is cute");
+            myHash.set("rabbit", "is cute");
+            console.log(myHash.keys());
+
+            // 정리
+            // 해쉬테이블은 데이터를 검색하거나 추가할때 보통 빠른속도가 보장됩니다. 단, 조건은 데이터 공간이 넉넉하거나 link list를 탐색하는 알고리즘이 빠르다는 전제하에
+            // 단점은 데이터가 저장되는 순서가 보장되지 않으며 key 탐색의 경우 속도가 느립니다.
+            // 때문에 object를 순환하는데 사용되는 for in 문이 우리가 작성한 객체의 프로퍼티를 만들어진 순서대로 순환하지 못하는 이유이기도 합니다.
+            // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/for...in
+        </script>
+    </body>
+</html>
