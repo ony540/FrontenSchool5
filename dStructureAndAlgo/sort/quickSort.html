@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+    </head>
+    <body>
+        <script>
+            //자바스크립트에서 sort메서드에 사용하는 알고리즘 timeSort - quickSort 이해하기
+            //https://d2.naver.com/helloworld/0315536
+            let myArr = [10, 9, 8, 5, 6, 2, 3, 4, 1, 2];
+
+            function quickSort([...arr]) {
+                if(arr.length <= 1){
+                    return arr
+                }
+
+                //중간값
+                let pivotIndex = Math.floor(arr.length / 2);
+                let pivot = arr.splice(pivotIndex, 1)[0];
+                const leftSection = [];
+                const rightSection = [];
+                for (let i = 0; i < arr.length; i++) {
+                    // 기준값보다 작으면 왼쪽으로
+                    if (arr[i] < pivot) {
+                        leftSection.push(arr[i]);
+                    } else {
+                        //기준값보다 크거나 같다면 오른쪽으로
+                        rightSection.push(arr[i]);
+                    }
+                }
+                console.log(pivot)
+                console.log('left: ' + leftSection)
+                console.log('right: ' + rightSection)
+
+                //재귀 형식
+                return quickSort(leftSection).concat([pivot],quickSort(rightSection))
+            }
+            console.log(quickSort(myArr));
+
+            const countries = ["USA", "Australia", "Canada", "Germany", "Japan", "Brazil"];
+        </script>
+    </body>
+</html>

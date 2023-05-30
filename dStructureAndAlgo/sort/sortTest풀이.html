@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+    </head>
+    <body>
+        <script>
+            /*
+            배달 음식 주문 시, 주문한 음식들을 최적의 순서로 배치하는 문제입니다. 
+            각 음식은 조리 시간과 목적지에 따른 배달 시간을 가지고 있습니다. 
+            장미반점은 손님에게 어떤 음식을 가장 빠르게 배달할 수 있는지 알려드릴 수 있는 서비스를 고심중입니다.
+            이를 위해 음식 배치 순서를 결정하는 알고리즘을 구현해보세요.
+            각 음식은 조리 시간과 배달 시간을 합친 총 시간이 가장 짧은 순서에서 가장 긴 순서까지 오름차순으로 배치되어야 합니다. 
+            */
+            const foods = [
+                { cookingT: 10, deliveryT: 25 },
+                { cookingT: 7, deliveryT: 13 },
+                { cookingT: 3, deliveryT: 15 },
+                { cookingT: 15, deliveryT: 5 },
+                { cookingT: 12, deliveryT: 20 },
+                { cookingT: 13, deliveryT: 10 },
+            ];
+
+            //버블 정렬
+            function bubbleSort([...arr]) {
+                //이런거 필요없이 그냥 arr 사용하면된다~!! 이미 복제되어 들어온것
+                // let arr = [...arr1];
+                for (let i = 0; i < arr.length - 1; i++) {
+                    //정렬이 되어있는 거라면 true
+                    let isSorted = true;
+                    // arr.length - 1 - i => 뒤로갈 수록 비교할 요소가 작아짐
+                    for (let j = 0; i < arr.length - 1 - i; i++) {
+                        const time1 = arr[j].cookingT + arr[j].deliveryT;
+                        const time2 = arr[j + 1].cookingT + arr[j + 1].deliveryT;
+
+                        if (time2 < time1) {
+                            [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                            isSorted = false;
+                        }
+                    }
+                    if (isSorted) break;
+                }
+                return arr;
+            }
+
+            console.log(bubbleSort(foods));
+    
+            //선택정렬 - 안됨 로딩 엄청 걸림 왜?
+            function selectionSort([...foods]) {
+                for (let i = 0; i < foods.length; i++) {
+                    let minnumIndex = i;
+
+                    for (let j = i + 1; j < foods.length; j++) {
+                        const time1 = foods[j].cookingT + foods[j].deliveryT;
+                        const time2 = foods[minnumIndex].cookingT + foods[minnumIndex].deliveryT;
+
+                        if (time1 < time2) {
+                            minnumIndex = j;
+                        }
+                    }
+                    if (minnumIndex !== i) {
+                        [foods[i], foods[minnumIndex]] = [foods[minnumIndex], foods[i]];
+                    }
+                }
+                return foods;
+            }
+
+            console.log(selectionSort(foods));
+
+            //삽입 정렬
+            function insertSort([...foods]) {
+                for (let i = 0; i < foods.length; i++) {
+                    for (let j = i; j > 0 && foods[j].cookingT + foods[j].deliveryT < foods[j - 1].cookingT + foods[j - 1].deliveryT; j--) {
+                        [foods[j - 1], foods[j]] = [foods[j], foods[j - 1]];
+                    }
+                }
+                return foods;
+            }
+
+            console.log(insertSort(foods));
+
+        </script>
+    </body>
+</html>

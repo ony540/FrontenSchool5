@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+    </head>
+    <body>
+        <script>
+            /*
+            삽입 정렬
+            - 앞에서부터 차례대로 이미 정렬된 부분과 비교하여 교환하는 방식
+            - 셋 중에 제일 빠르지만 배열이 길어질수록 효율성이 떨어짐
+            - 최고의 상황일때는 O(n)
+
+            모두 시간 복잡도는 O(n²)
+            선택 정렬과 삽입 정렬은 사용할 메모리가 제한적인 경우에 사용하면 좋음
+
+            */
+            let myArr = [10, 9, 8, 5, 6, 2, 3, 4, 1, 2];
+            function insertSort([...arr]) {
+                for(let i = 1; i < arr.length; i++){
+                    //0보다 크고 이전 인덱스 아이템 값보다 작을때까지
+                    //j-1을 정렬되었다고 간주되는 데이터중에 가장 큰 원소를 의미한다
+                    //j는 정렬이 필요한 원소를 의미한다. 만약 arr[j] 가 arr[j-1]보다 크다면 위치를 교환할 필요가 없습니다. 반대라면 교환합니다.
+                    for(let j = i; j > 0 && arr[j] < arr[j - 1]; j--){
+                        [arr[j],arr[j-1]] = [arr[j-1],arr[j]];
+                    }
+                }
+            }
+
+            let result = insertSort(myArr);
+
+        </script>
+    </body>
+</html>
