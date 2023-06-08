@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { getFirestore, Timestamp  } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 // import { getAnalytics } from "firebase/analytics";
 
@@ -23,6 +23,9 @@ const appFireStore = getFirestore(app);
 // 인증 초기화
 const appAuth = getAuth();
 
+// 타임스탬프
+const timeStamp = Timestamp
+
 
 // 밖에서 사용할 수 있도록 준비합니다.
-export { appFireStore, appAuth }
+export { appFireStore, appAuth, timeStamp }
