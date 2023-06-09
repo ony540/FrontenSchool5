@@ -14,7 +14,8 @@ export default function Home() {
     todate = `${year}.${month}.${date}`;
 
   const { user } = useAuthContext();
-  const { documents, error } = useCollection("diary");
+  //문서의 uid와 사용자의 uid를 비교하는 쿼리문
+  const { documents, error } = useCollection("diary",['uid',"==", user.uid]);
 
   return (
     <div className={styles.container}>

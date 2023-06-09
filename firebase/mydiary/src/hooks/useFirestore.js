@@ -1,4 +1,4 @@
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc } from "firebase/firestore";
 import { useReducer } from "react";
 import { appFireStore, timeStamp } from "../firebase/config";
 
@@ -32,6 +32,7 @@ export const useFirestore = (transacton) => {
   // colRef : 우리가 만들 컬랙션의 참조
   // 원하는 컬렉션의 참조를 요구하기만 해도 파이어스토어는 자동으로 해당 컬렉션을 생성
   const colRef = collection(appFireStore, transacton);
+  // console.log(colRef);
 
   // 컬렉션에 문서를 추가합니다.
   const addDocument = async (doc) => {
@@ -40,7 +41,7 @@ export const useFirestore = (transacton) => {
       
       // fromDate : 주어진 시간정보를 통해 새로운 타임 스탬프를 생성합니다.
       const createdTime = timeStamp.fromDate(new Date());
-      const docRef = await addDoc(colRef, doc);
+      const docRef = await addDoc(colRef, {...doc,createdTime});
       dispatch({ type: "addDoc", payload: docRef });
     } catch (e) {
       dispatch({ type: "error", payload: e.message });
@@ -48,7 +49,15 @@ export const useFirestore = (transacton) => {
   };
 
   // 컬렉션에서 문서를 제거합니다.
-  const deleteDocument = (id) => {};
+  const deleteDocument = async (id) => {
+    dispatch({ type: "pending"});
+    try{
+      const docRef = await deleteDoc(doc(colRef, id));
+      dispatch({type:"deleteDoc", payload: docRef});
+    } catch (error) {
+      dispatch({type:'error', payload: error.message});
+    }
+  };
 
   return { addDocument, deleteDocument, response };
 };

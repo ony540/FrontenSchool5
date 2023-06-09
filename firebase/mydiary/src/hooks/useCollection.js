@@ -1,17 +1,23 @@
 import { appFireStore } from "../firebase/config";
 import { useEffect, useState } from "react";
-import { onSnapshot } from "firebase/firestore";
+import { onSnapshot, orderBy, query, where } from "firebase/firestore";
 import { collection } from "firebase/firestore";
 
-export const useCollection = (transaction) => {
-  // 문서들의 데이터를 관리합니다.
+export const useCollection = (transaction, myQuery) => {
+  // 문서들의 데이터, 에러상태 관리
   const [documents, setDocuments] = useState(null);
-  // 에러 상태를 관리합니다.
   const [error, setError] = useState(null);
 
-  // collection에 변화가 생길때마다 실행합니다. 때문에 항상 최신의 컬랙션 상태를 반환 받을 수 있습니다.
+  // collection에 변화가 생길때마다 실행
   useEffect(() => {
-    // onSnapshot 함수는 가장 최신의 컬랙션의 내용을 반환하는 함수 함수는 데이터 수신을 중단하기 위한 unsubscribe 함수를 반환합니다. 더 이상 데이터를 수신 대기할 필요가 없을때 사용
+
+    let q;
+    if(myQuery){
+      q = query(collection(appFireStore,transaction), where(...myQuery),orderBy("createTime", "desc"));
+    }
+
+    // onSnapshot 함수는 가장 최신의 컬랙션의 내용을 반환하는 함수 
+    // 데이터 수신을 중단하기 위한 unsubscribe 함수를 반환
     const unsubscribe = onSnapshot(
       collection(appFireStore, transaction),
 
@@ -38,7 +44,7 @@ export const useCollection = (transaction) => {
     return () => {
       unsubscribe();
     };
-  }, [collection]);
+  }, []);
 
   return { documents, error };
 };
