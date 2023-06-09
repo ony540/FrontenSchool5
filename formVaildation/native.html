@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 적합성</title>
+    <style>
+        input:required{
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label>
+            원하는 수를 입력하세요
+            <input type="number" id="stuff" min="'3" max="10">
+        </label>
+        <label>
+            이메일을 입력하세요
+            <input type="email" id="" required>
+        </label>
+        <button>제출</button>
+    </form>
+</body>
+</html>
